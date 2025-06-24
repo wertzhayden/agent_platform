@@ -2,203 +2,170 @@ from bs4 import BeautifulSoup
 import requests
 from rest_framework import viewsets
 from rest_framework.response import Response
-
+from webscraper.services.player_data.retrieve_team_depth_chart import retrieve_schools_players_by_depth_chart
+from webscraper.services.player_data.retrieve_player_stats import retrieve_player_stats
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+import time
+from bs4 import BeautifulSoup
+import re
 
 class WebScrapePlayerStats(viewsets.ViewSet):
     """
     Web Scrape Team and Player Stats from the Ourlads website. 
     """
     def list(self, request):
-        return Response(retrieve_player_college_and_high_school_summary(player_link_to_school_site="https://rolltide.com/sports/football/roster/isaiah-horton/13869"))
+        # return Response(retrieve_player_stats(position=request.data.get("position"), player_link=request.data.get("player_link")))
+        # return Response(retrieve_schools_players_by_depth_chart(school=request.data.get("school"), school_id=request.data.get("school_id")))
+        return Response(retrieve_player_hs_rankings(school=request.data.get("school"), year=request.data.get("year")))
 
-def retrieve_schools_players_by_depth_chart(school: str) -> dict:
-        """Given a school name like "alabama", fetches and parses the depth chart from ourlads.com.
-        Args:
-            school (str): The name of the school to fetch the depth chart for.
-        Returns:
-            dict: A dictionary containing players grouped by position.
-        """
-        if not school:
-            return {"error": "School name is required."}
-        results = []
-        school = school or "alabama"
-        url = f"https://www.ourlads.com/ncaa-football-depth-charts/depth-chart/{school}/89923"
-        response = requests.get(url)
-        soup = BeautifulSoup(response.content, 'html.parser')
+def retrieve_player_hs_rankings(school: str, year: int = 2025) -> dict:
+    url = f"https://247sports.com/college/{school}/season/{year}-football/commits/"
 
-        tbody = soup.find("tbody", id="ctl00_phContent_dcTBody")
+    options = webdriver.ChromeOptions()
+    # Uncomment for headless scraping
+    # options.add_argument("--headless")
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument("start-maximized")
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option('useAutomationExtension', False)
 
-        if tbody:
-            rows = tbody.find_all("tr")
-            for row in rows:
-                cells = row.find_all("td")
-                if not cells:
-                    continue
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver.get(url)
+    time.sleep(5)
 
-                pos = cells[0].get_text(strip=True)
-                players = []
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
+    driver.quit()
 
-                for i in range(1, len(cells), 2):
-                    player_details, stats_tables = {}, []
-                    number = cells[i].get_text(strip=True)
-                    player_cell = cells[i + 1] if i + 1 < len(cells) else None
-                    player_name = player_cell.get_text(strip=True) if player_cell else ""
-                    player_link = player_cell.find("a")["href"] if player_cell and player_cell.find("a") else ""
-
-                    # Use the Player Link to retrieve player details and stats
-
-                    players.append({
-                        "number": number,
-                        "name": player_name,
-                        "position": pos,
-                        "team": school,
-                        "url": player_link,
-                        "bio": player_details,
-                        "stats": stats_tables
-                    })
-
-                results.append({
-                    "position": pos,
-                    "players": players
-                })
-
-        return {"players_by_position": results}
-
-
-
-def retrieve_player_stats(player_link: str):
-    """
-    Given a relative player_link like 'https://www.ourlads.com/ncaa-football-depth-charts/player/isaiah-horton/157217',
-    fetches and parses player bio and stats including:
-      - Player bio (name, position, school, height, weight, etc.)
-      - Career stats
-      - Game-by-game stats
-      - Player links (like Bio)
-    """
-    if not player_link:
-        return {"error": "An Ourlads URL for the Player is required."}
-    career_stats_headers = ["Season", "Rec", "Yards", "Yards per Catch", "TD", "Rushes", "Rush Yds", "Rush Avg", "TD", "Fumbles", "Lost Fumbles"]
-    game_stats_headers = ["Date", "Played Against", "Rec","Yards", "Yards per Catch", "TD", "Rushes", "Rush Yds", "Rush Avg", "TD", "Fumbles", "Lost Fumbles"]
-    response = requests.get(player_link)
-    soup = BeautifulSoup(response.content, 'html.parser')
-
-    ### 1. PLAYER BIO SECTION
-    player_bio_data = {}
-    bio_div = soup.find("div", id="ctl00_phContent_dPlayerNav")
-    if bio_div:
-        bio_card = bio_div.find_next("div", class_="player-div")  # top section
-        if bio_card:
-            name_tag = bio_card.find("h2")
-            sub_header = name_tag.find_next_sibling("div") if name_tag else None
-            info_lines = bio_card.stripped_strings
-            for line in info_lines:
-                if ':' in line:
-                    key, value = line.split(":", 1)
-                    player_bio_data[key.strip()] = value.strip()
-
-
-    ### 2. CAREER STATS SECTION (Updated)
-    career_stats = []
-    career_stats_div = soup.find("div", id="ctl00_phContent_dCareerStats")
-    if career_stats_div:
-        table = career_stats_div.find("table")
-        if table:
-            tbody = table.find("tbody", id="ctl00_phContent_stat_career_tbody")
-            if tbody:
-                rows = tbody.find_all("tr", class_=["row-dc-wht", "row-dc-grey"])
-                for row in rows:
-                    cells = [td.get_text(strip=True) for td in row.find_all("td")]
-                    if cells:
-                        career_stats.append(dict(zip(career_stats_headers, cells)))
-
-
-    ### 3. PER-GAME STATS SECTION
-    game_stats = []
-    game_stats_div = soup.find("div", id="ctl00_phContent_dGameStats")
-    if game_stats_div:
-        table = game_stats_div.find("table")
-        if table:
-            for row in table.find_all("tr"):
-                cells = [td.get_text(strip=True) for td in row.find_all("td")]
-                if cells:
-                    game_stats.append(dict(zip(game_stats_headers, cells)))
-
-
-    ### 4. PLAYER LINKS SECTION (like "Bio")
-    player_links = []
-    player_links_div = soup.find("div", id="ctl00_phContent_dPlayerLinks")
-    if player_links_div:
-        table = player_links_div.find("table")
-        if table:
-            for row in table.find_all("tr")[1:]:
-                cells = row.find_all("td")
-                if len(cells) >= 2:
-                    link_tag = cells[0].find("a")
-                    if link_tag:
-                        player_links.append({
-                            "link_text": link_tag.get_text(strip=True),
-                            "description": cells[1].get_text(strip=True),
-                            "href": link_tag.get("href")
-                        })
-
-    return {
-        "bio": player_bio_data,
-        "career_stats": career_stats,
-        "game_stats": game_stats,
-        "player_links": player_links
+    result = {
+        "ranks": {},
+        "players": [],
+        "transfers": []
     }
 
+    # ---------------- RANKS ----------------
+    main_div = soup.find("div", class_="ri-page__main")
+    if not main_div:
+        return result
 
-def retrieve_player_college_and_high_school_summary(player_link_to_school_site: str) -> dict:
-    """
-    Given a player link like 'https://rolltide.com/sports/football/roster/isaiah-horton/13869',
-    fetches and parses player profile photo, info, and bio paragraphs.
-    """
-    response = requests.get(player_link_to_school_site)
-    soup = BeautifulSoup(response.content, 'html.parser')
+    rank_blocks = main_div.find_all("div", class_="ir-bar__ranks")
+    for rank_div in rank_blocks:
+        title_tag = rank_div.find("h3")
+        value_tag = rank_div.find("span", class_="ir-bar__number")
+        if title_tag and value_tag:
+            key = title_tag.text.strip().lower().replace(" ", "_")
+            result["ranks"][key] = {
+                "title": title_tag.text.strip(),
+                "value": value_tag.text.strip()
+            }
 
-    result = {}
+    # ---------------- COMMITS ----------------
+    commit_list = main_div.find("ul", class_="ri-page__list")
+    if commit_list:
+        for li in commit_list.find_all("li", class_="ri-page__list-item"):
+            player_data = {}
 
-    # 1. PLAYER NAME AND PHOTO URL
-    content_div = soup.find("div", class_="c-rosterpage__content")
-    if content_div:
-        # Find image
-        img_div = content_div.find("div", class_="c-rosterbio__player-image")
-        img_tag = img_div.find("img") if img_div else None
-        result["photo_url"] = img_tag.get("src") if img_tag else None
+            name_link = li.find("a", class_="ri-page__name-link")
+            player_data["name"] = name_link.text.strip() if name_link else None
+            player_data["profile_url"] = name_link["href"] if name_link else None
 
-        # Find name
-        name_tag = content_div.find("h1")
-        result["name"] = name_tag.get_text(strip=True) if name_tag else None
+            meta_span = li.find("span", class_="meta")
+            player_data["school_location"] = meta_span.text.strip() if meta_span else None
 
-    # 2. PLAYER INFO (Position, Height, Weight, Class, etc.)
-    player_details = {}
-    details_div = content_div.find("div", class_="c-rosterpage__player-details") if content_div else None
-    if details_div:
-        for detail in details_div.find_all("div", recursive=False):
-            spans = detail.find_all("span")
-            if len(spans) == 2:
-                key = spans[0].get_text(strip=True).rstrip(":")
-                value = spans[1].get_text(strip=True)
-                player_details[key] = value
-    result["player_details"] = player_details
+            pos_div = li.find("div", class_="position")
+            player_data["position"] = pos_div.text.strip() if pos_div else None
 
-    # 3. BIO SECTIONS (Headers and Paragraphs)
-    bio_sections = []
-    tabs_div = soup.find("div", class_="c-rosterpage__tabs")
-    if tabs_div:
-        prose_div = tabs_div.find("div", class_="legacy_to_nextgen s-text-paragraph--longform sidearm_prose text-theme-safe overflow-auto")
-        if prose_div:
-            headers = prose_div.find_all("h2")
-            for header in headers:
-                section_title = header.get_text(strip=True)
-                next_p = header.find_next_sibling("p")
-                paragraph_text = next_p.get_text(strip=True) if next_p else ""
-                bio_sections.append({
-                    "header": section_title,
-                    "paragraph": paragraph_text
-                })
+            metrics_div = li.find("div", class_="metrics")
+            player_data["ht_wt"] = metrics_div.text.strip() if metrics_div else None
 
-    result["bio_sections"] = bio_sections
+            star_score_div = li.find("div", class_="ri-page__star-and-score")
+            if star_score_div:
+                stars = star_score_div.find_all("span", class_="icon-starsolid yellow")
+                player_data["stars"] = len(stars)
+                score_span = star_score_div.find("span", class_="score")
+                player_data["rating_score"] = score_span.text.strip() if score_span else None
+            else:
+                player_data["stars"] = 0
+                player_data["rating_score"] = None
+
+            rank_div = li.find("div", class_="rank")
+            if rank_div:
+                rank_links = rank_div.find_all("a")
+                if len(rank_links) >= 3:
+                    player_data["national_rank"] = rank_links[0].text.strip()
+                    player_data["position_rank"] = rank_links[1].text.strip()
+                    player_data["state_rank"] = rank_links[2].text.strip()
+
+            status_div = li.find("div", class_="status")
+            if status_div:
+                status_text = status_div.find("p", class_="commit-date")
+                player_data["status"] = status_text.text.strip() if status_text else None
+
+            result["players"].append(player_data)
+
+    # ---------------- TRANSFERS ----------------
+    transfer_list = soup.find_all("li", class_="portal-list_itm")
+    for li in transfer_list:
+        transfer = {}
+
+        player_block = li.find("div", class_="player")
+        if player_block:
+            link = player_block.find("a")
+            transfer["name"] = link.text.strip() if link else None
+            transfer["profile_url"] = link["href"] if link else None
+
+        metrics = li.find("div", class_="metrics")
+        transfer["ht_wt"] = metrics.text.strip() if metrics else None
+
+        position = li.find("div", class_="position")
+        transfer["position"] = position.text.strip() if position else None
+
+        eligibility = li.find("div", class_="eligibility")
+        transfer["eligibility"] = eligibility.text.strip() if eligibility else None
+
+        transfer["transfer_from"] = None  # default
+
+        transfer_school = li.find("div", class_="transfer-institution")
+        if transfer_school:
+            transfer_links = transfer_school.find_all("a")
+            if len(transfer_links) == 2:
+                from_img = transfer_links[0].find("img")
+                if from_img and from_img.has_attr("alt"):
+                    transfer["transfer_from"] = from_img["alt"].strip()
+
+
+
+        transfer["ratings"] = []  # new structure for multiple ratings
+
+        rating_div = li.find("div", class_="rating")
+        if rating_div:
+            for rating_block in rating_div.find_all("span", recursive=False):
+                stars = rating_block.find_all("span", class_="icon-starsolid yellow")
+                score_span = rating_block.find("span", class_="score")
+                level_span = rating_block.find("span", class_="level")
+                level = level_span.text.strip("() ") if level_span else None
+
+
+                rating = {
+                    "stars": len(stars),
+                    "rating_score": re.sub(r"[^\d.]", "", score_span.text) if score_span else None,
+                    "level": "Transfer" if level == "T" else level
+                }
+
+                transfer["ratings"].append(rating)
+
+
+                result["transfers"].append(transfer)
 
     return result
+
+
+
+"""
+REMAINING LISTS TO SCRAPE:
+
+1. High School Rankings by Team & Year -> https://247sports.com/college/alabama/Season/2025-Football/Commits/
+
+
+"""
