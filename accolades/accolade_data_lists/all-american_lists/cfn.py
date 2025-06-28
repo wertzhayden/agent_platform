@@ -249,7 +249,7 @@
       {"position":"PK","name":"Ryan Fitzgerald","school":"Florida State"},
       {"position":"PK","name":"Maddux Trujillo","school":"Temple"},
       {"position":"KOS","name":"Caden Chittenden","school":"UNLV"},
-      {"position":"KOS","name":"Andres Borregales","school":"Miami‑FL"},
+      {"position":"KOS","name":"Andres Borregales","school":"Miami"},
       {"position":"KOS","name":"Aeron Burrell","school":"LSU"},
       {"position":"P","name":"Brett Thorson","school":"Georgia"},
       {"position":"P","name":"Kai Kroeger","school":"South Carolina"},
