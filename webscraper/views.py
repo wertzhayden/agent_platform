@@ -34,13 +34,23 @@ Remaining Lists to Scrape:
 7. CFN All-AAC List - COMPLETE
 8. CFN All-ACC List - COMPLETE
 7. CFN All-Big-10 List - COMPLETE
-9. CFN All-Big-12 List - ...
-10. CFN All-CUSA List -
-11. CFN All-MAC List -
-12. CFN All-MWC List -
-13. CFN All-Pac-12 List -
-14. CFN All-SEC List -
-15. CFN All-Sun-Belt List -
-16. Shawn Alexander Freshman Semi-Finalists List - 
-17. ...
+9. CFN All-Big-12 List - COMPLETE
+10. CFN All-CUSA List - COMPLETE
+11. CFN All-MAC List - COMPLETE
+12. CFN All-MWC List - COMPLETE
+13. CFN All-Pac-12 List - COMPLETE
+14. CFN All-SEC List - COMPLETE
+15. CFN All-Sun-Belt List - COMPLETE
+16. Direct ALL-AAC List - 
+17. Direct ALL-ACC List -
+18. Direct ALL-Big-10 List -
+19. Direct ALL-Big-12 List -
+20. Direct ALL-CUSA List -
+21. Direct ALL-MAC List -
+22. Direct ALL-MWC List -
+23. Direct ALL-Pac-12 List -
+24. Direct ALL-SEC List -
+25. Direct ALL-Sun-Belt List -
+26. Shawn Alexander Freshman Semi-Finalists List - 
+27. ...
 """
