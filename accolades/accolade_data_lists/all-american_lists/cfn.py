@@ -86,7 +86,7 @@
         {"position":"QB","name":"Cam Ward","school":"Miami-FL"},
         {"position":"RB","name":"Kaleb Johnson","school":"Iowa"},
         {"position":"RB","name":"Tre Stewart","school":"Jacksonville State"},
-        {"position":"WR","name":"Xavier Restrepo","school":"Miami-FL"},
+        {"position":"WR","name":"Xavier Restrepo","school":"Miami"},
         {"position":"WR","name":"Ricky White","school":"UNLV"},
         {"position":"WR","name":"Travis Hunter","school":"Colorado"},
         {"position":"TE","name":"Tyler Warren","school":"Penn State"},
@@ -108,7 +108,7 @@
         {"position":"CB","name":"Trey Amos","school":"Ole Miss"},
         {"position":"CB","name":"Zah Frazier","school":"UTSA"},
         {"position":"CB","name":"Jahdae Barron","school":"Texas"},
-        {"position":"SS","name":"Travor Randle","school":"UL-Monroe"},
+        {"position":"SS","name":"Travor Randle","school":"UL Monroe"},
         {"position":"FS","name":"Jaylen Reed","school":"Penn State"},
         {"position":"S","name":"Jalen Catalon","school":"UNLV"},
         {"position":"FLEX","name":"Chandler Rivers","school":"Duke"}
