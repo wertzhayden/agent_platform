@@ -108,7 +108,7 @@ team_id = {
     "temple": 91970,
     "tennessee": 91993,
     "texas": 92016,
-    "texas-a&m": 92039,
+    "texas-am": 92039,
     "texas-state": 92821,
     "texas-tech": 92062,
     "toledo": 92085,
