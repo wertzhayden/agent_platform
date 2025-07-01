@@ -8,9 +8,10 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import time
-from bs4 import BeautifulSoup
 import re
 from webscraper.services.player_hs_rankings.retrieve_hs_rankings import retrieve_player_hs_rankings
+from webscraper.services.player_hs_rankings.retrieve_latest_school_by_player import retrieve_latest_school_by_player
+
 
 class WebScrapePlayerStats(viewsets.ViewSet):
     """
@@ -19,8 +20,8 @@ class WebScrapePlayerStats(viewsets.ViewSet):
     def list(self, request):
         # return Response(retrieve_player_stats(position=request.data.get("position"), player_link=request.data.get("player_link")))
         # return Response(retrieve_schools_players_by_depth_chart(school=request.data.get("school"), school_id=request.data.get("school_id")))
-        return Response(retrieve_player_hs_rankings(school=request.data.get("school"), year=request.data.get("year")))
-
+        # return Response(retrieve_player_hs_rankings(school=request.data.get("school"), year=request.data.get("year")))
+        return Response(retrieve_latest_school_by_player(url=request.data.get("url")))
 
 """
 Remaining Lists to Scrape:
