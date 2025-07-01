@@ -23,7 +23,7 @@
     {
       "name": "Ahmad Hardy",
       "position": "RB",
-      "school": "ULM",
+      "school": "Louisiana Monroe",
       "height": "5-10",
       "weight": "205",
       "class": "Fr.",
