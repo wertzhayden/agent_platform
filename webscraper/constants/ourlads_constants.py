@@ -19,7 +19,7 @@ team_id = {
     "bowling-green": 90176,
     "byu": 90222,
     "buffalo": 90199,
-    "california": 90245,
+    "cal": 90245,
     "central-florida": 92200,
     "central-michigan": 90268,
     "charlotte": 92936,
