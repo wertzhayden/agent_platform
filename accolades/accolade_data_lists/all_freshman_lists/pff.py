@@ -6,141 +6,141 @@
       {
         "position": "QB",
         "name": "DJ Lagway",
-        "school": "Florida Gators"
+        "school": "Florida"
       },
       {
         "position": "RB",
         "name": "Isaac Brown",
-        "school": "Louisville Cardinals"
+        "school": "Louisville"
       },
       {
         "position": "WR",
         "name": "Jeremiah Smith",
-        "school": "Ohio State Buckeyes"
+        "school": "Ohio State"
       },
       {
         "position": "WR",
         "name": "Ryan Williams",
-        "school": "Alabama Crimson Tide"
+        "school": "Alabama"
       },
       {
         "position": "TE",
         "name": "Decker DeGraaf",
-        "school": "Washington Huskies"
+        "school": "Washington"
       },
       {
         "position": "WR",
         "name": "Bryant Wesco Jr.",
-        "school": "Clemson Tigers"
+        "school": "Clemson"
       },
       {
         "position": "LT",
         "name": "Jordan Seaton",
-        "school": "Colorado Buffaloes"
+        "school": "Colorado"
       },
       {
         "position": "LG",
         "name": "Aidan Banfield",
-        "school": "North Carolina Tar Heels"
+        "school": "North Carolina"
       },
       {
         "position": "C",
         "name": "Cash Cleveland",
-        "school": "Colorado Buffaloes"
+        "school": "Colorado"
       },
       {
         "position": "RG",
         "name": "Braydon Nelson",
-        "school": "North Texas Mean Green"
+        "school": "North Texas"
       },
       {
         "position": "RT",
         "name": "Zach Clayton",
-        "school": "Middle Tennessee Blue Raiders"
+        "school": "Middle Tennessee"
       }
     ],
     "Defense": [
       {
         "position": "DL",
         "name": "Francis Brewu",
-        "school": "Pittsburgh Panthers"
+        "school": "Pittsburgh"
       },
       {
         "position": "DL",
         "name": "Jamarious Brown",
-        "school": "Ole Miss Rebels"
+        "school": "Ole Miss"
       },
       {
         "position": "EDGE",
         "name": "Dylan Stewart",
-        "school": "South Carolina Gamecocks"
+        "school": "South Carolina"
       },
       {
         "position": "EDGE",
         "name": "Colin Simmons",
-        "school": "Texas Longhorns"
+        "school": "Texas"
       },
       {
         "position": "LB",
         "name": "Simeon Coleman",
-        "school": "Cincinnati Bearcats"
+        "school": "Cincinnati"
       },
       {
         "position": "LB",
         "name": "Sammy Brown",
-        "school": "Clemson Tigers"
+        "school": "Clemson"
       },
       {
         "position": "CB",
         "name": "Leonard Moore",
-        "school": "Notre Dame Fighting Irish"
+        "school": "Notre Dame"
       },
       {
         "position": "CB",
         "name": "Jay Crawford",
-        "school": "Auburn Tigers"
+        "school": "Auburn"
       },
       {
         "position": "S",
         "name": "Koi Perich",
-        "school": "Minnesota Golden Gophers"
+        "school": "Minnesota"
       },
       {
         "position": "S",
         "name": "KJ Bolden",
-        "school": "Georgia Bulldogs"
+        "school": "Georgia"
       },
       {
         "position": "Flex",
         "name": "Kaleb Harris",
-        "school": "Auburn Tigers"
+        "school": "Auburn"
       }
     ],
     "SpecialTeams": [
       {
         "position": "K",
         "name": "Nolan Hauser",
-        "school": "Clemson Tigers"
+        "school": "Clemson"
       },
       {
         "position": "P",
         "name": "Rhys Dakin",
-        "school": "Iowa Hawkeyes"
+        "school": "Iowa"
       },
       {
         "position": "RS",
         "name": "Koi Perich",
-        "school": "Minnesota Golden Gophers"
+        "school": "Minnesota"
       },
       {
         "position": "LS",
         "name": "James Roe",
-        "school": "Toledo Rockets"
+        "school": "Toledo"
       },
       {
         "position": "ST",
         "name": "Dylan Day",
-        "school": "Miami (FL) Hurricanes"
+        "school": "Miami"
       }
     ]
   }
