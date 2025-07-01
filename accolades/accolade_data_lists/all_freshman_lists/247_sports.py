@@ -10,7 +10,7 @@
     {
       "name": "Ahmad Hardy",
       "position": "RB",
-      "school": "ULM",
+      "school": "Louisiana Monroe",
     },
     {
       "name": "Jeremiah Smith",
