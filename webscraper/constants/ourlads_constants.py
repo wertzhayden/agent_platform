@@ -5,7 +5,7 @@ team_id = {
     "air-force": 89877,
     "akron": 89900,
     "alabama": 89923,
-    "appalachian-state": 92913,
+    "app-state": 92913,
     "arizona": 89946,
     "arizona-state": 89969,
     "arkansas": 89992,
