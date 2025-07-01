@@ -62,17 +62,17 @@
         {"position":"LB","name":"Teddye Buchanan","school":"Cal"},
         {"position":"CB","name":"Nohl Williams","school":"Cal"},
         {"position":"CB","name":"Avieon Terrell","school":"Clemson"},
-        {"position":"CB","name":"Deuce Harmon","school":"smu"},
+        {"position":"CB","name":"Deuce Harmon","school":"SMU"},
         {"position":"SS","name":"Jaylen Jones","school":"Virginia Tech"},
         {"position":"FS","name":"Jonathan McGill","school":"SMU"},
         {"position":"S","name":"Isaiah Nwokobia","school":"SMU"},
         {"position":"FLEX","name":"Chandler Rivers","school":"Duke"}
       ],
       "SpecialTeams": [
-        {"position":"PK","name":"Collin Rogers","school":"smu"},
+        {"position":"PK","name":"Collin Rogers","school":"SMU"},
         {"position":"KOS","name":"Andres Borregales","school":"Miami"},
         {"position":"P","name":"Alex Mastromanno","school":"Florida State"},
-        {"position":"KR","name":"Chris Johnson Jr.","school":"miami"},
+        {"position":"KR","name":"Chris Johnson Jr.","school":"Miami"},
         {"position":"PR","name":"Taylor Morin","school":"wake-forest"},
         {"position":"ST","name":"Daylon Gordon","school":"georgia-tech"}
       ]
