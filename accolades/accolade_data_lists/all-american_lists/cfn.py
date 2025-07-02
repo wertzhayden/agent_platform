@@ -108,7 +108,7 @@
         {"position":"CB","name":"Trey Amos","school":"Ole Miss"},
         {"position":"CB","name":"Zah Frazier","school":"UTSA"},
         {"position":"CB","name":"Jahdae Barron","school":"Texas"},
-        {"position":"SS","name":"Travor Randle","school":"UL Monroe"},
+        {"position":"SS","name":"Travor Randle","school":"louisiana-monroe"},
         {"position":"FS","name":"Jaylen Reed","school":"Penn State"},
         {"position":"S","name":"Jalen Catalon","school":"UNLV"},
         {"position":"FLEX","name":"Chandler Rivers","school":"Duke"}

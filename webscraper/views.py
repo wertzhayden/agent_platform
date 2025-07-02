@@ -18,7 +18,7 @@ class WebScrapePlayerStats(viewsets.ViewSet):
     Web Scrape Team and Player Stats from the Ourlads website. 
     """
     def list(self, request):
-        # return Response(retrieve_player_stats(position=request.data.get("position"), player_link=request.data.get("player_link")))
+        return Response(retrieve_player_stats(position=request.data.get("position"), player_link=request.data.get("player_link")))
         # return Response(retrieve_schools_players_by_depth_chart(school=request.data.get("school"), school_id=request.data.get("school_id")))
         # return Response(retrieve_player_hs_rankings(school=request.data.get("school"), year=request.data.get("year")))
         return Response(retrieve_latest_school_by_player(url=request.data.get("url")))
