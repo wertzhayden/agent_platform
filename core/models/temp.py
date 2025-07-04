@@ -1,55 +1,6 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
-class BaseModel(models.Model):
-    """Base model to provide common fields for all models in the application."""
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        abstract = True
-
-# Create your models here.
-class User(BaseModel):
-    """User model to store user information"""
-    username = models.CharField(max_length=150, unique=True)
-    email = models.EmailField(unique=True)
-    password = models.CharField(max_length=128)  # Store hashed passwords
-
-    def __str__(self):
-        return self.username
-    
-
-class Firm(BaseModel):
-    """Firm model to represent the Firm at which the agents work"""
-    name = models.CharField(max_length=255)
-    location = models.CharField(max_length=255)
-    num_of_employees = models.IntegerField() # Number of employees
-    metadata = models.JSONField(blank=True, null=True)
-
-class Agent(BaseModel):
-    name = models.CharField(max_length=255)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='agents')
-    firm = models.ForeignKey(
-        Firm,
-        on_delete=models.CASCADE,
-        related_name="agents",
-        help_text="The firm that the agent works for"
-    )
-    key_schools = ArrayField(
-        base_field=models.TextField(),
-        default=list,
-        blank=True,
-        help_text="A list schools that the agent is formally associated with"
-    )
-    favorite_players = ArrayField(
-        base_field=models.TextField(),
-        default=list,
-        blank=True,
-        help_text="A list of players that the Agent has identified as favorites or potential clients"
-    )
-    metadata = models.JSONField(blank=True, null=True)
-
 
 class Scout(BaseModel):
     """Agent sends Players to the Scout for review, eval and next steps in their workflow"""
@@ -219,27 +170,3 @@ class PlayerTrait(models.Model):
             f"{self.player} — {self.trait.name}: "
             f"{self.selected_option} ({self.total_score})"
         )
-    
-
-class RecruitingClass(BaseModel):
-    """A recruiting class is a collection of players who are recruited in the same year."""
-    school_id = models.ForeignKey(
-        School, on_delete=models.CASCADE, related_name="recruiting_classes"
-    )
-    year = models.IntegerField()
-    overall_rank = models.IntegerField(blank=True, null=True)
-    transfer_rank = models.IntegerField(blank=True, null=True)
-    composite_rank = models.IntegerField(blank=True, null=True)
-
-class Accolades(BaseModel):
-    """The Awards and Accolades a player has received"""
-    player = models.ForeignKey(
-        Player, on_delete=models.CASCADE, related_name="accolades"
-    )
-    year = models.IntegerField()
-    accolade = models.TextField(blank=True, null=True)
-    source = models.TextField(blank=True, null=True)
-    conference = models.TextField(blank=True, null=True)
-    name = models.TextField(blank=True, null=True)
-    team = models.IntegerField(blank=True, null=True) # 1st, 2nd, 3rd, 4th, Honorable Mention = 5, etc
-    
