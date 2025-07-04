@@ -68,6 +68,17 @@ TEMPLATES = [
     },
 ]
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':     'myproject_db',
+        'USER':     'django_user',
+        'PASSWORD': 'agent_platform',
+        'HOST':     'localhost',
+        'PORT':     '5432',
+    }
+}
+
 WSGI_APPLICATION = 'agent_backend.wsgi.application'
 
 
