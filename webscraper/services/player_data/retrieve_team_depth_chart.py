@@ -19,10 +19,14 @@ def retrieve_schools_players_by_depth_chart(school: str, school_id: int) -> dict
         response = requests.get(url)
         soup = BeautifulSoup(response.content, 'html.parser')
 
-        # Loop through all known tbody IDs
-        tbody_ids = ["ctl00_phContent_dcTBody", "ctl00_phContent_dcTBody2", "ctl00_phContent_dcTBody3"]
+        # Map tbody IDs to sides of the ball
+        tbody_map = {
+            "ctl00_phContent_dcTBody": "Offense",
+            "ctl00_phContent_dcTBody2": "Defense",
+            "ctl00_phContent_dcTBody3": "Special Teams"
+        }
 
-        for tbody_id in tbody_ids:
+        for tbody_id, side_of_ball in tbody_map.items():
             tbody = soup.find("tbody", id=tbody_id)
             if not tbody:
                 continue
@@ -37,25 +41,23 @@ def retrieve_schools_players_by_depth_chart(school: str, school_id: int) -> dict
                 players = []
 
                 for i in range(1, len(cells), 2):
-                    player_details, stats_tables = {}, []
                     number = cells[i].get_text(strip=True)
                     player_cell = cells[i + 1] if i + 1 < len(cells) else None
                     player_name = player_cell.get_text(strip=True) if player_cell else ""
                     player_link = player_cell.find("a")["href"] if player_cell and player_cell.find("a") else ""
-
-                    players.append({
-                        "number": number,
-                        "name": player_name,
-                        "position": pos,
-                        "team": school,
-                        "url": player_link,
-                        "bio": player_details,
-                        "stats": stats_tables
-                    })
+                    if player_name:
+                        players.append({
+                            "number": number,
+                            "name": player_name,
+                            "position": pos,
+                            "side_of_the_ball": side_of_ball,
+                            "team": school,
+                            "url": player_link,
+                        })
 
                 results.append({
                     "position": pos,
                     "players": players
                 })
 
-        return {"players_by_position": results}
+        return results

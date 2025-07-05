@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
-from agent_platform.core.models.base_model import BaseModel
-from agent_platform.core.models.user import User
-from agent_platform.core.models.firm import Firm
+from core.models.base_model import BaseModel
+from core.models.user import User
+from core.models.firm import Firm
 
 
 class Agent(BaseModel):

@@ -1,5 +1,5 @@
 from django.db import models
-from agent_platform.core.models.base_model import BaseModel
+from core.models.base_model import BaseModel
 
 class User(BaseModel):
     """User model to store user information"""

@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
-from agent_platform.core.models.base_model import BaseModel
-from agent_platform.core.models.agent import Agent
+from core.models.base_model import BaseModel
+from core.models.agent import Agent
 
 
 class School(BaseModel):
@@ -12,7 +12,7 @@ class School(BaseModel):
     # The unique identifier for the school, used to match with external data sources (e.g. Ourlads)
     school_id = models.CharField(max_length=100, unique=True)
     # Created so that we can filter schools by their associated agents
-    key_agents = models.ManyToManyField(Agent, blank=True)
+    key_agents = models.ManyToManyField(Agent, blank=True,)
     # Thug Positions by School
     thug_positions = ArrayField(
         base_field=models.CharField(max_length=128),
@@ -23,4 +23,4 @@ class School(BaseModel):
     metadata = models.JSONField(blank=True, null=True)
 
     def __str__(self):
-        return self.name    
+        return self.name

@@ -1,5 +1,5 @@
 from django.db import models
-from agent_platform.core.models.career_stats import CareerStats
+from core.models.career_stats import CareerStats
 
 class QBCareerStats(CareerStats):
     completions = models.IntegerField()

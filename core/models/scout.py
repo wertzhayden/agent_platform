@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
-from agent_platform.core.models.base_model import BaseModel
-from agent_platform.core.models.user import User
-from agent_platform.core.models.agent import Agent
+from core.models.base_model import BaseModel
+from core.models.user import User
+from core.models.agent import Agent
 
 class Scout(BaseModel):
     """Agent sends Players to the Scout for review, eval and next steps in their workflow"""

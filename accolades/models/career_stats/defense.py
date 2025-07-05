@@ -1,5 +1,5 @@
 from django.db import models
-from agent_platform.core.models.career_stats import CareerStats
+from core.models.career_stats import CareerStats
 
 class DefenseCareerStats(CareerStats):
     solo_tackles = models.IntegerField()

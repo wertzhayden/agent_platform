@@ -1,5 +1,5 @@
 from django.db import models
-from agent_platform.core.models.game_stats import GameStats
+from core.models.game_stats import GameStats
 
 class ReceiverGameStats(GameStats):
     receptions = models.IntegerField()

@@ -1,10 +1,10 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
-from agent_platform.core.models.base_model import BaseModel
-from agent_platform.core.models.trait import Trait
-from agent_platform.core.models.school import School
-from agent_platform.core.models.agent import Agent
+from core.models.base_model import BaseModel
+from core.models.trait import Trait
+from core.models.school import School
+from core.models.agent import Agent
 
 
 
@@ -19,18 +19,19 @@ class Player(BaseModel):
     weight = models.IntegerField(blank=True, null=True)
     jersey_number = models.IntegerField(blank=True, null=True)
     class_year = models.CharField(max_length=50, blank=True, null=True)
+    side_of_ball = models.CharField(max_length=50, blank=True, null=True, help_text="Offense, Defense or Special Teams")
     position = models.CharField(max_length=50, blank=True, null=True)
     # 247 Sports Link
-    player_school_link = models.URLField(blank=True, null=True)
+    school_link = models.URLField(blank=True, null=True)
     # Ourlads Link
-    player_ourlads_link = models.URLField(blank=True, null=True)
+    ourlads_link = models.URLField(blank=True, null=True)
     # hook up to TraitDefinition via the through table below
-    traits = models.ManyToManyField(
-        Trait,
-        through="PlayerTrait",
-        related_name="players",
-        blank=True,
-    )
+    # traits = models.ManyToManyField(
+    #     Trait,
+    #     through="PlayerTrait",
+    #     related_name="players",
+    #     blank=True,
+    # )
     school = models.ForeignKey(
         School, on_delete=models.PROTECT, related_name="players"
     )
