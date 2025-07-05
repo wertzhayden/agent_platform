@@ -1,7 +1,7 @@
 """DEFAULT CONSTANTS TO RETRIEVE A GIVEN TEAM DEPTH CHART FROM OURLADS"""
 
 
-team_id = {
+TEAM_IDS = {
     "air-force": 89877,
     "akron": 89900,
     "alabama": 89923,
