@@ -124,6 +124,7 @@ class IngestOurladsDepthCharts(viewsets.ViewSet):
             game_stats = player_stats.get("game_stats", [])
             if career_stats:
                 for career_stat in career_stats:
+                    # Determine the Position & Validate with given Serializer
                     return Response(career_stat)
 
             
