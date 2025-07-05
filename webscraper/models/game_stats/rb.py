@@ -5,6 +5,7 @@ class RBGameStats(GameStats):
     rush_attempts = models.IntegerField()
     rushing_yards = models.IntegerField()
     avg_per_rush = models.FloatField()
+    rushing_touchdowns = models.IntegerField()
     receptions = models.IntegerField()
     receiving_yards = models.IntegerField()
     yards_per_catch = models.FloatField()

@@ -13,4 +13,5 @@ class QBGameStats(GameStats):
     passer_rating = models.FloatField()
     rush_attempts = models.IntegerField()
     rush_yards = models.IntegerField()
+    avg_per_rush = models.FloatField()
     rush_touchdowns = models.IntegerField()

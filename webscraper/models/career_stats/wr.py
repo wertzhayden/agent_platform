@@ -10,5 +10,6 @@ class ReceiverCareerStats(CareerStats):
     rush_attempts = models.IntegerField()
     rushing_yards = models.IntegerField()
     avg_per_rush = models.FloatField()
+    rush_touchdowns = models.IntegerField()
     total_fumbles = models.IntegerField()
     lost_fumbles = models.IntegerField()

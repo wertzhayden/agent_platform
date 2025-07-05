@@ -1,9 +1,8 @@
-from rest_polymorphic.serializers import PolymorphicSerializer
+from rest_framework import serializers
 
-class CareerStatsPolymorphicSerializer(PolymorphicSerializer):
-    model_serializer_mapping = {
-        QBCareerStats: QBCareerStatsSerializer,
-        RBCareerStats: RBCareerStatsSerializer,
-        ReceiverCareerStats: ReceiverCareerStatsSerializer,
-        DefenseCareerStats: DefenseCareerStatsSerializer,
-    }
+class CareerStatsBaseSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = ["id", "player", "year", "metadata"]
+        extra_kwargs = {
+            "metadata": {"required": False, "allow_null": True}
+        }

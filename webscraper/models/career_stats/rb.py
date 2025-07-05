@@ -4,7 +4,9 @@ from core.models.career_stats import CareerStats
 class RBCareerStats(CareerStats):
     rush_attempts = models.IntegerField()
     rushing_yards = models.IntegerField()
+    rush_touchdowns = models.IntegerField()
     avg_per_rush = models.FloatField()
+    rush_touchdowns = models.IntegerField()
     receptions = models.IntegerField()
     receiving_yards = models.IntegerField()
     yards_per_catch = models.FloatField()
