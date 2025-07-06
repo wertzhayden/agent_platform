@@ -23,19 +23,19 @@
         {"name": "Antwaun Powell-Ryland", "position": "RDE", "school": "Virginia Tech"},
         {"name": "Aeneas Peebles", "position": "RDT", "school": "Virginia Tech"},
         {"name": "Simeon Barrow, Jr.", "position": "DT", "school": "Miami"},
-        {"name": "Jared Harrison-Hunte", "position": "DT", "school": "SMU"},
-        {"name": "Kyle Louis", "position": "LB", "school": "Pittsburgh"},
+        {"name": "Jared Harrison-Hunte", "position": "LDT", "school": "SMU"},
+        {"name": "Kyle Louis", "position": "STAR", "school": "Pittsburgh"},
         {"name": "Barrett Carter", "position": "MLB", "school": "Clemson"},
         {"name": "Teddye Buchanan", "position": "RILB", "school": "California"},
         {"name": "Nohl Williams", "position": "LCB", "school": "California"},
         {"name": "Chandler Rivers", "position": "RCB", "school": "Duke"},
         {"name": "Jonas Sanker", "position": "FS", "school": "Virginia"},
-        {"name": "Isaiah Nwokobia", "position": "S", "school": "SMU"}
+        {"name": "Isaiah Nwokobia", "position": "FS", "school": "SMU"}
       ],
       "specialists": [
         {"name": "Andres Borregales", "position": "PK", "school": "Miami"},
         {"name": "Alex Mastromanno", "position": "PT", "school": "Florida State"},
-        {"name": "Desmond Reid", "position": "SP", "school": "Pittsburgh"}
+        {"name": "Desmond Reid", "position": "PR", "school": "Pittsburgh"}
       ]
     },
     "second_team": {
@@ -96,8 +96,8 @@
         {"name": "Payton Page", "position": "RDT", "school": "Clemson"},
         {"name": "Cam Horsley", "position": "DT", "school": "Boston College"},
         {"name": "Jahvaree Ritzie", "position": "DT", "school": "North Carolina"},
-        {"name": "Rasheem Biles", "position": "LB", "school": "Pittsburgh"},
-        {"name": "Ozzie Nicholas", "position": "LB", "school": "Duke"},
+        {"name": "Rasheem Biles", "position": "WLB", "school": "Pittsburgh"},
+        {"name": "Ozzie Nicholas", "position": "STAR", "school": "Duke"},
         {"name": "Kyle Efford", "position": "MLB", "school": "Georgia Tech"},
         {"name": "Clarence Lewis", "position": "LCB", "school": "Syracuse"},
         {"name": "Mansoor Delane", "position": "LCB", "school": "Virginia Tech"},
@@ -118,7 +118,7 @@
       {"name": "Desmond Reid", "position": "RB", "school": "Pittsburgh"},
       {"name": "Jamal Haynes", "position": "RB", "school": "Georgia Tech"},
       {"name": "Damien Martinez", "position": "RB", "school": "Miami"},
-      {"name": "Konata Mumpfield", "position": "WR", "school": "Pittsburgh"},
+      {"name": "Konata Mumpfield", "position": "WR-X", "school": "Pittsburgh"},
       {"name": "Jacolby George", "position": "WR-Z", "school": "Miami"},
       {"name": "Taylor Morin", "position": "WR-Z", "school": "Wake Forest"},
       {"name": "Malik Rutherford", "position": "WR-F", "school": "Georgia Tech"},
