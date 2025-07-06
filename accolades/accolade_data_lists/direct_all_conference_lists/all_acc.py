@@ -11,7 +11,7 @@
         {"name": "Ja’Corey Brooks", "position": "WR", "school": "Louisville"},
         {"name": "Antonio Williams", "position": "WR", "school": "Clemson"},
         {"name": "Oronde Gadsden II", "position": "TE", "school": "Syracuse"},
-        {"name": "Desmond Reid", "position": "AP", "school": "Pittsburg"},
+        {"name": "Desmond Reid", "position": "AP", "school": "Pittsburgh"},
         {"name": "Blake Miller", "position": "OT", "school": "Clemson"},
         {"name": "Ozzy Trapilo", "position": "OT", "school": "Boston College"},
         {"name": "Willie Lampkin", "position": "OG", "school": "North Carolina"},
@@ -24,7 +24,7 @@
         {"name": "Aeneas Peebles", "position": "DT", "school": "Virginia Tech"},
         {"name": "Simeon Barrow, Jr.", "position": "DT", "school": "Miami"},
         {"name": "Jared Harrison-Hunte", "position": "DT", "school": "SMU"},
-        {"name": "Kyle Louis", "position": "LB", "school": "Pittsburg"},
+        {"name": "Kyle Louis", "position": "LB", "school": "Pittsburgh"},
         {"name": "Barrett Carter", "position": "LB", "school": "Clemson"},
         {"name": "Teddye Buchanan", "position": "LB", "school": "California"},
         {"name": "Nohl Williams", "position": "CB", "school": "California"},
@@ -35,7 +35,7 @@
       "specialists": [
         {"name": "Andres Borregales", "position": "PK", "school": "Miami"},
         {"name": "Alex Mastromanno", "position": "P", "school": "Florida State"},
-        {"name": "Desmond Reid", "position": "SP", "school": "Pittsburg"}
+        {"name": "Desmond Reid", "position": "SP", "school": "Pittsburgh"}
       ]
     },
     "second_team": {
@@ -66,11 +66,11 @@
         {"name": "Quincy Riley", "position": "CB", "school": "Louisville"},
         {"name": "Terry Moore", "position": "S", "school": "Duke"},
         {"name": "Mishael Powell", "position": "S", "school": "Miami"},
-        {"name": "Donovan McMillon", "position": "S", "school": "Pittsburg"}
+        {"name": "Donovan McMillon", "position": "S", "school": "Pittsburgh"}
       ],
       "specialists": [
         {"name": "Ryan Fitzgerald", "position": "PK", "school": "Florida State"},
-        {"name": "Lachlan Wilson", "position": "P", "school": "Cal"},
+        {"name": "Lachlan Wilson", "position": "P", "school": "California"},
         {"name": "Alex Mastromanno", "position": "SP", "school": "Florida State"}
       ]
     },
@@ -91,21 +91,21 @@
         {"name": "Zeke Correll", "position": "C", "school": "NC State"}
       ],
       "defense": [
-        {"name": "Xavier Carlton", "position": "DE", "school": "Cal"},
+        {"name": "Xavier Carlton", "position": "DE", "school": "California"},
         {"name": "Davin Vann", "position": "DE", "school": "NC State"},
         {"name": "Payton Page", "position": "DT", "school": "Clemson"},
         {"name": "Cam Horsley", "position": "DT", "school": "Boston College"},
         {"name": "Jahvaree Ritzie", "position": "DT", "school": "North Carolina"},
-        {"name": "Rasheem Biles", "position": "LB", "school": "Pittsburg"},
+        {"name": "Rasheem Biles", "position": "LB", "school": "Pittsburgh"},
         {"name": "Ozzie Nicholas", "position": "LB", "school": "Duke"},
         {"name": "Kyle Efford", "position": "LB", "school": "Georgia Tech"},
         {"name": "Clarence Lewis", "position": "CB", "school": "Syracuse"},
         {"name": "Mansoor Delane", "position": "CB", "school": "Virginia Tech"},
         {"name": "Nick Andersen", "position": "S", "school": "Wake Forest"},
-        {"name": "Craig Woodson", "position": "S", "school": "Cal"}
+        {"name": "Craig Woodson", "position": "S", "school": "California"}
       ],
       "specialists": [
-        {"name": "Ben Sauls", "position": "PK", "school": "Pittsburg"},
+        {"name": "Ben Sauls", "position": "PK", "school": "Pittsburgh"},
         {"name": "Peter Moore", "position": "P", "school": "Virginia Tech"},
         {"name": "Jaylin Lane", "position": "SP", "school": "Virginia Tech"}
       ]
@@ -115,22 +115,22 @@
       {"name": "Cade Klubnik", "position": "QB", "school": "Clemson"},
       {"name": "Tyler Shough", "position": "QB", "school": "Louisville"},
       {"name": "LeQuint Allen", "position": "RB", "school": "Syracuse"},
-      {"name": "Desmond Reid", "position": "RB", "school": "Pittsburg"},
+      {"name": "Desmond Reid", "position": "RB", "school": "Pittsburgh"},
       {"name": "Jamal Haynes", "position": "RB", "school": "Georgia Tech"},
       {"name": "Damien Martinez", "position": "RB", "school": "Miami"},
-      {"name": "Konata Mumpfield", "position": "WR", "school": "Pittsburg"},
+      {"name": "Konata Mumpfield", "position": "WR", "school": "Pittsburgh"},
       {"name": "Jacolby George", "position": "WR", "school": "Miami"},
       {"name": "Taylor Morin", "position": "WR", "school": "Wake Forest"},
       {"name": "Malik Rutherford", "position": "WR", "school": "Georgia Tech"},
       {"name": "Eric Singleton, Jr.", "position": "WR", "school": "Georgia Tech"},
       {"name": "Keyshawn Smith", "position": "WR", "school": "SMU"},
       {"name": "Lewis Bond", "position": "WR", "school": "Boston College"},
-      {"name": "Jack Endries", "position": "TE", "school": "Cal"},
-      {"name": "Gavin Bartholomew", "position": "TE", "school": "Pittsburg"},
+      {"name": "Jack Endries", "position": "TE", "school": "California"},
+      {"name": "Gavin Bartholomew", "position": "TE", "school": "Pittsburgh"},
       {"name": "RJ Maryland", "position": "TE", "school": "SMU"},
       {"name": "LeQuint Allen", "position": "AP", "school": "Syracuse"},
       {"name": "Isaac Brown", "position": "AP", "school": "Louisville"},
-      {"name": "Nohl Williams", "position": "AP", "school": "Cal"},
+      {"name": "Nohl Williams", "position": "AP", "school": "California"},
       {"name": "Roderick Daniels Jr.", "position": "AP", "school": "SMU"},
       {"name": "Corey Robinson II", "position": "OT", "school": "Georgia Tech"},
       {"name": "Monroe Mills", "position": "OT", "school": "Louisville"},
@@ -171,15 +171,15 @@
       {"name": "Akheem Mesidor", "position": "DT", "school": "Miami"},
       {"name": "Kori Roberson Jr.", "position": "DT", "school": "SMU"},
       {"name": "Darrell Jackson Jr.", "position": "DT", "school": "Florida State"},
-      {"name": "Nick James", "position": "DT", "school": "Pittsburg"},
+      {"name": "Nick James", "position": "DT", "school": "Pittsburgh"},
       {"name": "Ahmad Walker", "position": "LB", "school": "SMU"},
       {"name": "Wade Woodaz", "position": "LB", "school": "Clemson"},
-      {"name": "Xavier Carlton", "position": "LB", "school": "Cal"},
+      {"name": "Xavier Carlton", "position": "LB", "school": "California"},
       {"name": "Justin Barron", "position": "LB", "school": "Syracuse"},
       {"name": "Power Echols", "position": "LB", "school": "North Carolina"},
       {"name": "Stanquan Clark", "position": "LB", "school": "Louisville"},
       {"name": "Marlowe Wax", "position": "LB", "school": "Syracuse"},
-      {"name": "Cade Uluave", "position": "LB", "school": "Cal"},
+      {"name": "Cade Uluave", "position": "LB", "school": "California"},
       {"name": "Sean Brown", "position": "LB", "school": "NC State"},
       {"name": "Alex Howard", "position": "LB", "school": "Duke"},
       {"name": "Tre Freeman", "position": "LB", "school": "Duke"},
