@@ -31,7 +31,7 @@
       {"position":"G","name":"TJ Shanahan","school":"Texas AM"},
       {"position":"C","name":"Jacob Norcross","school":"Kennesaw State"},
       {"position":"G","name":"Braydon Nelson","school":"North Texas"},
-      {"position":"OT","name":"Zach Clayton","school":"Middle Tennessee State"}
+      {"position":"OT","name":"Zach Clayton","school":"Middle Tennessee"}
     ],
     "Defense": [
       {"position":"EDGE","name":"Dylan Stewart","school":"South Carolina"},
