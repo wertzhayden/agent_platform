@@ -39,47 +39,47 @@
     },
     {
       "name": "Aidan Banfield",
-      "position": "OL",
+      "position": "LG",
       "school": "North Carolina",
     },
     {
       "name": "Jordan Seaton",
-      "position": "OL",
+      "position": "LT",
       "school": "Colorado",
     },
     {
       "name": "Josiah Thompson",
-      "position": "OL",
+      "position": "LT",
       "school": "south-carolina"
     },
     {
       "name": "Tyler Mercer",
-      "position": "OL",
+      "position": "C",
       "school": "north-texas"
     },
     {
       "name": "Anthonie Knapp",
-      "position": "OL",
+      "position": "LT",
       "school": "notre-dame"
     },
     {
       "name": "Malik Blocton",
-      "position": "DL",
+      "position": "DT",
       "school": "auburn",
     },
     {
       "name": "Jayden Jackson",
-      "position": "DL",
+      "position": "DT",
       "school": "Oklahoma",
     },
     {
       "name": "Colin Simmons",
-      "position": "DL",
+      "position": "BUCK",
       "school": "Texas",
     },
     {
       "name": "Dylan Stewart",
-      "position": "DL",
+      "position": "RDE",
       "school": "south-carolina",
     },
     {
@@ -94,7 +94,7 @@
     },
     {
       "name": "Kyngstonn Viliamu-Asa",
-      "position": "LB",
+      "position": "MLB",
       "school": "notre-dame",
     },
     {

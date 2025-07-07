@@ -1,7 +1,7 @@
 """DEFAULT CONSTANTS TO RETRIEVE A GIVEN TEAM DEPTH CHART FROM OURLADS"""
 
 
-team_id = {
+TEAM_IDS = {
     "air-force": 89877,
     "akron": 89900,
     "alabama": 89923,
@@ -51,6 +51,7 @@ team_id = {
     "james-madison": 93005,
     "kansas": 90797,
     "kansas-state": 90820,
+    "kennesaw-state": 93074,
     "kent-state": 90843,
     "kentucky": 90866,
     "liberty": 92982,
@@ -95,6 +96,7 @@ team_id = {
     "purdue": 91717,
     "rice": 91740,
     "rutgers": 91763,
+    "sam-houston": 93051,
     "san-diego-state": 91786,
     "san-jose-state": 92729,
     "smu": 91809,

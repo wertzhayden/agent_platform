@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from webscraper.services.utils.webscraper_utils import determine_ourlads_headers_by_position
+from webscraper.utils.webscraper_utils import determine_ourlads_headers_by_position
 
 
 def retrieve_player_stats(player_link: str, position: str = None) -> dict:
@@ -24,8 +24,6 @@ def retrieve_player_stats(player_link: str, position: str = None) -> dict:
     WR's / TE's
     Defense
     """
-    # wr_career_stats_headers = ["Season", "Rec", "Yards", "Yards per Catch", "TD", "Rushes", "Rush Yds", "Rush Avg", "Rush_TD", "Fumbles", "Lost Fumbles"]
-    # wr_game_stats_headers = ["Date", "Played Against", "Rec","Yards", "Yards per Catch", "TD", "Rushes", "Rush Yds", "Rush Avg", "Rush_TD", "Fumbles", "Lost Fumbles"]
     response = requests.get(player_link)
     soup = BeautifulSoup(response.content, 'html.parser')
     player_bio_data = {}
