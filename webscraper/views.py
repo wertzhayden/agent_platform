@@ -10,6 +10,18 @@ from core.models.player import Player
 from core.models.school import School
 from webscraper.serializers.player_serializer import PlayerSerializer
 from webscraper.serializers.school_serializer import SchoolSerializer
+# from webscraper.serializers.career_stats.qb import QBCareerStatsSerializer
+# from webscraper.serializers.career_stats.rb import RBCareerStatsSerializer
+# from webscraper.serializers.career_stats.wr import ReceiverCareerStatsSerializer
+# from webscraper.serializers.career_stats.defense import DefenseCareerStatsSerializer
+
+
+# STAT_SERIALIZER_MAP = {
+#     "qb": QBCareerStatsSerializer,
+#     "rb": RBCareerStatsSerializer,
+#     "wr": ReceiverCareerStatsSerializer,
+#     "defense": DefenseCareerStatsSerializer,
+# }
 
 CLASSES = ["RS", "FR", "SO", "JR", "SR", "GR"]
 YEARS_LEFT_OF_ELIGIBILITY = {
@@ -125,6 +137,7 @@ class IngestOurladsDepthCharts(viewsets.ViewSet):
             if career_stats:
                 for career_stat in career_stats:
                     # Determine the Position & Validate with given Serializer
+
                     return Response(career_stat)
 
             
