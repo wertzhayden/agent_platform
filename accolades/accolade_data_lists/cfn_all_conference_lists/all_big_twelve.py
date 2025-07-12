@@ -17,14 +17,14 @@
       "WideReceiverOfTheYear": {"name":"Tetairoa McMillan","position":"WR-X","school":"Arizona"},
       "TightEndOfTheYear": {"name":"Brant Kuithe","position":"TE","school":"Utah"},
       "OffensiveTackleOfTheYear": {"name":"Wyatt Milum","position":"OT","school":"West Virginia"},
-      "OffensiveGuardOfTheYear": {"name":"Luke Kandra","position":"OG","school":"Cincinnati"},
+      "OffensiveGuardOfTheYear": {"name":"Luke Kandra","position":"RG","school":"Cincinnati"},
       "CenterOfTheYear": {"name":"James Brockermeyer","position":"C","school":"TCU"},
-      "OffensiveLinemanOfTheYear": {"name":"Wyatt Milum","position":"OT","school":"West Virginia"},
+      "OffensiveLinemanOfTheYear": {"name":"Wyatt Milum","position":"LT","school":"West Virginia"},
       "OffensiveLineOfTheYear": {"name":"West Virginia Mountaineers","position":"OL Unit","school":"West Virginia"},
       "OffensiveNewcomerOfTheYear": {"name":"Josh Kelly","position":"WR-X","school":"Texas Tech"},
       "OffensiveTransferOfTheYear": {"name":"Josh Kelly","position":"WR-X","school":"Texas Tech"},
       "EdgeDefenderOfTheYear": {"name":"B.J. Green II","position":"LDE","school":"Colorado"},
-      "InteriorDefenderOfTheYear": {"name":"Dontay Corleone","position":"DT","school":"Cincinnati"},
+      "InteriorDefenderOfTheYear": {"name":"Dontay Corleone","position":"NT","school":"Cincinnati"},
       "LinebackerOfTheYear": {"name":"Jacob Rodriguez","position":"WLB","school":"Texas Tech"},
       "CornerbackOfTheYear": {"name":"Travis Hunter","position":"LCB","school":"Colorado"},
       "SafetyOfTheYear": {"name":"Xavion Alford","position":"FS","school":"Arizona State"},
@@ -51,9 +51,9 @@
         {"position":"RB","name":"DJ Giddens","school":"Kansas State"},
         {"position":"OT","name":"Wyatt Milum","school":"West Virginia"},
         {"position":"OG","name":"Luke Kandra","school":"Cincinnati"},
-        {"position":"OC","name":"James Brockermeyer","school":"TCU"},
+        {"position":"C","name":"James Brockermeyer","school":"TCU"},
         {"position":"OG","name":"Tomas Rimac","school":"West Virginia"},
-        {"position":"OT","name":"Spencer Fano","school":"Utah"}
+        {"position":"RT","name":"Spencer Fano","school":"Utah"}
       ],
       "Defense": [
         {"position":"LCB","name":"B.J. Green II","school":"Colorado"},
@@ -68,13 +68,13 @@
         {"position":"LCB","name":"Mello Dotson","school":"Kansas"},
         {"position":"SS","name":"Dalton Johnson","school":"Arizona"},
         {"position":"FS","name":"Xavion Alford","school":"Arizona State"},
-        {"position":"S","name":"Bud Clark","school":"TCU"},
-        {"position":"FLEX","name":"Lander Barton","school":"Utah"}
+        {"position":"FS","name":"Bud Clark","school":"TCU"},
+        {"position":"STUD","name":"Lander Barton","school":"Utah"}
       ],
       "SpecialTeams": [
         {"position":"PK","name":"Will Ferrin","school":"Brigham Young"},
         {"position":"KO","name":"Tyler Loop","school":"Arizona"},
-        {"position":"P","name":"Palmer Williams","school":"Baylor"},
+        {"position":"PT","name":"Palmer Williams","school":"Baylor"},
         {"position":"KR","name":"Keelan Marion","school":"Brigham Young"},
         {"position":"PR","name":"JP Richardson","school":"TCU"},
         {"position":"ST","name":"Micah Gifford","school":"Baylor"}
@@ -85,16 +85,16 @@
         {"position":"QB","name":"Sam Leavitt","school":"Arizona State"},
         {"position":"RB","name":"Tahj Brooks","school":"Texas Tech"},
         {"position":"RB","name":"Devin Neal","school":"Kansas"},
-        {"position":"WR","name":"Jack Bech","school":"TCU"},
+        {"position":"WR-SL","name":"Jack Bech","school":"TCU"},
         {"position":"WR","name":"Jayden Higgins","school":"Iowa State"},
         {"position":"WR-X","name":"Josh Kelly","school":"Texas Tech"},
         {"position":"TE","name":"Joe Royer","school":"Cincinnati"},
         {"position":"FLEX","name":"Jaylin Noel","school":"Iowa State"},
-        {"position":"OT","name":"Bryce Cabeldue","school":"Kansas"},
-        {"position":"OG","name":"Tanoa Togiai","school":"Utah"},
+        {"position":"RT","name":"Bryce Cabeldue","school":"Kansas"},
+        {"position":"LG","name":"Tanoa Togiai","school":"Utah"},
         {"position":"C","name":"Jaren Kump","school":"Utah"},
         {"position":"RG","name":"Davion Carter","school":"Texas Tech"},
-        {"position":"OT","name":"Logan Brown","school":"Kansas"}
+        {"position":"LT","name":"Logan Brown","school":"Kansas"}
       ],
       "Defense": [
         {"position":"EDGE","name":"Keith Cooper Jr.","school":"Houston"},
@@ -115,7 +115,7 @@
       "SpecialTeams": [
         {"position":"PK","name":"Tyler Loop","school":"Arizona"},
         {"position":"KO","name":"Tabor Allen","school":"Kansas"},
-        {"position":"P","name":"Jack Bouwmeester","school":"Utah"},
+        {"position":"PT","name":"Jack Bouwmeester","school":"Utah"},
         {"position":"KR","name":"Jamaal Bell","school":"Baylor"},
         {"position":"PR","name":"Josh Cameron","school":"Baylor"},
         {"position":"ST","name":"Taje McCoy","school":"Colorado"}
@@ -179,12 +179,12 @@
       {"position":"WR-X","name":"Xzavier Henderson","school":"Cincinnati"},
       {"position":"WR-X","name":"Dorian Singer","school":"Utah"},
       {"position":"WR-X","name":"Darius Lassiter","school":"Brigham Young"},
-      {"position":"WR","name":"Eric McAlister","school":"TCU"},
-      {"position":"WR","name":"JP Richardson","school":"TCU"},
+      {"position":"WR-X","name":"Eric McAlister","school":"TCU"},
+      {"position":"WR-Z","name":"JP Richardson","school":"TCU"},
       {"position":"TE","name":"Michael Trigg","school":"Baylor"},
       {"position":"TE","name":"Chamon Metayer","school":"Arizona State"},
       {"position":"TE","name":"Jalin Conyers","school":"Texas Tech"},
-      {"position":"FLEX","name":"Cam Cook","school":"TCU"},
+      {"position":"RB","name":"Cam Cook","school":"TCU"},
       {"position":"WR-Z","name":"Brennan Presley","school":"Oklahoma State"},
       {"position":"WR-X","name":"Monaray Baldwin","school":"Baylor"},
       {"position":"RT","name":"Phillip Houston","school":"Colorado"},
@@ -198,8 +198,8 @@
       {"position":"C","name":"Gavin Gerhardt","school":"Cincinnati"},
       {"position":"LG","name":"Michael Ford Jr.","school":"Kansas"},
       {"position":"RG","name":"Kahlil Benson","school":"Colorado"},
-      {"position":"OG","name":"Carson Bruno","school":"TCU"},
-      {"position":"OT","name":"John Williams","school":"Cincinnati"},
+      {"position":"RG","name":"Carson Bruno","school":"TCU"},
+      {"position":"LT","name":"John Williams","school":"Cincinnati"},
       {"position":"LT","name":"Amari Knight","school":"Central Florida"},
       {"position":"LT","name":"Carver Willis","school":"Kansas State"},
       { "position": "EDGE", "name": "Obi Ezeigbo", "school": "Oklahoma State" },
@@ -212,8 +212,8 @@
         { "position": "DT", "name": "Ta’ita’i Uiagalelei", "school": "Arizona" },
         { "position": "RDE", "name": "Amari McNeill", "school": "Colorado" },
         { "position": "EDGE", "name": "Eric Phillips", "school": "Cincinnati" },
-        { "position": "EDGE", "name": "Van Fillinger", "school": "Utah" },
-        { "position": "EDGE", "name": "Logan Fano", "school": "Utah" },
+        { "position": "LDE", "name": "Van Fillinger", "school": "Utah" },
+        { "position": "RDE", "name": "Logan Fano", "school": "Utah" },
         { "position": "MLB", "name": "Caleb McCullough", "school": "Arizona State" },
         { "position": "SS", "name": "Deshawn Pace", "school": "Central Florida" },
         { "position": "MLB", "name": "Cornell Wheeler", "school": "Kansas" },
@@ -242,14 +242,14 @@
         { "position": "S", "name": "Malik Verdon", "school": "Iowa State" },
         { "position": "S", "name": "Beau Freyler", "school": "Iowa State" },
         { "position": "FS", "name": "Genesis Smith", "school": "Arizona" },
-        { "position": "FLEX", "name": "Smith Snowden", "school": "Utah" },
-        { "position": "FLEX", "name": "Cameron Calhoun", "school": "Utah" },
+        { "position": "NB", "name": "Smith Snowden", "school": "Utah" },
+        { "position": "LCB", "name": "Cameron Calhoun", "school": "Utah" },
         { "position": "PK", "name": "Alejandro Mata", "school": "Colorado" },
         { "position": "KO", "name": "Jack Stone", "school": "Baylor" },
         { "position": "PT", "name": "Ethan Craw", "school": "TCU" },
         { "position": "KR", "name": "Drae McCray", "school": "Texas Tech" },
         { "position": "PR", "name": "Dylan Edwards", "school": "Kansas State" },
-        { "position": "ST", "name": "Trey Reynolds", "school": "Utah" }
+        { "position": "MAC", "name": "Trey Reynolds", "school": "Utah" }
     ]
   }
 }
