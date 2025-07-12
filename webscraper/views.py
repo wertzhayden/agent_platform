@@ -151,117 +151,38 @@ class IngestOurladsDepthCharts(viewsets.ViewSet):
     """
 
     def list(self, request):
-        # players = Player.objects.filter(school__name=request.data.get("school"))
-        # return Response({"players": list(players.values())})
-        # return Response({"players": list(players.values())})
-        return Response(get_hs_rankings_by_school_and_year(school=request.data.get("school"), year=request.data.get("year")))
-        school = School.objects.filter(name=request.data.get("school")).first()
-        hs_rankings = retrieve_player_hs_rankings(school=request.data.get("school"), year=request.data.get("year"))
-        recruiting_class_rank = hs_rankings.get("ranks", None)
-        overall_rank = recruiting_class_rank.get("overall_rank", {}).get("value")
-        transfer_rank = recruiting_class_rank.get("transfer_rank", {}).get("value")
-        composite_rank = recruiting_class_rank.get("composite_rank", {}).get("value")
-        recruiting_class, _ = RecruitingClass.objects.get_or_create(
-                school=school,
-                year=request.data.get("year"),
-                defaults={
-                    "overall_rank": overall_rank,
-                    "transfer_rank": transfer_rank,
-                    "composite_rank": composite_rank
-                }
-            )
-        # Loop Through Each Recruit in the Recruiting Class
-        recruiting_class_players = hs_rankings.get("players", [])
-        for recruit_players in recruiting_class_players:
-            if not recruit_players.get("name"):
-                continue
-            name = recruit_players.get("name").split(" ", 1)
-            first_name = name[0] if name[0] else ""
-            last_name = name[1] if len(name) > 1 else ""
-            profile_url = recruit_players.get("profile_url", None)
-            position = recruit_players.get("position", "").lower()
-            ht_wt = recruit_players.get("ht_wt", "").split("/")
-            height = ht_wt[0].strip() if len(ht_wt) > 0 else None
-            weight = ht_wt[1].strip() if len(ht_wt) > 1 else None
-            stars = recruit_players.get("stars", None)
-            rating_score = recruit_players.get("rating_score", None)
-            national_rank = recruit_players.get("national_rank", None)
-            position_rank = recruit_players.get("position_rank", None)
-            state_rank = recruit_players.get("state_rank", None)
-            status= recruit_players.get("status", None)
-            high_school, hometown_city, hometown_state = split_high_school_and_hometown(
-                school_location=recruit_players.get("school_location")
-            )
-            recruit, _ = Recruit.objects.get_or_create(
-                first_name=first_name,
-                last_name=last_name,
-                position=position,
-                high_school=high_school,
-                hometown_city=hometown_city,
-                hometown_state=hometown_state,
-                recruiting_class=recruiting_class,
-                defaults={
-                    "height": height,
-                    "weight": weight,
-                    "stars": stars,
-                    "rating_score": rating_score,
-                    "national_rank": national_rank if type(national_rank) is int else None,
-                    "position_rank": position_rank if type(position_rank) is int else None,
-                    "state_rank": state_rank if type(state_rank) is int else None,
-                    "status": status,
-                    "school_link": profile_url
-                }
-            )
-        recruiting_class_transfers = hs_rankings.get("transfers", [])
-        # return Response(recruiting_class_transfers)
-        for transfer in recruiting_class_transfers:
-            if not transfer.get("name") :
-                continue
-            name = transfer.get("name").split(" ", 1)
-            first_name = name[0] if name[0] else ""
-            last_name = name[1] if len(name) > 1 else ""
-            position = transfer.get("position", "").lower()
-            ht_wt = transfer.get("ht_wt", "").split("/")
-            height = ht_wt[0].strip() if len(ht_wt) > 0 else None
-            weight = ht_wt[1].strip() if len(ht_wt) > 1 else None
-            profile_url = transfer.get("profile_url", None)
-            transfer_from = transfer.get("transfer_from", None)
-            ratings = transfer.get("ratings", {})
-            for rating in ratings:
-                level = rating.get("level", "")
-                if level == "Transfer":
-                    transfer_stars = rating.get("stars", None)
-                    transfer_rating_score = rating.get("rating_score", None)
-                elif level == "HS":
-                    hs_stars = rating.get("stars", None)
-                    hs_rating_score = rating.get("rating_score", None)
-            recruit, _ = Recruit.objects.get_or_create(
-                first_name=first_name,
-                last_name=last_name,
-                position=position,
-                high_school=high_school,
-                hometown_city=hometown_city,
-                hometown_state=hometown_state,
-                recruiting_class=recruiting_class,
-                defaults={
-                    "height": height,
-                    "weight": weight,
-                    "stars": stars,
-                    "rating_score": rating_score,
-                    "national_rank": national_rank if type(national_rank) is int else None,
-                    "position_rank": position_rank if type(position_rank) is int else None,
-                    "state_rank": state_rank if type(state_rank) is int else None,
-                    "status": status,
-                    "school_link": profile_url
-                }
-            )
-            recruit.transfer_stars = transfer_stars
-            recruit.transfer_rating_score = transfer_rating_score
-            recruit.stars = hs_stars
-            recruit.rating_score = hs_rating_score
+        recruits = Recruit.objects.all()
+        recruits_list = []
+        for recruit in recruits:
+            player_profile_url = recruit.school_link
+            current_school_data = retrieve_latest_school_by_player(url=player_profile_url) or {}
+            current_position = current_school_data.get("position")
+            current_height = current_school_data.get("height")
+            current_weight = current_school_data.get("weight")
+            experience_level_at_current_school = current_school_data.get("exp")
+            current_school = current_school_data.get("current_school")
+            recruit.current_position = current_position
+            recruit.current_height = current_height
+            recruit.current_weight = current_weight
+            recruit.experience_level_at_current_school = experience_level_at_current_school
+            recruit.current_school = current_school
             recruit.save()
-            
-        return Response(hs_rankings)
+            recruits_list.append({
+                "first_name": recruit.first_name,
+                "last_name": recruit.last_name,
+                "position": recruit.current_position,
+                "height": recruit.current_height,
+                "weight": recruit.current_weight,
+                "experience_level_at_current_school": recruit.experience_level_at_current_school,
+                "current_school": recruit.current_school
+            })
+        return Response(recruits_list)
+
+
+        # return Response(get_hs_rankings_by_school_and_year(school=request.data.get("school"), year=request.data.get("year")))
+        
+        # return Response(retrieve_latest_school_by_player(url=request.data.get("url")))
+
     
 
 
@@ -365,7 +286,6 @@ class IngestOurladsDepthCharts(viewsets.ViewSet):
         return Response([len(all_results), all_results])
         # schools_to_process = [{"school": name, "school_id": sid} for name, sid in TEAM_IDS.items()]
         # return Response(schools_to_process)
-        # return Response(retrieve_player_hs_rankings(school=request.data.get("school"), year=request.data.get("year")))
         # return Response(retrieve_latest_school_by_player(url=request.data.get("url")))
 
     def create(self, request):
@@ -442,7 +362,6 @@ def get_hs_rankings_by_school_and_year(school: str, year: int) -> dict:
 
         hs_rankings = retrieve_player_hs_rankings(school=school_name, year=year)
         recruiting_class_rank = hs_rankings.get("ranks", {})
-
         # Safely extract ranks
         overall_rank = recruiting_class_rank.get("overall_rank", {}).get("value")
         transfer_rank = recruiting_class_rank.get("transfer_rank", {}).get("value")
@@ -474,19 +393,23 @@ def get_hs_rankings_by_school_and_year(school: str, year: int) -> dict:
         for player in hs_rankings.get("players", []):
             if not player.get("name"):
                 continue
-
             first_name, last_name = parse_name(player["name"])
             height, weight = parse_ht_wt(player.get("ht_wt", ""))
-            profile_url = player.get("profile_url")
+            profile_url = f"https:{player.get("profile_url")}"
             position = player.get("position", "").lower()
             stars = player.get("stars")
-            rating_score = player.get("rating_score")
+            hs_rating_score = player.get("rating_score")
             national_rank = player.get("national_rank") if isinstance(player.get("national_rank"), int) else None
             position_rank = player.get("position_rank") if isinstance(player.get("position_rank"), int) else None
             state_rank = player.get("state_rank") if isinstance(player.get("state_rank"), int) else None
             status = player.get("status")
             hs, city, state = split_high_school_and_hometown(player.get("school_location"))
-
+            # current_school_data = retrieve_latest_school_by_player(url=profile_url) or {}
+            # current_position = current_school_data.get("position")
+            # current_height = current_school_data.get("height")
+            # current_weight = current_school_data.get("weight")
+            # experience_level_at_current_school = current_school_data.get("exp")
+            # current_school = current_school_data.get("school")
             recruit, _ = Recruit.objects.get_or_create(
                 first_name=first_name,
                 last_name=last_name,
@@ -499,18 +422,24 @@ def get_hs_rankings_by_school_and_year(school: str, year: int) -> dict:
                     "height": height,
                     "weight": weight,
                     "stars": stars,
-                    "rating_score": round(float(rating_score), 2),
+                    "hs_rating_score": round(float(hs_rating_score), 2),
                     "national_rank": national_rank,
                     "position_rank": position_rank,
                     "state_rank": state_rank,
                     "status": status,
                     "school_link": profile_url,
+                    # "current_position": current_position,
+                    # "current_height": current_height,   
+                    # "current_weight": current_weight,
+                    # "experience_level_at_current_school": experience_level_at_current_school,
+                    # "current_school": current_school,
                 }
             )
             results.append({
                 "name": f"{first_name} {last_name}",
                 "type": "hs",
-                "id": recruit.id
+                "id": recruit.id,
+                "school_link": recruit.school_link,
             })
 
         # --- Handle Transfers ---
@@ -522,7 +451,12 @@ def get_hs_rankings_by_school_and_year(school: str, year: int) -> dict:
             height, weight = parse_ht_wt(transfer.get("ht_wt", ""))
             profile_url = transfer.get("profile_url")
             position = transfer.get("position", "").lower()
-
+            # current_school_data = retrieve_latest_school_by_player(url=profile_url) or {}
+            # current_position = current_school_data.get("position")
+            # current_height = current_school_data.get("height")
+            # current_weight = current_school_data.get("weight")
+            # experience_level_at_current_school = current_school_data.get("exp")
+            # current_school = current_school_data.get("school")
             hs_stars = hs_rating_score = transfer_stars = transfer_rating_score = None
             for rating in transfer.get("ratings", []):
                 level = rating.get("level", "").lower()
@@ -532,7 +466,6 @@ def get_hs_rankings_by_school_and_year(school: str, year: int) -> dict:
                 elif level == "hs":
                     hs_stars = rating.get("stars")
                     hs_rating_score = rating.get("rating_score")
-
             recruit, _ = Recruit.objects.get_or_create(
                 first_name=first_name,
                 last_name=last_name,
@@ -545,22 +478,32 @@ def get_hs_rankings_by_school_and_year(school: str, year: int) -> dict:
                     "height": height,
                     "weight": weight,
                     "stars": hs_stars,
-                    "rating_score": round(float(hs_rating_score), 2),
                     "school_link": profile_url,
+                #     "current_position": current_position,
+                #     "current_height": current_height,   
+                #     "current_weight": current_weight,
+                #     "experience_level_at_current_school": experience_level_at_current_school,
+                #     "current_school": current_school,
                 }
             )
-
-            recruit.transfer_stars = transfer_stars
-            recruit.transfer_rating_score = transfer_rating_score
+            if hs_stars is not None:
+                recruit.stars = hs_stars
+            if hs_rating_score is not None:
+                recruit.rating_score = convert_string_to_float(hs_rating_score)
+            if transfer_stars is not None:
+                recruit.transfer_stars = transfer_stars
+            if transfer_rating_score is not None:
+                recruit.transfer_rating_score = convert_string_to_float(transfer_rating_score)
             recruit.save()
 
             results.append({
                 "name": f"{first_name} {last_name}",
                 "type": "transfer",
-                "id": recruit.id
+                "id": recruit.id,
+                "school_link": recruit.school_link,
             })
 
-        return Response({
+        return {
             "recruiting_class": {
                 "id": recruiting_class.id,
                 "school": school_name,
@@ -570,10 +513,51 @@ def get_hs_rankings_by_school_and_year(school: str, year: int) -> dict:
                 "composite_rank": composite_rank
             },
             "recruits": results
-        })
+        }
 
-def round_to_two_decimals(value: str) -> float:
+def convert_string_to_float(value: str) -> float:
+    """
+    Rounds a numeric string to two decimal places.
+
+    Args:
+        value (str): A string representing a numeric value.
+
+    Returns:
+        float: The numeric value rounded to two decimal places.
+               Returns None if the input value is empty or None.
+    """
+    if not value:
+        return None
     return round(float(value), 2)
+
+def retrieve_recruits_current_info_via_ourlads() -> list:
+    """Retrieve the current information of recruits via Ourlads."""
+    recruits = Recruit.objects.all()
+    recruits_list = []
+    for recruit in recruits:
+        player_profile_url = recruit.school_link
+        current_school_data = retrieve_latest_school_by_player(url=player_profile_url) or {}
+        current_position = current_school_data.get("position")
+        current_height = current_school_data.get("height")
+        current_weight = current_school_data.get("weight")
+        experience_level_at_current_school = current_school_data.get("exp")
+        current_school = current_school_data.get("current_school")
+        recruit.current_position = current_position
+        recruit.current_height = current_height
+        recruit.current_weight = current_weight
+        recruit.experience_level_at_current_school = experience_level_at_current_school
+        recruit.current_school = current_school
+        recruit.save()
+        recruits_list.append({
+            "first_name": recruit.first_name,
+            "last_name": recruit.last_name,
+            "position": recruit.current_position,
+            "height": recruit.current_height,
+            "weight": recruit.current_weight,
+            "experience_level_at_current_school": recruit.experience_level_at_current_school,
+            "current_school": recruit.current_school
+        })
+    return Response(recruits_list)
 
     
 """

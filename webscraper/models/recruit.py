@@ -15,7 +15,7 @@ class Recruit(BaseModel):
     height = models.CharField(max_length=10, blank=True, null=True)
     weight = models.IntegerField(blank=True, null=True)
     stars = models.IntegerField(blank=True, null=True)
-    rating_score = models.IntegerField(blank=True, null=True)
+    hs_rating_score = models.IntegerField(blank=True, null=True)
     position = models.CharField(max_length=50, blank=True, null=True)
     national_rank = models.IntegerField(blank=True, null=True)
     position_rank = models.IntegerField(blank=True, null=True)
@@ -24,4 +24,9 @@ class Recruit(BaseModel):
     school_link = models.URLField(blank=True, null=True)
     transfer_stars = models.IntegerField(blank=True, null=True)
     transfer_rating_score = models.FloatField(blank=True, null=True)
+    current_position = models.CharField(max_length=50, blank=True, null=True)
+    current_height = models.CharField(max_length=50, blank=True, null=True)
+    current_weight = models.IntegerField(blank=True, null=True)
+    experience_level_at_current_school = models.CharField(max_length=100, blank=True, null=True)
+    current_school = models.CharField(max_length=255, blank=True, null=True)
     
