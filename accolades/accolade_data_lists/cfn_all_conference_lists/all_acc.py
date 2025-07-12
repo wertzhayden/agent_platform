@@ -5,7 +5,7 @@
     "Awards": {
       "PlayerOfTheYear": {"name":"Cam Ward","position":"QB","school":"Miami"},
       "OffensivePlayerOfTheYear": {"name":"Cam Ward","position":"QB","school":"Miami"},
-      "DefensivePlayerOfTheYear": {"name":"Nohl Williams","position":"CB","school":"California"},
+      "DefensivePlayerOfTheYear": {"name":"Nohl Williams","position":"LCB","school":"California"},
       "SpecialistOfTheYear": {"name":"Collin Rogers","position":"PK","school":"SMU"},
       "NewcomerOfTheYear": {"name":"Desmond Reid","position":"RB","school":"Pittsburgh"},
       "CoachOfTheYear": {"name":"Rhett Lashlee","position":"Coach","school":"SMU"}
@@ -13,7 +13,7 @@
     "PositionAwards": {
       "QuarterbackOfTheYear": {"name":"Cam Ward","position":"QB","school":"Miami"},
       "RunningBackOfTheYear": {"name":"Omarion Hampton","position":"RB","school":"North Carolina"},
-      "WideReceiverOfTheYear": {"name":"Xavier Restrepo","position":"WR","school":"Miami"},
+      "WideReceiverOfTheYear": {"name":"Xavier Restrepo","position":"WR-X","school":"Miami"},
       "TightEndOfTheYear": {"name":"Oronde Gadsden II","position":"TE","school":"Syracuse"},
       "OffensiveTackleOfTheYear": {"name":"PJ Williams","position":"OT","school":"SMU"},
       "OffensiveGuardOfTheYear": {"name":"Willie Lampkin","position":"OG","school":"North Carolina"},
@@ -34,14 +34,14 @@
       "KickReturnerOfTheYear": {"name":"Chris Johnson Jr.","position":"KR","school":"Wake Forest"},
       "PuntReturnerOfTheYear": {"name":"Taylor Morin","position":"PR","school":"Georgia Tech"},
       "SpecialTeamerOfTheYear": {"name":"Daylon Gordon","position":"ST","school":"North Carolina"},
-      "KickoffSpecialistOfTheYear": {"name":"Andres Borregales","position":"KOS","school":"Miami"}
+      "KickoffSpecialistOfTheYear": {"name":"Andres Borregales","position":"KO","school":"Miami"}
     },
     "FirstTeam": {
       "Offense": [
         {"position":"QB","name":"Cam Ward","school":"Miami"},
         {"position":"RB","name":"Omarion Hampton","school":"North Carolina"},
         {"position":"RB","name":"LeQuint Allen","school":"Syracuse"},
-        {"position":"WR","name":"Xavier Restrepo","school":"Miami"},
+        {"position":"WR-X","name":"Xavier Restrepo","school":"Miami"},
         {"position":"WR","name":"Ja’Corey Brooks","school":"Louisville"},
         {"position":"WR","name":"Jackson Meeks","school":"Syracuse"},
         {"position":"TE","name":"Oronde Gadsden II","school":"Syracuse"},
@@ -58,7 +58,7 @@
         {"position":"DT","name":"Jared Harrison-Hunte","school":"SMU"},
         {"position":"DT","name":"Simeon Barrow Jr.","school":"Miami"},
         {"position":"LB","name":"Kyle Louis","school":"Pittsburgh"},
-        {"position":"LB","name":"Francisco Mauigoa","school":"Miami"},
+        {"position":"WLB","name":"Francisco Mauigoa","school":"Miami"},
         {"position":"LB","name":"Teddye Buchanan","school":"California"},
         {"position":"CB","name":"Nohl Williams","school":"California"},
         {"position":"CB","name":"Avieon Terrell","school":"Clemson"},
@@ -70,7 +70,7 @@
       ],
       "SpecialTeams": [
         {"position":"PK","name":"Collin Rogers","school":"SMU"},
-        {"position":"KOS","name":"Andres Borregales","school":"Miami"},
+        {"position":"KO","name":"Andres Borregales","school":"Miami"},
         {"position":"P","name":"Alex Mastromanno","school":"Florida State"},
         {"position":"KR","name":"Chris Johnson Jr.","school":"Miami"},
         {"position":"PR","name":"Taylor Morin","school":"wake-forest"},
@@ -87,7 +87,7 @@
         {"position":"WR","name":"Konata Mumpfield","school":"Pittsburgh"},
         {"position":"TE","name":"Jake Briningstool","school":"Clemson"},
         {"position":"FLEX","name":"Brashard Smith","school":"SMU"},
-        {"position":"OT","name":"Francis Mauigoa","school":"Miami"},
+        {"position":"RT","name":"Francis Mauigoa","school":"Miami"},
         {"position":"OG","name":"Anthony Carter Jr.","school":"NC State"},
         {"position":"OC","name":"Pete Nygra","school":"Louisville"},
         {"position":"OG","name":"Timothy McKay","school":"NC State"},
@@ -95,18 +95,18 @@
       ],
       "Defense": [
         {"position":"EDGE","name":"Elijah Roberts","school":"smu"},
-        {"position":"EDGE","name":"Tyler Baron","school":"miami"},
+        {"position":"LDE","name":"Tyler Baron","school":"miami"},
         {"position":"DT","name":"Aeneas Peebles","school":"virginia-tech"},
         {"position":"DT","name":"Darrell Jackson Jr","school":"florida-state"},
         {"position":"LB","name":"Cameron Bergeron","school":"duke"},
         {"position":"LB","name":"Amare Campbell","school":"north-carolina"},
         {"position":"LB","name":"Alex Howard","school":"duke"},
         {"position":"CB","name":"Quincy Riley","school":"Louisville"},
-        {"position":"CB","name":"Daryl Porter Jr.","school":"Miami"},
+        {"position":"LCB","name":"Daryl Porter Jr.","school":"Miami"},
         {"position":"CB","name":"Kempton Shine","school":"virginia-tech"},
         {"position":"SS","name":"Javon McIntyre","school":"Pittsburgh"},
         {"position":"FS","name":"Nick Andersen","school":"Wake Forest"},
-        {"position":"S","name":"Mishael Powell","school":"Miami"},
+        {"position":"FS","name":"Mishael Powell","school":"Miami"},
         {"position":"FLEX","name":"T.J. Parker","school":"Clemson"}
       ],
       "SpecialTeams": [
@@ -157,7 +157,7 @@
         {"position":"P","name":"Peter Moore","school":"Virginia Tech"},
         {"position":"KR","name":"Kenny Johnson","school":"Pittsburgh"},
         {"position":"PR","name":"Jaylin Lane","school":"Virginia Tech"},
-        {"position":"ST","name":"Dylan Day","school":"Miami"}
+        {"position":"SS","name":"Dylan Day","school":"Miami"}
       ]
     },
     "HonorableMention": [
@@ -172,7 +172,7 @@
       {"position":"RB","name":"Jamal Haynes","school":"Georgia Tech"},
       {"position":"WR","name":"Taylor Morin","school":"Wake Forest"},
       {"position":"WR","name":"J.J. Jones","school":"North Carolina"},
-      {"position":"WR","name":"Jacolby George","school":"Miami"},
+      {"position":"WR-Z","name":"Jacolby George","school":"Miami"},
       {"position":"WR","name":"Chris Bell","school":"Louisville"},
       {"position":"WR","name":"Key’Shawn Smith","school":"SMU"},
       {"position":"WR","name":"Emmett Mosley V","school":"Stanford"},
@@ -186,7 +186,7 @@
       {"position":"OT","name":"Jacarrius Peak","school":"NC State"},
       {"position":"OT","name":"Keagen Trost","school":"Wake Forest"},
       {"position":"OT","name":"Savion Washington","school":"Syracuse"},
-      {"position":"OG","name":"Matthew McCoy","school":"Miami"},
+      {"position":"LG","name":"Matthew McCoy","school":"Miami"},
       {"position":"OG","name":"Michael Gonzalez","school":"Louisville"},
       {"position":"OG","name":"Marcus Tate","school":"Clemson"},
       {"position":"OC","name":"Drew Kendall","school":"Boston College"},
@@ -218,7 +218,7 @@
       {"position":"LB","name":"Sammy Brown","school":"Clemson"},
       {"position":"LB","name":"Cade Uluave","school":"California"},
       {"position":"LB","name":"Tre Freeman","school":"Duke"},
-      {"position":"LB","name":"Wesley Bissainthe","school":"Miami"},
+      {"position":"WLB","name":"Wesley Bissainthe","school":"Miami"},
       {"position":"CB","name":"Devon Marshall","school":"NC State"},
       {"position":"CB","name":"Kaleb Cost","school":"North Carolina"},
       {"position":"CB","name":"Ashton Hampton","school":"Clemson"},
