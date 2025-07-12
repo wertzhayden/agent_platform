@@ -8,9 +8,9 @@ from core.models.player import Player
 class CareerStats(BaseModel):
     """One row per player per season."""
     player = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="%(class)s_career_stats")
-    year = models.IntegerField()
+    season = models.IntegerField()
     metadata = JSONField(blank=True, null=True)
 
     class Meta:
         abstract = True
-        ordering = ["-year"]
+        ordering = ["-season"]

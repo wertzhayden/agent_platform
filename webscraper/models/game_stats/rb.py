@@ -2,7 +2,7 @@ from django.db import models
 from core.models.game_stats import GameStats
 
 class RBGameStats(GameStats):
-    rush_attempts = models.IntegerField()
+    attempts = models.IntegerField()
     rushing_yards = models.IntegerField()
     avg_per_rush = models.FloatField()
     rushing_touchdowns = models.IntegerField()

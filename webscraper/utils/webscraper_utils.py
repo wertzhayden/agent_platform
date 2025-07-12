@@ -1,5 +1,10 @@
 """DEFAULT UTILITY METHODS USED TO HELP WEBSCRAPERS"""
-from webscraper.constants.headers_for_player_stats import wr_career_stats_headers, wr_game_stats_headers, rb_career_stats_headers, rb_game_stats_headers
+from webscraper.constants.headers_for_player_stats import (
+    wr_career_stats_headers, wr_game_stats_headers, 
+    rb_career_stats_headers, rb_game_stats_headers,
+    qb_career_stats_headers, qb_game_stats_headers,
+    defense_career_stats_headers, defense_game_stats_headers
+)
 
 
 def determine_ourlads_headers_by_position(position: str) -> tuple[list[str], list[str]]:
@@ -15,4 +20,8 @@ def determine_ourlads_headers_by_position(position: str) -> tuple[list[str], lis
         return rb_career_stats_headers, rb_game_stats_headers
     if 'WR' in position or 'TE' in position:
         return wr_career_stats_headers, wr_game_stats_headers
-    
+    if 'QB' in position:
+        return qb_career_stats_headers, qb_game_stats_headers
+    if 'DEFENSE' in position:
+        return defense_career_stats_headers, defense_game_stats_headers
+    return [], []
