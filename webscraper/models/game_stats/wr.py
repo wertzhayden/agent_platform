@@ -8,6 +8,7 @@ class ReceiverGameStats(GameStats):
     touchdowns = models.IntegerField()
     rush_attempts = models.IntegerField()
     rushing_yards = models.IntegerField()
+    rush_touchdowns = models.IntegerField()
     avg_per_rush = models.FloatField()
     total_fumbles = models.IntegerField()
     lost_fumbles = models.IntegerField()
