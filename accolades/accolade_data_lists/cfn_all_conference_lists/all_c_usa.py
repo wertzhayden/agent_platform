@@ -91,10 +91,10 @@
         {"position":"TE","name":"Carson Kent","school":"Kennesaw State"},
         {"position":"WR-X","name":"Sean Brown","school":"Jacksonville State"},
         {"position":"LT","name":"Xavior Gray","school":"Liberty"},
-        {"position":"OG","name":"Rodney Newsom","school":"Western Kentucky"},
+        {"position":"C","name":"Rodney Newsom Jr.","school":"Western Kentucky"},
         {"position":"C","name":"Aaron Fenimore","school":"Liberty"},
-        {"position":"OG","name":"AJ Vaipulu","school":"New Mexico State"},
-        {"position":"OT","name":"Travis Burke","school":"Florida International"}
+        {"position":"RG","name":"AJ Vaipulu","school":"New Mexico State"},
+        {"position":"RT","name":"Travis Burke","school":"Florida International"}
       ],
       "Defense": [
         {"position":"LOLB","name":"TJ Bush","school":"Liberty"},
