@@ -5,8 +5,8 @@
     "Awards": {
       "PlayerOfTheYear": {"name":"Tre Stewart","position":"RB","school":"Jacksonville State"},
       "OffensivePlayerOfTheYear": {"name":"Tre Stewart","position":"RB","school":"Jacksonville State"},
-      "DefensivePlayerOfTheYear": {"name":"Caleb Weaver","position":"S","school":"Sam Houston"},
-      "SpecialistOfTheYear": {"name":"Buck Buchanan","position":"KOS","school":"Louisiana Tech"},
+      "DefensivePlayerOfTheYear": {"name":"Caleb Weaver","position":"FS","school":"Sam Houston"},
+      "SpecialistOfTheYear": {"name":"Buck Buchanan","position":"KO","school":"Louisiana Tech"},
       "NewcomerOfTheYear": {"name":"Malaki Ta’ase","position":"DT","school":"New Mexico State"},
       "CoachOfTheYear": {"name":"Rich Rodriguez","position":"Coach","school":"Jacksonville State"},
       "ImpactFreshmanOfTheYear": {"name":"Malaki Ta’ase","position":"DT","school":"New Mexico State"}
@@ -36,8 +36,8 @@
       "PunterOfTheYear": {"name":"Jacob Ulrich","position":"P","school":"Kennesaw State"},
       "KickReturnerOfTheYear": {"name":"Qua Ashley","position":"KR","school":"Kennesaw State"},
       "PuntReturnerOfTheYear": {"name":"Kam Thomas","position":"PR","school":"UTEP"},
-      "SpecialTeamerOfTheYear": {"name":"Kam Thomas","position":"ST","school":"UTEP"},
-      "KickoffSpecialistOfTheYear": {"name":"Travis Franklin Jr.","position":"KOS","school":"Jacksonville State"}
+      "SpecialTeamerOfTheYear": {"name":"Kam Thomas","position":"PR","school":"UTEP"},
+      "KickoffSpecialistOfTheYear": {"name":"Travis Franklin Jr.","position":"KO","school":"Jacksonville State"}
     },
     "FirstTeam": {
       "Offense": [
@@ -56,12 +56,12 @@
         {"position":"OT","name":"Jordan Hall","school":"Liberty"}
       ],
       "Defense": [
-        {"position":"EDGE","name":"Chris Murray","school":"Sam Houston"},
+        {"position":"DE","name":"Chris Murray","school":"Sam Houston"},
         {"position":"DT","name":"Tylon Dunlap","school":"Kennesaw State"},
         {"position":"DT","name":"Jamarrion Solomon","school":"Florida International"},
         {"position":"EDGE","name":"Maurice Westmoreland","school":"UTEP"},
         {"position":"LB","name":"Travion Barnes","school":"Florida International"},
-        {"position":"LB","name":"Kavian Gaither","school":"Sam Houston"},
+        {"position":"MLB","name":"Kavian Gaither","school":"Sam Houston"},
         {"position":"LB","name":"Reginald Hughes","school":"Jacksonville State"},
         {"position":"CB","name":"Geimere Latimer","school":"Jacksonville State"},
         {"position":"CB","name":"Anthony Johnson Jr.","school":"Western Kentucky"},
@@ -100,7 +100,7 @@
         {"position":"EDGE","name":"TJ Bush","school":"Liberty"},
         {"position":"DT","name":"Chris Boti","school":"Liberty"},
         {"position":"DT","name":"Malaki Ta’ase","school":"New Mexico State"},
-        {"position":"EDGE","name":"Jevon Leon","school":"Sam Houston"},
+        {"position":"JACK","name":"Jevon Leon","school":"Sam Houston"},
         {"position":"LB","name":"Laletia Hale","school":"Jacksonville State"},
         {"position":"LB","name":"Darius Thomas","school":"Western Kentucky"},
         {"position":"LB","name":"Ky’won McCray","school":"Jacksonville State"},
@@ -118,7 +118,7 @@
         {"position":"P","name":"Grant Chadwick","school":"Middle Tennessee"},
         {"position":"KR","name":"C’Quan Jnopierre","school":"Florida International"},
         {"position":"PR","name":"Solo Lewis","school":"Louisiana Tech"},
-        {"position":"ST","name":"Elias Escobar","school":"Sam Houston"}
+        {"position":"SS","name":"Elias Escobar","school":"Sam Houston"}
       ]
     },
     "ThirdTeam": {
@@ -128,12 +128,12 @@
         {"position":"RB","name":"Jay Ducker","school":"Sam Houston"},
         {"position":"WR","name":"Cam Vaughn","school":"Jacksonville State"},
         {"position":"WR","name":"Treon Sibley","school":"Liberty"},
-        {"position":"WR","name":"Simeon Evans","school":"Sam Houston"},
+        {"position":"WR-Z","name":"Simeon Evans","school":"Sam Houston"},
         {"position":"TE","name":"Eli Finley","school":"Louisiana Tech"},
-        {"position":"FLEX","name":"Qua’Vez Humphreys","school":"Sam Houston"},
-        {"position":"OT","name":"Kolt Dieterich","school":"Sam Houston"},
+        {"position":"WR-X","name":"Qua’Vez Humphreys","school":"Sam Houston"},
+        {"position":"LT","name":"Kolt Dieterich","school":"Sam Houston"},
         {"position":"OG","name":"Harrison Hayes","school":"Liberty"},
-        {"position":"OC","name":"Ethan Hagler","school":"Sam Houston"},
+        {"position":"C","name":"Ethan Hagler","school":"Sam Houston"},
         {"position":"OG","name":"Otis Pitts III","school":"UTEP"},
         {"position":"OT","name":"Marshall Jackson","school":"Western Kentucky"}
       ],
@@ -143,15 +143,15 @@
         {"position":"DT","name":"Damonte Smith","school":"Middle Tennessee"},
         {"position":"EDGE","name":"Deante McCray","school":"Western Kentucky"},
         {"position":"LB","name":"Elijah Anderson-Taylor","school":"Florida International"},
-        {"position":"LB","name":"Trey Fields","school":"Sam Houston"},
+        {"position":"WLB","name":"Trey Fields","school":"Sam Houston"},
         {"position":"LB","name":"Kolbe Fields","school":"Louisiana Tech"},
-        {"position":"CB","name":"David Fisher","school":"Sam Houston"},
+        {"position":"RCB","name":"David Fisher","school":"Sam Houston"},
         {"position":"CB","name":"Dexter Ricks Jr.","school":"Liberty"},
         {"position":"CB","name":"Amier Boyd-Matthews","school":"UTEP"},
         {"position":"SS","name":"Kory Chapman","school":"UTEP"},
-        {"position":"FS","name":"Isaiah Cash","school":"Sam Houston"},
+        {"position":"SS","name":"Isaiah Cash","school":"Sam Houston"},
         {"position":"S","name":"Brylan Green","school":"Liberty"},
-        {"position":"FLEX","name":"Jaylon Jimmerson","school":"Sam Houston"}
+        {"position":"SS","name":"Jaylon Jimmerson","school":"Sam Houston"}
       ],
       "SpecialTeams": [
         {"position":"PK","name":"Zeke Rankin","school":"Middle Tennessee"},
@@ -201,7 +201,7 @@
       {"position":"OG","name":"Bert Hale","school":"Louisiana Tech"},
       {"position":"OT","name":"Jacob Kettels","school":"Kennesaw State"},
       {"position":"OT","name":"Cam Jones","school":"Jacksonville State"},
-      {"position":"OT","name":"Rhett Larson","school":"Sam Houston"},
+      {"position":"LG","name":"Rhett Larson","school":"Sam Houston"},
       {"position":"EDGE","name":"Jordan Miles","school":"Kennesaw State"},
       {"position":"EDGE","name":"Buddha Peleti","school":"New Mexico State"},
       {"position":"EDGE","name":"J’Dan Burnett","school":"Louisiana Tech"},
