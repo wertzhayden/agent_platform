@@ -53,7 +53,7 @@
         {"position":"C","name":"Jordan White","school":"Liberty"},
         {"position":"C","name":"Canaan Yarro","school":"New Mexico State"},
         {"position":"LG","name":"Clay Webb","school":"Jacksonville State"},
-        {"position":"LT","name":"Jordan Hall","school":"Liberty"}
+        {"position":"NT","name":"Jordan Hall","school":"Liberty"}
       ],
       "Defense": [
         {"position":"BUCK","name":"Chris Murray","school":"Sam Houston"},
