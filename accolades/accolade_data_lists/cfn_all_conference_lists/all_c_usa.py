@@ -51,12 +51,12 @@
         {"position":"WR-Z","name":"Dean Patterson","school":"Florida International"},
         {"position":"LT","name":"Will O’Steen","school":"Jacksonville State"},
         {"position":"C","name":"Jordan White","school":"Liberty"},
-        {"position":"OC","name":"Canaan Yarro","school":"New Mexico State"},
+        {"position":"C","name":"Canaan Yarro","school":"New Mexico State"},
         {"position":"LG","name":"Clay Webb","school":"Jacksonville State"},
         {"position":"LT","name":"Jordan Hall","school":"Liberty"}
       ],
       "Defense": [
-        {"position":"DE","name":"Chris Murray","school":"Sam Houston"},
+        {"position":"BUCK","name":"Chris Murray","school":"Sam Houston"},
         {"position":"DT","name":"Tylon Dunlap","school":"Kennesaw State"},
         {"position":"DT","name":"Jamarrion Solomon","school":"Florida International"},
         {"position":"BAN","name":"Mo Westmoreland","school":"UTEP"},
@@ -74,7 +74,7 @@
       "SpecialTeams": [
         {"position":"PK","name":"Lucas Carneiro","school":"Western Kentucky"},
         {"position":"KOS","name":"Buck Buchanan","school":"Louisiana Tech"},
-        {"position":"P","name":"Jacob Ulrich","school":"Kennesaw State"},
+        {"position":"PT","name":"Jacob Ulrich","school":"Kennesaw State"},
         {"position":"KR","name":"Qua Ashley","school":"Kennesaw State"},
         {"position":"PR","name":"Kam Thomas","school":"UTEP"},
         {"position":"SS","name":"Travis Franklin Jr.","school":"Jacksonville State"}
