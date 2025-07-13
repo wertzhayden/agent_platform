@@ -49,7 +49,7 @@
         {"position":"WR-F","name":"Jordyn Tyson","school":"Arizona State"},
         {"position":"TE","name":"Brant Kuithe","school":"Utah"},
         {"position":"RB","name":"DJ Giddens","school":"Kansas State"},
-        {"position":"OT","name":"Wyatt Milum","school":"West Virginia"},
+        {"position":"LT","name":"Wyatt Milum","school":"West Virginia"},
         {"position":"RG","name":"Luke Kandra","school":"Cincinnati"},
         {"position":"C","name":"James Brockermeyer","school":"TCU"},
         {"position":"LG","name":"Tomas Rimac","school":"West Virginia"},
