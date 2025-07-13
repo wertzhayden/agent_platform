@@ -108,7 +108,7 @@
         {"position":"SS","name":"John Saunders Jr.","school":"Ole Miss"},
         {"position":"FS","name":"Dan Jackson","school":"Georgia"},
         {"position":"SS","name":"Malachi Moore","school":"Alabama"},
-        {"position":"FS","name":"Jadon Canady","school":"Ole Miss"}
+        {"position":"NB","name":"Jadon Canady","school":"Ole Miss"}
       ],
       "SpecialTeams": [
         {"position":"PK","name":"Brock Taylor","school":"Vanderbilt"},
