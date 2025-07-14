@@ -5,19 +5,19 @@
     "Awards": {
       "PlayerOfTheYear": {"name":"Ashton Jeanty","position":"RB","school":"Boise State"},
       "OffensivePlayerOfTheYear": {"name":"Ashton Jeanty","position":"RB","school":"Boise State"},
-      "DefensivePlayerOfTheYear": {"name":"Jalen Catalon","position":"S","school":"UNLV"},
+      "DefensivePlayerOfTheYear": {"name":"Jalen Catalon","position":"FS","school":"UNLV"},
       "SpecialistOfTheYear": {"name":"Jonah Dalmas","position":"PK","school":"Boise State"},
-      "NewcomerOfTheYear": {"name":"Jalen Catalon","position":"S","school":"UNLV"},
+      "NewcomerOfTheYear": {"name":"Jalen Catalon","position":"FS","school":"UNLV"},
       "CoachOfTheYear": {"name":"Spencer Danielson","position":"Coach","school":"Boise State"},
       "ImpactFreshmanOfTheYear": {"name":"Caden Chittenden","position":"PK","school":"UNLV"}
     },
     "PositionAwards": {
       "QuarterbackOfTheYear": {"name":"Maddux Madsen","position":"QB","school":"Boise State"},
       "RunningBackOfTheYear": {"name":"Ashton Jeanty","position":"RB","school":"Boise State"},
-      "WideReceiverOfTheYear": {"name":"Nick Nash","position":"WR","school":"San Jose State"},
+      "WideReceiverOfTheYear": {"name":"Nick Nash","position":"WR-X","school":"San Jose State"},
       "TightEndOfTheYear": {"name":"Matt Lauter","position":"TE","school":"Boise State"},
-      "OffensiveTackleOfTheYear": {"name":"Kage Casey","position":"OT","school":"Boise State"},
-      "OffensiveGuardOfTheYear": {"name":"Ben Dooley","position":"OG","school":"Boise State"},
+      "OffensiveTackleOfTheYear": {"name":"Kage Casey","position":"LT","school":"Boise State"},
+      "OffensiveGuardOfTheYear": {"name":"Ben Dooley","position":"LG","school":"Boise State"},
       "CenterOfTheYear": {"name":"Jacob Gardner","position":"C","school":"Colorado State"},
       "OffensiveLinemanOfTheYear": {"name":"Jacob Gardner","position":"C","school":"Colorado State"},
       "OffensiveLineOfTheYear": {"name":"Boise State Broncos","position":"OL Unit","school":"Boise State"},
@@ -36,7 +36,7 @@
       "PunterOfTheYear": {"name":"Tyler Pastula","position":"P","school":"San Diego State"},
       "KickReturnerOfTheYear": {"name":"Tyler King","position":"KR","school":"Wyoming"},
       "PuntReturnerOfTheYear": {"name":"Jalen Moss","position":"PR","school":"Fresno State"},
-      "SpecialTeamerOfTheYear": {"name":"Cole Joyce","position":"ST","school":"Utah State"},
+      "SpecialTeamerOfTheYear": {"name":"Cole Joyce","position":"","school":"Utah State"},
       "KickoffSpecialistOfTheYear": {"name":"Caden Chittenden","position":"KOS","school":"UNLV"}
     },
     "FirstTeam": {
