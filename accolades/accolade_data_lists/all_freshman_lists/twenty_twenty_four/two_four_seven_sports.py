@@ -1,7 +1,10 @@
 """Default 2024 247sports Freshman All-American List."""
 
 TWO_FOUR_SEVEN_SPORTS = {
-  "two_four_seven_sports": [
+  "year": 2024,
+  "source": "247sports",
+  "name_of_award": "freshman_all_american",
+  "twenty_four_seven_sports_freshman": [
     {
       "name": "DJ Lagway",
       "position": "QB",
