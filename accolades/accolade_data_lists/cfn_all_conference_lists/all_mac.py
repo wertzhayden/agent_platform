@@ -89,23 +89,23 @@
         {"position":"WR","name":"Reggie Virgin","school":"Miami University"},
         {"position":"WR","name":"Chrishon McCray","school":"Kent State"},
         {"position":"TE","name":"Anthony Torres","school":"Toledo"},
-        {"position":"FLEX","name":"Blake Bosma","school":"Western Michigan"},
-        {"position":"OT","name":"Alex Wollschlaeger","school":"Bowling Green"},
-        {"position":"OG","name":"Mickey Rewolinski","school":"Eastern Michigan"},
-        {"position":"OC","name":"Charlie Nank","school":"Miami University"},
-        {"position":"OG","name":"J.J. Lippe","school":"Northern Illinois"},
-        {"position":"OT","name":"Will Jados","school":"Miami University"}
+        {"position":"TE","name":"Blake Bosma","school":"Western Michigan"},
+        {"position":"RT","name":"Alex Wollschlaeger","school":"Bowling Green"},
+        {"position":"LG","name":"Mickey Rewolinski","school":"Eastern Michigan"},
+        {"position":"C","name":"Charlie Nank","school":"Miami University"},
+        {"position":"RG","name":"J.J. Lippe","school":"Northern Illinois"},
+        {"position":"RT","name":"Will Jados","school":"Miami University"}
       ],
       "Defense": [
         {"position":"RDE","name":"Kobe Stewart","school":"Buffalo"},
         {"position":"DT","name":"Skyler Gill-Howard","school":"Northern Illinois"},
         {"position":"DT","name":"Anthony Hawkins","school":"Bowling Green"},
-        {"position":"EDGE","name":"Ben McNaboe","school":"Ohio"},
-        {"position":"LB","name":"Bryan McCoy","school":"Akron"},
-        {"position":"LB","name":"Daniel Bolden","school":"Toledo"},
-        {"position":"LB","name":"James Djonkam","school":"Eastern Michigan"},
-        {"position":"CB","name":"Braden Awls","school":"Toledo"},
-        {"position":"CB","name":"Avery Smith","school":"Toledo"},
+        {"position":"RDE","name":"Ben McNaboe","school":"Ohio"},
+        {"position":"MLB","name":"Bryan McCoy","school":"Akron"},
+        {"position":"MLB","name":"Daniel Bolden","school":"Toledo"},
+        {"position":"RDE","name":"James Djonkam","school":"Eastern Michigan"},
+        {"position":"NB","name":"Braden Awls","school":"Toledo"},
+        {"position":"LCB","name":"Avery Smith","school":"Toledo"},
         {"position":"LCB","name":"Marquis Cooper","school":"Buffalo"},
         {"position":"SS","name":"DD Snyder II","school":"Ball State"},
         {"position":"SS","name":"Dustin Johnson","school":"Ohio"},
@@ -118,7 +118,7 @@
         {"position":"PT","name":"Josh Smith","school":"Kent State"},
         {"position":"KR","name":"Jaden Nixon","school":"Western Michigan"},
         {"position":"PR","name":"Bryson Hammer","school":"Toledo"},
-        {"position":"ST","name":"Joey Rattin","school":"Northern Illinois"}
+        {"position":"WLB","name":"Joey Rattin","school":"Northern Illinois"}
       ]
     },
     "ThirdTeam": {
