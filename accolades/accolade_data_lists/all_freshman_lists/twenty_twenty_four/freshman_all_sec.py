@@ -1,6 +1,10 @@
 """Default 2024 Freshman All-SEC List."""
 
-{
+FRESHMEN_ALL_SEC = {
+  "year": 2024,
+  "name_of_award": "freshman_all_sec",
+  "source": "sec",
+  "conference": "sec",
   "sec": [
     {
       "name": "LaNorris Sellers",

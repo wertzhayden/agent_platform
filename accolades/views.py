@@ -2,6 +2,11 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
 from accolades.accolade_data_lists.all_freshman_lists.twenty_twenty_four.two_four_seven_sports import TWO_FOUR_SEVEN_SPORTS
+from accolades.accolade_data_lists.all_freshman_lists.twenty_twenty_four.freshman_all_sec import FRESHMEN_ALL_SEC
+from accolades.accolade_data_lists.all_freshman_lists.twenty_twenty_four.on3 import ON_THREE_FRESHMEN
+from accolades.accolade_data_lists.all_freshman_lists.twenty_twenty_four.pff import PFF_FRESHMEN
+from accolades.accolade_data_lists.all_freshman_lists.twenty_twenty_four.pwaa import PWAA_FRESHMEN
+
 from accolades.models.accolade import Accolade
 from accolades.serializer.accolade import AccoladeSerializer
 
@@ -19,7 +24,11 @@ def split_name_into_first_and_last(full_name: str) -> tuple:
 
 ALL_ACCOLADES = {
     "freshman": {
-        "twenty_four_seven_sports": TWO_FOUR_SEVEN_SPORTS
+        "twenty_four_seven_sports": TWO_FOUR_SEVEN_SPORTS,
+        "sec": FRESHMEN_ALL_SEC,
+        "on3": ON_THREE_FRESHMEN,
+        "pff": PFF_FRESHMEN,
+        "pwaa": PWAA_FRESHMEN
     },
     "all_american": {},
     "all_conference": {},
@@ -27,7 +36,9 @@ ALL_ACCOLADES = {
 
 def accolades_configs(name_of_award: str, accolade_list: dict) -> dict:
     """Return the configuration for the accolades"""
-    return ALL_ACCOLADES.get(name_of_award, {}).get(accolade_list)
+    accolades_list = ALL_ACCOLADES.get(name_of_award, {}).get(accolade_list)
+    awards = accolades_list.get(accolade_list)
+    return accolades_list, awards
 
 
 
@@ -37,8 +48,13 @@ class IngestAccoladesViewset(viewsets.ViewSet):
     """
 
     def list(self, request):
-        accolades_list = accolades_configs("freshman", "twenty_four_seven_sports")
-        awards = accolades_list.get("twenty_four_seven_sports")
+        # accolades_list, awards = accolades_configs("freshman", "twenty_four_seven_sports")
+        # accolades_list, awards = accolades_configs("freshman", "sec")
+        # accolades_list, awards = accolades_configs("freshman", "on3")
+        # accolades_list, awards = accolades_configs("freshman", "pff")
+        accolades_list, awards = accolades_configs("freshman", "pwaa")
+
+        # @TODO: Create a For Loop to Create Freshman List data
         if not accolades_list:
             return Response({"message": "No data found"}, status=404)
         accolades = []
@@ -58,8 +74,8 @@ class IngestAccoladesViewset(viewsets.ViewSet):
                 first_name=first_name,
                 last_name=last_name,
                 name_of_award=accolades_list.get("name_of_award"),
-                team=player.get("team"),
-                source=player.get("source"),
+                team=player.get("team", 1),
+                source=accolades_list.get("source"),
                 conference=player.get("conference"),
             )
             serializer = AccoladeSerializer(accolade)

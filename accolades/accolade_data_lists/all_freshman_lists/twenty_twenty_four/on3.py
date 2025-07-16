@@ -1,6 +1,9 @@
 """Defines the On3 Freshman All-American list."""
 
-{
+ON_THREE_FRESHMEN = {
+  "year": 2024,
+  "name_of_award": "freshman_all_american",
+  "source": "on3",
   "on3": [
     {
       "name": "DJ Lagway",

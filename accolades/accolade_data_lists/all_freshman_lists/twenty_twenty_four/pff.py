@@ -1,8 +1,10 @@
 """Default 2024 PFF Freshman All-American List."""
 
-{
-  "pff": {
-    "Offense": [
+PFF_FRESHMEN = {
+  "year": 2024,
+  "name_of_award": "freshman_all_american",
+  "source": "pff",
+  "pff": [ 
       {
         "position": "QB",
         "name": "DJ Lagway",
@@ -57,9 +59,7 @@
         "position": "RT",
         "name": "Zach Clayton",
         "school": "Middle Tennessee"
-      }
-    ],
-    "Defense": [
+      },
       {
         "position": "DL",
         "name": "Francis Brewu",
@@ -114,9 +114,7 @@
         "position": "Flex",
         "name": "Kaleb Harris",
         "school": "Auburn"
-      }
-    ],
-    "SpecialTeams": [
+      },
       {
         "position": "K",
         "name": "Nolan Hauser",
@@ -141,7 +139,6 @@
         "position": "ST",
         "name": "Dylan Day",
         "school": "Miami"
-      }
-    ]
-  }
+    }
+  ]
 }

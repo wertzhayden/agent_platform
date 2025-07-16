@@ -2,8 +2,8 @@
 
 TWO_FOUR_SEVEN_SPORTS = {
   "year": 2024,
-  "source": "247sports",
   "name_of_award": "freshman_all_american",
+  "source": "247sports",
   "twenty_four_seven_sports": [
     {
       "name": "DJ Lagway",

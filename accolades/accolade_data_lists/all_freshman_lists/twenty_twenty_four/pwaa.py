@@ -1,6 +1,9 @@
 """Default 2024 PWAA Freshman All-American List."""
 
-{
+PWAA_FRESHMEN = {
+  "year": 2024,
+  "name_of_award": "freshman_all_american",
+  "source": "pwaa",
   "pwaa": [
     {
       "name": "DJ Lagway",
