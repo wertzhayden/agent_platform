@@ -18,12 +18,16 @@ def split_name_into_first_and_last(full_name: str) -> tuple:
     return full_name.strip(), ""  # Fallback if no comma
 
 ALL_ACCOLADES = {
-    "twenty_four_seven_sports_freshman": TWO_FOUR_SEVEN_SPORTS,
+    "freshman": {
+        "twenty_four_seven_sports": TWO_FOUR_SEVEN_SPORTS
+    },
+    "all_american": {},
+    "all_conference": {},
 }
 
-def accolades_configs(accolade_list: dict) -> dict:
+def accolades_configs(name_of_award: str, accolade_list: dict) -> dict:
     """Return the configuration for the accolades"""
-    return ALL_ACCOLADES.get(accolade_list)
+    return ALL_ACCOLADES.get(name_of_award, {}).get(accolade_list)
 
 
 
@@ -33,8 +37,8 @@ class IngestAccoladesViewset(viewsets.ViewSet):
     """
 
     def list(self, request):
-        accolades_list = accolades_configs("twenty_four_seven_sports_freshman")
-        awards = accolades_list.get("twenty_four_seven_sports_freshman")
+        accolades_list = accolades_configs("freshman", "twenty_four_seven_sports")
+        awards = accolades_list.get("twenty_four_seven_sports")
         if not accolades_list:
             return Response({"message": "No data found"}, status=404)
         accolades = []

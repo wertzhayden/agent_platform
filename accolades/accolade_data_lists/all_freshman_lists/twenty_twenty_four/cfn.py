@@ -3,7 +3,7 @@
 
 {
   "cfn": {
-    "Offense": [
+    "offense": [
       {"position":"QB","name":"DJ Lagway","school":"Florida"},
       {"position":"RB","name":"Fluff Bothwell","school":"South Alabama"},
       {"position":"RB","name":"Ahmad Hardy","school":"Louisiana-Monroe"},
@@ -18,7 +18,7 @@
       {"position":"G","name":"Aidan Banfield","school":"North Carolina"},
       {"position":"OT","name":"Anthonie Knapp","school":"notre-dame"},
     ],
-    "Offense_HonorableMention": [
+    "offense_honorable_mention": [
       {"position":"QB","name":"CJ Bailey","school":"NC State"},
       {"position":"RB","name":"Wayshawn Parker","school":"Washington State"},
       {"position":"RB","name":"Caden Durham","school":"LSU"},
@@ -33,7 +33,7 @@
       {"position":"G","name":"Braydon Nelson","school":"North Texas"},
       {"position":"OT","name":"Zach Clayton","school":"Middle Tennessee"}
     ],
-    "Defense": [
+    "defense": [
       {"position":"EDGE","name":"Dylan Stewart","school":"South Carolina"},
       {"position":"EDGE","name":"Colin Simmons","school":"Texas"},
       {"position":"DL","name":"Malachi Ta'ase","school":"New Mexico State"},
@@ -48,7 +48,7 @@
       {"position":"S","name":"Ja’Marley Riddle","school":"East Carolina"},
       {"position":"FLEX","name":"CJ Heard","school":"Florida Atlantic"}
     ],
-    "Defense_HonorableMention": [
+    "defense_honorable_mention": [
       {"position":"EDGE","name":"Sincere Edwards","school":"Pittsburgh"},
       {"position":"EDGE","name":"Kyran Duhon","school":"UTEP"},
       {"position":"DL","name":"Jayden Jackson","school":"Oklahoma"},

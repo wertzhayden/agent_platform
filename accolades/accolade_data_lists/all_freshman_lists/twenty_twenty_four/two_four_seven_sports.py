@@ -4,7 +4,7 @@ TWO_FOUR_SEVEN_SPORTS = {
   "year": 2024,
   "source": "247sports",
   "name_of_award": "freshman_all_american",
-  "twenty_four_seven_sports_freshman": [
+  "twenty_four_seven_sports": [
     {
       "name": "DJ Lagway",
       "position": "QB",
