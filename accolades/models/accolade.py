@@ -13,12 +13,10 @@ class Accolade(BaseModel):
     )
     first_name = models.TextField(blank=True, null=True)
     last_name = models.TextField(blank=True, null=True)
-    year = models.IntegerField()
-    # Award = Freshman All-American, Team = 1st/2nd/etc..., source = 247sports, conference = None 
+    year = models.IntegerField()    # Award = Freshman All-American, Team = 1st/2nd/etc..., source = 247sports, conference = None 
     name_of_award = models.TextField(blank=True, null=True)
     team = models.CharField(blank=True, null=True) # 1st, 2nd, 3rd, 4th, Honorable Mention = 5, etc
     source = models.TextField(blank=True, null=True)
     conference = models.TextField(blank=True, null=True)
-    name = models.TextField(blank=True, null=True)
-    team = models.IntegerField(blank=True, null=True) # 1st, 2nd, 3rd, 4th, Honorable Mention = 5, etc
+    award = models.TextField(blank=True, null=True)
     
