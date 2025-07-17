@@ -55,8 +55,8 @@ def retrieve_player_stats(player_link: str, position: str = None) -> dict:
         transfer_text = soup.text[transfer_index:transfer_index+100].split("\n")[0]
         player_bio_data["transfer_schools"] = transfer_text.replace("Transfer Schools:", "").strip()
 
-    career_stats_headers, game_stats_headers = determine_ourlads_headers_by_position(position)
-
+    career_stats_headers, game_stats_headers = determine_ourlads_headers_by_position(position=position)
+    player_bio_data["position_name"] = position
     ### 2. CAREER STATS SECTION (Updated)
     career_stats = []
     career_stats_div = soup.find("div", id="ctl00_phContent_dCareerStats")

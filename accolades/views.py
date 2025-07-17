@@ -1,8 +1,3 @@
-from django.shortcuts import render
-<<<<<<< Updated upstream
-
-# Create your views here.
-=======
 from rest_framework import viewsets
 from rest_framework.response import Response
 from accolades.accolade_data_lists.all_freshman_lists.twenty_twenty_four.two_four_seven_sports import TWO_FOUR_SEVEN_SPORTS
@@ -123,4 +118,3 @@ class IngestAccoladesViewset(viewsets.ViewSet):
             serializer = AccoladeSerializer(accolade)
             accolades.append(serializer.data)
         return Response(accolades, status=200)
->>>>>>> Stashed changes
