@@ -5,7 +5,7 @@ class RBCareerStatsSerializer(CareerStatsBaseSerializer):
     class Meta(CareerStatsBaseSerializer.Meta):
         model = RBCareerStats
         fields = CareerStatsBaseSerializer.Meta.fields + [
-            "rush_attempts", "rushing_yards", "avg_per_rush", "rush_touchdowns", 
+            "attempts", "rushing_yards", "avg_per_rush", "rushing_touchdowns",
             "receptions", "receiving_yards", "yards_per_catch", "receiving_touchdowns",
             "total_fumbles", "lost_fumbles",
         ]

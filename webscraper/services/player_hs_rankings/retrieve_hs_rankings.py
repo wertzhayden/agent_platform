@@ -149,6 +149,6 @@ def retrieve_player_hs_rankings(school: str, year: int = 2025) -> dict:
                 transfer["ratings"].append(rating)
 
 
-                result["transfers"].append(transfer)
+        result["transfers"].append(transfer)
 
     return result
