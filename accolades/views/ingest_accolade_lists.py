@@ -71,7 +71,7 @@ class IngestAccoladesViewset(viewsets.ViewSet):
     Web Scrape Team and Player Stats from the Ourlads website. 
     """
 
-    def list(self, request):
+    def create(self, request):
         # accolades_list, awards = accolades_configs("freshman", "twenty_four_seven_sports")
         # accolades_list, awards = accolades_configs("freshman", "sec")
         # accolades_list, awards = accolades_configs("freshman", "on3")

@@ -1,5 +1,5 @@
 from rest_framework.routers import DefaultRouter
-from accolades.views import IngestAccoladesViewset
+from accolades.views.ingest_accolade_lists import IngestAccoladesViewset
 from django.urls import path, include
 
 router = DefaultRouter()
