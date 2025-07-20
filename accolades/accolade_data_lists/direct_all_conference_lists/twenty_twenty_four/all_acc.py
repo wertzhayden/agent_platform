@@ -30,7 +30,7 @@
         {"name": "Nohl Williams", "position": "LCB", "school": "California"},
         {"name": "Chandler Rivers", "position": "RCB", "school": "Duke"},
         {"name": "Jonas Sanker", "position": "FS", "school": "Virginia"},
-        {"name": "Isaiah Nwokobia", "position": "FS", "school": "SMU"}
+        {"name": "Isaiah Nwokobia", "position": "SS", "school": "SMU"}
       ],
       "specialists": [
         {"name": "Andres Borregales", "position": "PK", "school": "Miami"},
@@ -49,9 +49,9 @@
         {"name": "Elijah Arroyo", "position": "TE", "school": "Miami"},
         {"name": "Omarion Hampton", "position": "RB", "school": "North Carolina"},
         {"name": "Brian Parker II", "position": "RT", "school": "Duke"},
-        {"name": "Francis Mauigoa", "position": "OT", "school": "Miami"},
+        {"name": "Francis Mauigoa", "position": "RT", "school": "Miami"},
         {"name": "Caleb Krings", "position": "LG", "school": "Duke"},
-        {"name": "Marcus Tate", "position": "OG", "school": "Clemson"},
+        {"name": "Marcus Tate", "position": "LG", "school": "Clemson"},
         {"name": "Jakai Clark", "position": "C", "school": "SMU"}
       ],
       "defense": [
@@ -80,8 +80,8 @@
         {"name": "Phil Mafah", "position": "RB", "school": "Clemson"},
         {"name": "Demond Claiborne", "position": "RB", "school": "Wake Forest"},
         {"name": "Malachi Fields", "position": "WR-X", "school": "Virginia"},
-        {"name": "Jordan Moore", "position": "WR", "school": "Duke"},
-        {"name": "Eli Pancol", "position": "WR", "school": "Duke"},
+        {"name": "Jordan Moore", "position": "WR-X", "school": "Duke"},
+        {"name": "Eli Pancol", "position": "WR-Z", "school": "Duke"},
         {"name": "Jake Briningstool", "position": "TE", "school": "Clemson"},
         {"name": "Demond Claiborne", "position": "RB", "school": "Wake Forest"},
         {"name": "PJ Williams", "position": "RT", "school": "SMU"},
