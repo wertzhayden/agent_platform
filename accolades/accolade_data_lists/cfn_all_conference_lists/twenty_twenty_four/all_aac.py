@@ -26,7 +26,7 @@ ALL_AAC = {
   },
   {
     "name": "Rayuan Lane III",
-    "position": "FS",
+    "position": "SS",
     "school": "Navy",
     "award": "SpecialistOfTheYear"
   },
@@ -68,11 +68,11 @@ ALL_AAC = {
   {"name": "Navy Midshipmen", "position": "Secondary Unit", "school": "Navy", "award": "SecondaryOfTheYear"},
   {"name": "Adin Huntington", "position": "DE", "school": "Tulane", "award": "DefensiveNewcomerOfTheYear"},
   {"name": "Adin Huntington", "position": "DE", "school": "Tulane", "award": "DefensiveTransferOfTheYear"},
-  {"name": "Maddux Trujillo", "position": "K", "school": "Temple", "award": "KickerOfTheYear"},
-  {"name": "Andrew Stokes", "position": "P", "school": "South Florida", "award": "PunterOfTheYear"},
+  {"name": "Maddux Trujillo", "position": "PK", "school": "Temple", "award": "KickerOfTheYear"},
+  {"name": "Andrew Stokes", "position": "PT", "school": "South Florida", "award": "PunterOfTheYear"},
   {"name": "Rayshawn Pleasant", "position": "KR", "school": "Tulane", "award": "KickReturnerOfTheYear"},
   {"name": "Kam Shanks", "position": "PR", "school": "UAB", "award": "PuntReturnerOfTheYear"},
-  {"name": "Rayuan Lane III", "position": "FS", "school": "Navy", "award": "SpecialTeamerOfTheYear"},
+  {"name": "Rayuan Lane III", "position": "SS", "school": "Navy", "award": "SpecialTeamerOfTheYear"},
   {"name": "Tristian Vandenberg", "position": "KO", "school": "Memphis", "award": "KickoffSpecialistOfTheYear"},
   {"name": "Bryson Daily", "position": "QB", "school": "Army", "group": "Offense", "team": 1},
   {"name": "Makhi Hughes", "position": "RB", "school": "Tulane", "group": "Offense", "team": 1},
@@ -91,21 +91,21 @@ ALL_AAC = {
   {"name": "Jimmori Robinson", "position": "DE", "school": "UTSA", "group": "Defense", "team": 1},
   {"name": "Patrick Jenkins", "position": "DT", "school": "Tulane", "group": "Defense", "team": 1},
   {"name": "Roderick Brown", "position": "DT", "school": "North Texas", "group": "Defense", "team": 1},
-  {"name": "Desmond Little", "position": "EDGE", "school": "UAB", "group": "Defense", "team": 1},
+  {"name": "Desmond Little", "position": "DE", "school": "UAB", "group": "Defense", "team": 1},
   {"name": "Chandler Martin", "position": "MLB", "school": "Memphis", "group": "Defense", "team": 1},
   {"name": "Colin Ramos", "position": "MLB", "school": "Navy", "group": "Defense", "team": 1},
-  {"name": "Mac Harris", "position": "LB", "school": "South Florida", "group": "Defense", "team": 1},
+  {"name": "Mac Harris", "position": "WLB", "school": "South Florida", "group": "Defense", "team": 1},
   {"name": "Zah Frazier", "position": "LCB", "school": "UTSA", "group": "Defense", "team": 1},
   {"name": "Dashaun Peele", "position": "FCB", "school": "Navy", "group": "Defense", "team": 1},
   {"name": "Brian Nelson II", "position": "LCB", "school": "North Texas", "group": "Defense", "team": 1},
   {"name": "Gabe Taylor", "position": "SS", "school": "Rice", "group": "Defense", "team": 1},
-  {"name": "Rayuan Lane III", "position": "FS", "school": "Navy", "group": "Defense", "team": 1},
+  {"name": "Rayuan Lane III", "position": "SS", "school": "Navy", "group": "Defense", "team": 1},
   {"name": "Casey Larkin", "position": "SS", "school": "Army", "group": "Defense", "team": 1},
   {"name": "Kyle Jacob", "position": "WLB", "school": "Navy", "group": "Defense", "team": 1},
 
   {"name": "Maddux Trujillo", "position": "PK", "school": "Temple", "group": "SpecialTeams", "team": 1},
   {"name": "Tristian Vandenberg", "position": "KO", "school": "Memphis", "group": "SpecialTeams", "team": 1},
-  {"name": "Andrew Stokes", "position": "P", "school": "South Florida", "group": "SpecialTeams", "team": 1},
+  {"name": "Andrew Stokes", "position": "PT", "school": "South Florida", "group": "SpecialTeams", "team": 1},
   {"name": "Rayshawn Pleasant", "position": "KR", "school": "Tulane", "group": "SpecialTeams", "team": 1},
   {"name": "Kam Shanks", "position": "PR", "school": "UAB", "group": "SpecialTeams", "team": 1},
   {"name": "Rayuan Lane III", "position": "FS", "school": "Navy", "group": "SpecialTeams", "team": 1},
@@ -128,22 +128,22 @@ ALL_AAC = {
   {"name": "Landon Robinson", "position": "NT", "school": "Navy", "group": "Defense", "team": 2},
   {"name": "Terrell Dawkins", "position": "RDE", "school": "North Texas", "group": "Defense", "team": 2},
   {"name": "Jamal Ligon", "position": "WLB", "school": "UTSA", "group": "Defense", "team": 2},
-  {"name": "TyQuan King", "position": "WLB", "school": "Temple", "group": "Defense", "team": 2},
+  {"name": "TyQuan King", "position": "MLB", "school": "Temple", "group": "Defense", "team": 2},
   {"name": "Ty Morris", "position": "WLB", "school": "Rice", "group": "Defense", "team": 2},
-  {"name": "Dontae Balfour", "position": "LCB", "school": "Charlotte", "group": "Defense", "team": 2},
+  {"name": "Dontae Balfour", "position": "RCB", "school": "Charlotte", "group": "Defense", "team": 2},
   {"name": "Davion Ross", "position": "RCB", "school": "Memphis", "group": "Defense", "team": 2},
   {"name": "Donavon Platt", "position": "RCB", "school": "Army", "group": "Defense", "team": 2},
   {"name": "Caleb Ransaw", "position": "SS", "school": "Tulane", "group": "Defense", "team": 2},
   {"name": "Al‑Ma’Hi Ali", "position": "FS", "school": "Charlotte", "group": "Defense", "team": 2},
-  {"name": "Owen Pewee", "position": "FS", "school": "UTSA", "group": "Defense", "team": 2},
+  {"name": "Owen Pewee", "position": "MONEY", "school": "UTSA", "group": "Defense", "team": 2},
   {"name": "D.J. Woodbury", "position": "MLB", "school": "Temple", "group": "Defense", "team": 2},
 
   {"name": "Stephen Rusnak", "position": "PK", "school": "Charlotte", "group": "SpecialTeams", "team": 2},
   {"name": "Ethan Head", "position": "KO", "school": "Tulane", "group": "SpecialTeams", "team": 2},
-  {"name": "Joshua Sloan", "position": "P", "school": "Memphis", "group": "SpecialTeams", "team": 2},
+  {"name": "Joshua Sloan", "position": "PT", "school": "Memphis", "group": "SpecialTeams", "team": 2},
   {"name": "Winston Wright Jr.", "position": "KR", "school": "East Carolina", "group": "SpecialTeams", "team": 2},
   {"name": "Kamdyn Benjamin", "position": "PR", "school": "Tulsa", "group": "SpecialTeams", "team": 2},
-  {"name": "Jackson Barker", "position": "ST", "school": "East Carolina", "group": "SpecialTeams", "team": 2},
+  {"name": "Jackson Barker", "position": "MLB", "school": "East Carolina", "group": "SpecialTeams", "team": 2},
   {"name": "Chandler Morris", "position": "QB", "school": "North Texas", "team": 3},
   {"name": "CJ Campbell Jr.", "position": "RB", "school": "Florida Atlantic", "team": 3},
   {"name": "Kelley Joiner Jr.", "position": "RB", "school": "South Florida", "team": 3},
@@ -153,7 +153,7 @@ ALL_AAC = {
   {"name": "Colin Weber", "position": "TE", "school": "Charlotte", "team": 3},
   {"name": "Noah Short", "position": "SB", "school": "Army", "team": 3},
   {"name": "Derrick Graham", "position": "LT", "school": "Tulane", "team": 3},
-  {"name": "Jordan Church", "position": "RG", "school": "Florida Atlantic", "team": 3},
+  {"name": "Jordan Church", "position": "LG", "school": "Florida Atlantic", "team": 3},
   {"name": "Trent Holler", "position": "C", "school": "Memphis", "team": 3},
   {"name": "Quez Yates", "position": "LG", "school": "UAB", "team": 3},
   {"name": "Chris Adams", "position": "LT", "school": "Memphis", "team": 3},
@@ -161,24 +161,24 @@ ALL_AAC = {
   {"name": "J.D. Lampley", "position": "DE", "school": "East Carolina", "team": 3},
   {"name": "R.J. Jackson", "position": "DT", "school": "Tulsa", "team": 3},
   {"name": "Bernard Gooden", "position": "DT", "school": "South Florida", "team": 3},
-  {"name": "Elo Modozie", "position": "RDE", "school": "Army", "team": 3},
+  {"name": "Elo Modozie", "position": "JACK", "school": "Army", "team": 3},
   {"name": "Reid Williford", "position": "MLB", "school": "Charlotte", "team": 3},
   {"name": "Martavius French", "position": "MLB", "school": "UTSA", "team": 3},
   {"name": "Andon Thomas", "position": "WLB", "school": "Army", "team": 3},
-  {"name": "Jamel Johnson", "position": "CB", "school": "Temple", "team": 3},
-  {"name": "Brent Austin", "position": "CB", "school": "South Florida", "team": 3},
+  {"name": "Jamel Johnson", "position": "BS", "school": "Temple", "team": 3},
+  {"name": "Brent Austin", "position": "LCB", "school": "South Florida", "team": 3},
   {"name": "Daedae Hill", "position": "LCB", "school": "Florida Atlantic", "team": 3},
-  {"name": "Phillip Dunnam", "position": "SS", "school": "Florida Atlantic", "team": 3},
+  {"name": "Phillip Dunnam", "position": "RCB", "school": "Florida Atlantic", "team": 3},
   {"name": "Mbiti Williams Jr.", "position": "FS", "school": "Navy", "team": 3},
   {"name": "Chance Keith", "position": "SS", "school": "Army", "team": 3},
-  {"name": "Micah Robinson", "position": "FLEX", "school": "Tulane", "team": 3},
+  {"name": "Micah Robinson", "position": "RCB", "school": "Tulane", "team": 3},
 
   {"name": "Tate Sandell", "position": "PK", "school": "UTSA", "team": 3},
-  {"name": "Tristian Vandenberg", "position": "KOS", "school": "Memphis", "team": 3},
+  {"name": "Tristian Vandenberg", "position": "KO", "school": "Memphis", "team": 3},
   {"name": "Dante Atton", "position": "PT", "school": "Temple", "team": 3},
   {"name": "Rayshawn Pleasant", "position": "KR", "school": "Tulane", "team": 3},
   {"name": "Kam Shanks", "position": "PR", "school": "UAB", "team": 3},
-  {"name": "Adrian Maddox", "position": "ST", "school": "UAB", "team": 3},
+  {"name": "Adrian Maddox", "position": "FS", "school": "UAB", "team": 3},
   {
     "position": "QB",
     "name": "Seth Henigan",
@@ -234,19 +234,19 @@ ALL_AAC = {
     "team": "honorable_mention"
   },
   {
-    "position": "WR",
+    "position": "WR-Z",
     "name": "DeMeer Blankumsee",
     "school": "Memphis",
     "team": "honorable_mention"
   },
   {
-    "position": "WR",
+    "position": "WR-H",
     "name": "Amare Thomas",
     "school": "UAB",
     "team": "honorable_mention"
   },
   {
-    "position": "WR",
+    "position": "WR-SL",
     "name": "Sean Atkins",
     "school": "South Florida",
     "team": "honorable_mention"
@@ -402,13 +402,13 @@ ALL_AAC = {
     "team": "honorable_mention"
   },
   {
-    "position": "OT",
+    "position": "LT",
     "name": "RJ Perry",
     "school": "South Florida",
     "team": "honorable_mention"
   },
   {
-    "position": "OT",
+    "position": "LG",
     "name": "Kendall Stanley",
     "school": "Charlotte",
     "team": "honorable_mention"
@@ -427,7 +427,7 @@ ALL_AAC = {
   },
   {
     "position": "DE",
-    "name": "Justin Red",
+    "name": "Justin Reed",
     "school": "Navy",
     "team": "honorable_mention"
   },
@@ -439,12 +439,12 @@ ALL_AAC = {
   },
   {
     "position": "DT",
-    "name": "D\u2019Anta Johnson",
+    "name": "D'Anta Johnson",
     "school": "East Carolina",
     "team": "honorable_mention"
   },
   {
-    "position": "DT",
+    "position": "NT",
     "name": "Javon Denis",
     "school": "Memphis",
     "team": "honorable_mention"
@@ -468,7 +468,7 @@ ALL_AAC = {
     "team": "honorable_mention"
   },
   {
-    "position": "EDGE",
+    "position": "RDE",
     "name": "William Whitlow Jr.",
     "school": "Memphis",
     "team": "honorable_mention"
@@ -480,19 +480,19 @@ ALL_AAC = {
     "team": "honorable_mention"
   },
   {
-    "position": "EDGE",
-    "name": "Matthew Fobbs\u2011White",
+    "position": "ROLB",
+    "name": "Matthew Fobbs-White",
     "school": "Tulane",
     "team": "honorable_mention"
   },
   {
-    "position": "LB",
+    "position": "MLB",
     "name": "Mike Edwards III",
     "school": "East Carolina",
     "team": "honorable_mention"
   },
   {
-    "position": "LB",
+    "position": "SPEAR",
     "name": "Javion White",
     "school": "Tulane",
     "team": "honorable_mention"
@@ -504,7 +504,7 @@ ALL_AAC = {
     "team": "honorable_mention"
   },
   {
-    "position": "LB",
+    "position": "SLB",
     "name": "Jaylen Smith",
     "school": "North Texas",
     "team": "honorable_mention"
@@ -516,13 +516,13 @@ ALL_AAC = {
     "team": "honorable_mention"
   },
   {
-    "position": "LB",
+    "position": "MLB",
     "name": "Everett Roussaw Jr.",
     "school": "UAB",
     "team": "honorable_mention"
   },
   {
-    "position": "MLB",
+    "position": "WLB",
     "name": "Zakye Barker",
     "school": "East Carolina",
     "team": "honorable_mention"
@@ -534,7 +534,7 @@ ALL_AAC = {
     "team": "honorable_mention"
   },
   {
-    "position": "LB",
+    "position": "MLB",
     "name": "Cam Burden",
     "school": "Charlotte",
     "team": "honorable_mention"
@@ -558,43 +558,43 @@ ALL_AAC = {
     "team": "honorable_mention"
   },
   {
-    "position": "CB",
-    "name": "De\u2019Shawn Rucker",
+    "position": "RCB",
+    "name": "De'Shawn Rucker",
     "school": "South Florida",
     "team": "honorable_mention"
   },
   {
-    "position": "CB",
+    "position": "LCB",
     "name": "Sean Fresch",
     "school": "Rice",
     "team": "honorable_mention"
   },
   {
-    "position": "RCB",
-    "name": "Isaiah Brown\u2011Murray",
+    "position": "NB",
+    "name": "Isaiah Brown-Murray",
     "school": "East Carolina",
     "team": "honorable_mention"
   },
   {
-    "position": "CB",
+    "position": "RCB",
     "name": "Ridge Texada",
     "school": "North Texas",
     "team": "honorable_mention"
   },
   {
-    "position": "RCB",
+    "position": "SS",
     "name": "Kahzir Brown",
     "school": "Florida Atlantic",
     "team": "honorable_mention"
   },
   {
-    "position": "CB",
+    "position": "LCB",
     "name": "Colby Dempsey",
     "school": "UAB",
     "team": "honorable_mention"
   },
   {
-    "position": "SS",
+    "position": "STRIK",
     "name": "Jaxson Campbell",
     "school": "Navy",
     "team": "honorable_mention"
@@ -607,7 +607,7 @@ ALL_AAC = {
   },
   {
     "position": "FS",
-    "name": "Jaehlen Cannady",
+    "name": "Jehlen Cannady",
     "school": "Tulsa",
     "team": "honorable_mention"
   },
@@ -618,7 +618,7 @@ ALL_AAC = {
     "team": "honorable_mention"
   },
   {
-    "position": "FS",
+    "position": "BS",
     "name": "CJ Heard",
     "school": "Florida Atlantic",
     "team": "honorable_mention"
@@ -630,19 +630,19 @@ ALL_AAC = {
     "team": "honorable_mention"
   },
   {
-    "position": "S",
+    "position": "FS",
     "name": "Jalen Geiger",
     "school": "Tulane",
     "team": "honorable_mention"
   },
   {
-    "position": "S",
+    "position": "SS",
     "name": "Sirad Bryant",
     "school": "UAB",
     "team": "honorable_mention"
   },
   {
-    "position": "FS",
+    "position": "SS",
     "name": "Tyson Flowers",
     "school": "Rice",
     "team": "honorable_mention"
@@ -660,7 +660,7 @@ ALL_AAC = {
     "team": "honorable_mention"
   },
   {
-    "position": "FLEX",
+    "position": "LCB",
     "name": "Torey Richardson",
     "school": "Temple",
     "team": "honorable_mention"
@@ -696,7 +696,7 @@ ALL_AAC = {
     "team": "honorable_mention"
   },
   {
-    "position": "ST",
+    "position": "FS",
     "name": "Dax Collins",
     "school": "Tulsa",
     "team": "honorable_mention"
