@@ -24,6 +24,7 @@ class IngestPlayersGameAndCareerStats(viewsets.ViewSet):
 def retrieve_game_and_career_stats_of_all_players():    
         players = Player.objects.all()
         all_results = []
+        failed_results = []
 
         for player in players:  # ✅ Loop over model instances
 
@@ -82,16 +83,21 @@ def retrieve_game_and_career_stats_of_all_players():
                     serializer.save()
                     all_results.append(serializer.data)
                 except Exception as e:
-                    return Response(
-                        {
-                            "error": "Career stat validation failed",
-                            "error_msg": getattr(e, 'detail', str(e)),
-                            "ourlads_position": position,
-                            "player_id": player.id,
-                            "career_stat": career_stat,
-                        },
-                        status=400
-                    )
+                    # failed_results.append({
+                    #         "error": "Career stat validation failed",
+                    #         "error_msg": getattr(e, 'detail', str(e)),
+                    #         "ourlads_position": position,
+                    #         "player_id": player.id,
+                    #         "career_stat": career_stat,
+                    #     })
+                    continue
+                    # return {
+                    #         "error": "Career stat validation failed",
+                    #         "error_msg": getattr(e, 'detail', str(e)),
+                    #         "ourlads_position": position,
+                    #         "player_id": player.id,
+                    #         "career_stat": career_stat,
+                    #     }
 
             # --- Save Game Stats ---
             game_stats = player_stats.get("game_stats", [])
@@ -107,15 +113,13 @@ def retrieve_game_and_career_stats_of_all_players():
                     serializer.save()
                     all_results.append(serializer.data)
                 except Exception as e:
-                    return Response(
-                        {
-                            "error": "Game stat validation failed",
-                            "error_msg": getattr(e, 'detail', str(e)),
-                            "ourlads_position": position,
-                            "player_id": player.id,
-                            "game": game,
-                        },
-                        status=400
-                    )
+                    # failed_results.append({
+                    #         "error": "Game stat validation failed",
+                    #         "error_msg": getattr(e, 'detail', str(e)),
+                    #         "ourlads_position": position,
+                    #         "player_id": player.id,
+                    #         "game": game,
+                    #     })
+                    continue
 
-        return Response([len(all_results), all_results])
+        return [len(all_results), all_results, len(failed_results), failed_results]

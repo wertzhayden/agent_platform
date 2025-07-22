@@ -38,6 +38,7 @@ def retrieve_recruits_current_info_via_ourlads() -> list:
             "height": recruit.current_height,
             "weight": recruit.current_weight,
             "experience_level_at_current_school": recruit.experience_level_at_current_school,
-            "current_school": recruit.current_school
+            "current_school": recruit.current_school,
+            "school_link": recruit.school_link
         })
-    return Response(recruits_list)
+    return recruits_list

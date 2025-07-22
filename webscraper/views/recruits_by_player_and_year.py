@@ -20,17 +20,22 @@ class RecruitsBySchoolAndYear(viewsets.ViewSet):
     """
 
     def create(self, request):
+        recruits = []
+        if request.data.get("school") and request.data.get("year"):
+            recruits = get_recruits_by_school_and_year(team=request.data.get("school"), year=request.data.get("year"))
+            return Response(recruits)
         years = [2021, 2022, 2023, 2024, 2025]
         for team in TEAM_IDS:
             for year in years:
-                return Response([team, year])
-        return Response(get_recruits_by_school_and_year(school=request.data.get("school"), year=request.data.get("year")))
+                recruits.append(get_recruits_by_school_and_year(team=team,year=year))
+        return Response(recruits)
 
 
 def get_recruits_by_school_and_year(school: str, year: int) -> dict:
         """
         Get the high school recruits for a specific school and year.
         """
+        rank_not_found = "N/A"
         school_name = school
         year = year
         school = School.objects.filter(name=school_name).first()
@@ -46,10 +51,10 @@ def get_recruits_by_school_and_year(school: str, year: int) -> dict:
             school=school,
             year=year,
             defaults={
-                "overall_rank": overall_rank,
-                "transfer_rank": transfer_rank,
-                "composite_rank": composite_rank,
-            },
+                "overall_rank": int(overall_rank) if overall_rank not in rank_not_found else None,
+                "transfer_rank": int(transfer_rank) if transfer_rank not in rank_not_found else None,
+                "composite_rank": int(composite_rank) if composite_rank not in rank_not_found else None
+            }
         )
 
         results = []
@@ -74,9 +79,9 @@ def get_recruits_by_school_and_year(school: str, year: int) -> dict:
             position = player.get("position", "").lower()
             stars = player.get("stars")
             hs_rating_score = player.get("rating_score")
-            national_rank = player.get("national_rank") if isinstance(player.get("national_rank"), int) else None
-            position_rank = player.get("position_rank") if isinstance(player.get("position_rank"), int) else None
-            state_rank = player.get("state_rank") if isinstance(player.get("state_rank"), int) else None
+            national_rank = int(player.get("national_rank")) if player.get("national_rank").isdigit() else None
+            position_rank = int(player.get("position_rank")) if player.get("position_rank").isdigit() else None
+            state_rank = int(player.get("state_rank")) if player.get("state_rank").isdigit() else None
             status = player.get("status")
             hs, city, state = split_high_school_and_hometown(player.get("school_location"))
             recruit, _ = Recruit.objects.get_or_create(
@@ -91,7 +96,7 @@ def get_recruits_by_school_and_year(school: str, year: int) -> dict:
                     "height": height,
                     "weight": weight,
                     "stars": stars,
-                    "hs_rating_score": round(float(hs_rating_score), 2),
+                    "hs_rating_score": round(float(hs_rating_score), 2) if hs_rating_score.isdigit() else None,
                     "national_rank": national_rank,
                     "position_rank": position_rank,
                     "state_rank": state_rank,
@@ -104,6 +109,15 @@ def get_recruits_by_school_and_year(school: str, year: int) -> dict:
                 "type": "hs",
                 "id": recruit.id,
                 "school_link": recruit.school_link,
+                "position": position,
+                "height": height,
+                "weight": weight,
+                "stars": stars,
+                "hs_rating_score": hs_rating_score,
+                "national_rank": national_rank,
+                "position_rank": position_rank,
+                "state_rank": state_rank,
+                "status": status
             })
 
         # --- Handle Transfers ---
@@ -153,6 +167,11 @@ def get_recruits_by_school_and_year(school: str, year: int) -> dict:
                 "name": f"{first_name} {last_name}",
                 "type": "transfer",
                 "id": recruit.id,
+                "transfer_stars": transfer_stars,
+                "transfer_rating_score": transfer_rating_score,
+                "hs_stars": hs_stars,
+                "hs_rating_score": hs_rating_score,
+                "position": position,
                 "school_link": recruit.school_link,
             })
 

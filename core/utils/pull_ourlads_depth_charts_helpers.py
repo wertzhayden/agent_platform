@@ -70,27 +70,6 @@ def split_name_into_first_and_last(full_name: str) -> tuple:
     return full_name.strip(), ""  # Fallback if no comma
 
 
-# def determine_ourlads_player_name_and_class(ourlads_name: str) -> dict: 
-#         """Determines the player's name and class from the Ourlads website."""
-#         # Split the Name & Class 
-#         name = ourlads_name.split(" ")
-#         first_class_index = find_first_class_index(name)
-#         # Both split out here
-#         full_name = name[:first_class_index] if first_class_index != -1 else []
-#         class_suffix = name[first_class_index:] if first_class_index != -1 else name
-#         # Separate the First & Last Name
-#         full_name = " ".join(full_name).strip()
-#         first_name, last_name = split_name_into_first_and_last(full_name=full_name)
-#         # Separate the Class Suffix
-#         class_suffix = " ".join(class_suffix).strip() if class_suffix else ""
-#         # Determine the Years Left of Eligibility
-#         years_left_of_eligibility = determine_years_left_of_eligibility(class_suffix)
-#         return {
-#             "first_name": first_name,
-#             "last_name": last_name,
-#             "class": class_suffix,
-#             "years_left_of_eligibility": years_left_of_eligibility
-#         }
 def determine_ourlads_player_name_and_class(ourlads_name: str) -> dict:
     """Parses Ourlads name format into first name, last name, and class."""
     if "," not in ourlads_name:
