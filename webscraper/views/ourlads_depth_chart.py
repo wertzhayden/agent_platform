@@ -9,9 +9,7 @@ from webscraper.services.player_data.retrieve_team_depth_chart import retrieve_s
 from webscraper.serializers.player_serializer import PlayerSerializer
 from core.utils.pull_ourlads_depth_charts_helpers import (
     determine_ourlads_player_name_and_class,
-
 )
-
 
 
 class IngestOurladsDepthCharts(viewsets.ViewSet):

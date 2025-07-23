@@ -37,7 +37,6 @@ class IngestAccoladesViewset(viewsets.ViewSet):
                     player_obj = Player.objects.filter(
                         first_name__iexact=first_name,
                         last_name__iexact=last_name,
-                        school__name__iexact=player.get("school")
                     ).first()
 
                     accolade, _ = Accolade.objects.get_or_create(

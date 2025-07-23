@@ -132,7 +132,7 @@ PWAA_FRESHMEN = {
       "hometown": "Dillon, S.C.",
     },
     {
-      "name": "Jamarioius Brown",
+      "name": "Jamarious Brown",
       "position": "DL",
       "school": "Ole Miss",
       "height": "6-1",
