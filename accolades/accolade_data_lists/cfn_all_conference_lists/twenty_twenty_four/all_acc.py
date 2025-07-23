@@ -20,7 +20,7 @@ ALL_ACC = {
   },
   {
     "name": "Nohl Williams",
-    "position": "CB",
+    "position": "LCB",
     "school": "California",
     "award": "DefensivePlayerOfTheYear"
   },
@@ -56,7 +56,7 @@ ALL_ACC = {
   },
   {
     "name": "Xavier Restrepo",
-    "position": "WR",
+    "position": "WR-X",
     "school": "Miami",
     "award": "WideReceiverOfTheYear"
   },
@@ -68,13 +68,13 @@ ALL_ACC = {
   },
   {
     "name": "PJ Williams",
-    "position": "OT",
+    "position": "RT",
     "school": "SMU",
     "award": "OffensiveTackleOfTheYear"
   },
   {
     "name": "Willie Lampkin",
-    "position": "OG",
+    "position": "RG",
     "school": "North Carolina",
     "award": "OffensiveGuardOfTheYear"
   },
@@ -86,7 +86,7 @@ ALL_ACC = {
   },
   {
     "name": "PJ Williams",
-    "position": "OT",
+    "position": "RT",
     "school": "SMU",
     "award": "OffensiveLinemanOfTheYear"
   },
@@ -104,31 +104,31 @@ ALL_ACC = {
   },
   {
     "name": "Donovan Ezeiruaku",
-    "position": "EDGE",
+    "position": "LDE",
     "school": "Boston College",
     "award": "EdgeDefenderOfTheYear"
   },
   {
     "name": "Jared Harrison-Hunte",
-    "position": "DL",
+    "position": "LDT",
     "school": "SMU",
     "award": "InteriorDefenderOfTheYear"
   },
   {
     "name": "Kyle Louis",
-    "position": "LB",
+    "position": "STAR",
     "school": "Pittsburgh",
     "award": "LinebackerOfTheYear"
   },
   {
     "name": "Nohl Williams",
-    "position": "CB",
+    "position": "LCB",
     "school": "California",
     "award": "CornerbackOfTheYear"
   },
   {
     "name": "Isaiah Nwokobia",
-    "position": "S",
+    "position": "SS",
     "school": "SMU",
     "award": "SafetyOfTheYear"
   },
@@ -146,7 +146,7 @@ ALL_ACC = {
   },
   {
     "name": "Jared Harrison-Hunte",
-    "position": "DL",
+    "position": "LDT",
     "school": "SMU",
     "award": "DefensiveNewcomerOfTheYear"
   },
@@ -158,7 +158,7 @@ ALL_ACC = {
   },
   {
     "name": "Alex Mastromanno",
-    "position": "P",
+    "position": "PT",
     "school": "Florida State",
     "award": "PunterOfTheYear"
   },
@@ -176,13 +176,13 @@ ALL_ACC = {
   },
   {
     "name": "Daylon Gordon",
-    "position": "ST",
+    "position": "RB",
     "school": "North Carolina",
     "award": "SpecialTeamerOfTheYear"
   },
   {
     "name": "Andres Borregales",
-    "position": "KOS",
+    "position": "KO",
     "school": "Miami",
     "award": "KickoffSpecialistOfTheYear"
   },
@@ -206,19 +206,19 @@ ALL_ACC = {
   },
   {
     "name": "Xavier Restrepo",
-    "position": "WR",
+    "position": "WR-X",
     "school": "Miami",
     "team": 1
   },
   {
     "name": "Ja’Corey Brooks",
-    "position": "WR",
+    "position": "WR-X",
     "school": "Louisville",
     "team": 1
   },
   {
     "name": "Jackson Meeks",
-    "position": "WR",
+    "position": "WR-X",
     "school": "Syracuse",
     "team": 1
   },
@@ -230,55 +230,55 @@ ALL_ACC = {
   },
   {
     "name": "Desmond Reid",
-    "position": "FLEX",
+    "position": "RB",
     "school": "Pittsburgh",
     "team": 1
   },
   {
     "name": "Brian Parker II",
-    "position": "OT",
+    "position": "RT",
     "school": "Duke",
     "team": 1
   },
   {
     "name": "Willie Lampkin",
-    "position": "OG",
+    "position": "RG",
     "school": "North Carolina",
     "team": 1
   },
   {
     "name": "Zeke Correll",
-    "position": "OC",
+    "position": "C",
     "school": "NC State",
     "team": 1
   },
   {
     "name": "Justin Osborne",
-    "position": "OG",
+    "position": "RG",
     "school": "SMU",
     "team": 1
   },
   {
     "name": "PJ Williams",
-    "position": "OT",
+    "position": "RT",
     "school": "SMU",
     "team": 1
   },
   {
     "name": "Donovan Ezeiruaku",
-    "position": "EDGE",
+    "position": "LDE",
     "school": "Boston College",
     "team": 1
   },
   {
     "name": "Ashton Gillotte",
-    "position": "EDGE",
+    "position": "DE",
     "school": "Louisville",
     "team": 1
   },
   {
     "name": "Jared Harrison-Hunte",
-    "position": "DT",
+    "position": "LDT",
     "school": "SMU",
     "team": 1
   },
@@ -290,37 +290,37 @@ ALL_ACC = {
   },
   {
     "name": "Kyle Louis",
-    "position": "LB",
+    "position": "STAR",
     "school": "Pittsburgh",
     "team": 1
   },
   {
     "name": "Francisco Mauigoa",
-    "position": "LB",
+    "position": "MLB",
     "school": "Miami",
     "team": 1
   },
   {
     "name": "Teddye Buchanan",
-    "position": "LB",
+    "position": "LILB",
     "school": "California",
     "team": 1
   },
   {
     "name": "Nohl Williams",
-    "position": "CB",
+    "position": "LCB",
     "school": "California",
     "team": 1
   },
   {
     "name": "Avieon Terrell",
-    "position": "CB",
+    "position": "LCB",
     "school": "Clemson",
     "team": 1
   },
   {
     "name": "Deuce Harmon",
-    "position": "CB",
+    "position": "RCB",
     "school": "SMU",
     "team": 1
   },
@@ -338,13 +338,13 @@ ALL_ACC = {
   },
   {
     "name": "Isaiah Nwokobia",
-    "position": "S",
+    "position": "SS",
     "school": "SMU",
     "team": 1
   },
   {
     "name": "Chandler Rivers",
-    "position": "FLEX",
+    "position": "RCB",
     "school": "Duke",
     "team": 1
   },
@@ -356,13 +356,13 @@ ALL_ACC = {
   },
   {
     "name": "Andres Borregales",
-    "position": "KOS",
+    "position": "KO",
     "school": "Miami",
     "team": 1
   },
   {
     "name": "Alex Mastromanno",
-    "position": "P",
+    "position": "PT",
     "school": "Florida State",
     "team": 1
   },
@@ -380,27 +380,27 @@ ALL_ACC = {
   },
   {
     "name": "Daylon Gordon",
-    "position": "ST",
+    "position": "RB",
     "school": "georgia-tech",
     "team": 1
   },
   {"name": "Kyle McCord", "position": "QB", "school": "Syracuse", "team": 2},
   {"name": "Bhayshul Tuten", "position": "RB", "school": "Virginia Tech", "team": 2},
   {"name": "Isaac Brown", "position": "RB", "school": "Louisville", "team": 2},
-  {"name": "Antonio Williams", "position": "WR", "school": "Clemson", "team": 2},
-  {"name": "Elic Ayomanor", "position": "WR", "school": "Stanford", "team": 2},
-  {"name": "Konata Mumpfield", "position": "WR", "school": "Pittsburgh", "team": 2},
+  {"name": "Antonio Williams", "position": "WR-H", "school": "Clemson", "team": 2},
+  {"name": "Elic Ayomanor", "position": "WR-X", "school": "Stanford", "team": 2},
+  {"name": "Konata Mumpfield", "position": "WR-X", "school": "Pittsburgh", "team": 2},
   {"name": "Jake Briningstool", "position": "TE", "school": "Clemson", "team": 2},
-  {"name": "Brashard Smith", "position": "FLEX", "school": "SMU", "team": 2},
-  {"name": "Francis Mauigoa", "position": "OT", "school": "Miami", "team": 2},
-  {"name": "Anthony Carter Jr.", "position": "OG", "school": "NC State", "team": 2},
-  {"name": "Pete Nygra", "position": "OC", "school": "Louisville", "team": 2},
-  {"name": "Timothy McKay", "position": "OG", "school": "NC State", "team": 2},
-  {"name": "Monroe Mills", "position": "OT", "school": "Louisville", "team": 2},
+  {"name": "Brashard Smith", "position": "RB", "school": "SMU", "team": 2},
+  {"name": "Francis Mauigoa", "position": "RT", "school": "Miami", "team": 2},
+  {"name": "Anthony Carter Jr.", "position": "LG", "school": "NC State", "team": 2},
+  {"name": "Pete Nygra", "position": "C", "school": "Louisville", "team": 2},
+  {"name": "Timothy McKay", "position": "RG", "school": "NC State", "team": 2},
+  {"name": "Monroe Mills", "position": "RT", "school": "Louisville", "team": 2},
 
-  {"name": "Elijah Roberts", "position": "EDGE", "school": "smu", "team": 2},
-  {"name": "Tyler Baron", "position": "EDGE", "school": "miami", "team": 2},
-  {"name": "Aeneas Peebles", "position": "DT", "school": "virginia-tech", "team": 2},
+  {"name": "Elijah Roberts", "position": "LDE", "school": "smu", "team": 2},
+  {"name": "Tyler Baron", "position": "DT", "school": "miami", "team": 2},
+  {"name": "Aeneas Peebles", "position": "RDT", "school": "virginia-tech", "team": 2},
   {"name": "Darrell Jackson Jr", "position": "DT", "school": "florida-state", "team": 2},
   {"name": "Cameron Bergeron", "position": "LB", "school": "duke", "team": 2},
   {"name": "Amare Campbell", "position": "LB", "school": "north-carolina", "team": 2},
@@ -445,16 +445,16 @@ ALL_ACC = {
   {"name": "Dorian Strong", "position": "CB", "school": "Virginia Tech", "team": 3},
   {"name": "Alijah Huzzie", "position": "CB", "school": "north-carolina", "team": 3},
   {"name": "Donovan McMillon", "position": "S", "school": "Pittsburgh", "team": 3},
-  {"name": "Craig Woodson", "position": "S", "school": "California", "team": 3},
-  {"name": "Terry Moore", "position": "S", "school": "duke", "team": 3},
-  {"name": "Justin Barron", "position": "FLEX", "school": "Syracuse", "team": 3},
+  {"name": "Craig Woodson", "position": "FS", "school": "California", "team": 3},
+  {"name": "Terry Moore", "position": "FS", "school": "duke", "team": 3},
+  {"name": "Justin Barron", "position": "MLB", "school": "Syracuse", "team": 3},
 
   {"name": "Ryan Fitzgerald", "position": "PK", "school": "florida-state", "team": 3},
-  {"name": "Ryan Coe", "position": "KOS", "school": "California", "team": 3},
-  {"name": "Peter Moore", "position": "P", "school": "Virginia Tech", "team": 3},
+  {"name": "Ryan Coe", "position": "KO", "school": "California", "team": 3},
+  {"name": "Peter Moore", "position": "PT", "school": "Virginia Tech", "team": 3},
   {"name": "Kenny Johnson", "position": "KR", "school": "Pittsburgh", "team": 3},
   {"name": "Jaylin Lane", "position": "PR", "school": "Virginia Tech", "team": 3},
-  {"name": "Dylan Day", "position": "ST", "school": "Miami", "team": 3},
+  {"name": "Dylan Day", "position": "SS", "school": "Miami", "team": 3},
  {"name": "Kevin Jennings", "position": "QB", "school": "SMU", "team": "honorable_mention"},
   {"name": "Eli Holstein", "position": "QB", "school": "Pittsburgh", "team": "honorable_mention"},
   {"name": "Maalik Murphy", "position": "QB", "school": "Duke", "team": "honorable_mention"},
@@ -464,27 +464,27 @@ ALL_ACC = {
   {"name": "Kye Robichaux", "position": "RB", "school": "Boston College", "team": "honorable_mention"},
   {"name": "Damien Martinez", "position": "RB", "school": "Miami", "team": "honorable_mention"},
   {"name": "Jamal Haynes", "position": "RB", "school": "Georgia Tech", "team": "honorable_mention"},
-  {"name": "Taylor Morin", "position": "WR", "school": "Wake Forest", "team": "honorable_mention"},
-  {"name": "J.J. Jones", "position": "WR", "school": "North Carolina", "team": "honorable_mention"},
-  {"name": "Jacolby George", "position": "WR", "school": "Miami", "team": "honorable_mention"},
-  {"name": "Chris Bell", "position": "WR", "school": "Louisville", "team": "honorable_mention"},
-  {"name": "Key’Shawn Smith", "position": "WR", "school": "SMU", "team": "honorable_mention"},
-  {"name": "Emmett Mosley V", "position": "WR", "school": "Stanford", "team": "honorable_mention"},
-  {"name": "Bryant Wesco Jr.", "position": "WR", "school": "Clemson", "team": "honorable_mention"},
-  {"name": "Roderick Daniels Jr.", "position": "WR", "school": "SMU", "team": "honorable_mention"},
-  {"name": "Nyziah Hunter", "position": "WR", "school": "California", "team": "honorable_mention"},
+  {"name": "Taylor Morin", "position": "WR-SL", "school": "Wake Forest", "team": "honorable_mention"},
+  {"name": "J.J. Jones", "position": "WR-X", "school": "North Carolina", "team": "honorable_mention"},
+  {"name": "Jacolby George", "position": "WR-Z", "school": "Miami", "team": "honorable_mention"},
+  {"name": "Chris Bell", "position": "WR-X", "school": "Louisville", "team": "honorable_mention"},
+  {"name": "Key’Shawn Smith", "position": "WR-Z", "school": "SMU", "team": "honorable_mention"},
+  {"name": "Emmett Mosley V", "position": "WR-X", "school": "Stanford", "team": "honorable_mention"},
+  {"name": "Bryant Wesco Jr.", "position": "WR-Z", "school": "Clemson", "team": "honorable_mention"},
+  {"name": "Roderick Daniels Jr.", "position": "WR-SL", "school": "SMU", "team": "honorable_mention"},
+  {"name": "Nyziah Hunter", "position": "WR-Z", "school": "California", "team": "honorable_mention"},
   {"name": "John Copenhaver", "position": "TE", "school": "North Carolina", "team": "honorable_mention"},
   {"name": "Tyler Neville", "position": "TE", "school": "Virginia", "team": "honorable_mention"},
   {"name": "Jack Endries", "position": "TE", "school": "California", "team": "honorable_mention"},
-  {"name": "Justin Joly", "position": "FLEX", "school": "NC State", "team": "honorable_mention"},
+  {"name": "Justin Joly", "position": "TE", "school": "NC State", "team": "honorable_mention"},
   {"name": "Jacarrius Peak", "position": "OT", "school": "NC State", "team": "honorable_mention"},
   {"name": "Keagen Trost", "position": "OT", "school": "Wake Forest", "team": "honorable_mention"},
-  {"name": "Savion Washington", "position": "OT", "school": "Syracuse", "team": "honorable_mention"},
+  {"name": "Savion Washington", "position": "RT", "school": "Syracuse", "team": "honorable_mention"},
   {"name": "Matthew McCoy", "position": "OG", "school": "Miami", "team": "honorable_mention"},
   {"name": "Michael Gonzalez", "position": "OG", "school": "Louisville", "team": "honorable_mention"},
   {"name": "Marcus Tate", "position": "OG", "school": "Clemson", "team": "honorable_mention"},
-  {"name": "Drew Kendall", "position": "OC", "school": "Boston College", "team": "honorable_mention"},
-  {"name": "Weston Franklin", "position": "OC", "school": "Georgia Tech", "team": "honorable_mention"},
+  {"name": "Drew Kendall", "position": "C", "school": "Boston College", "team": "honorable_mention"},
+  {"name": "Weston Franklin", "position": "C", "school": "Georgia Tech", "team": "honorable_mention"},
   {"name": "Keylan Rutledge", "position": "OG", "school": "Georgia Tech", "team": "honorable_mention"},
   {"name": "Kaden Moore", "position": "OG", "school": "Virginia Tech", "team": "honorable_mention"},
   {"name": "Jakai Clark", "position": "OC", "school": "SMU", "team": "honorable_mention"},
@@ -521,17 +521,17 @@ ALL_ACC = {
   {"name": "Max Tucker", "position": "CB", "school": "Boston College", "team": "honorable_mention"},
   {"name": "Clarence Lewis", "position": "CB", "school": "Syracuse", "team": "honorable_mention"},
   {"name": "Jeadyn Lukus", "position": "CB", "school": "Clemson", "team": "honorable_mention"},
-  {"name": "Corey Thornton", "position": "CB", "school": "Louisville", "team": "honorable_mention"},
+  {"name": "Corey Thornton", "position": "LCB", "school": "Louisville", "team": "honorable_mention"},
   {"name": "Davaughn Patterson", "position": "SS", "school": "Wake Forest", "team": "honorable_mention"},
-  {"name": "Shyheim Brown", "position": "SS", "school": "Florida State", "team": "honorable_mention"},
+  {"name": "Shyheim Brown", "position": "FS", "school": "Florida State", "team": "honorable_mention"},
   {"name": "Cale Sanders Jr.", "position": "SS", "school": "SMU", "team": "honorable_mention"},
-  {"name": "Duce Chestnut", "position": "FS", "school": "Syracuse", "team": "honorable_mention"},
+  {"name": "Duce Chestnut", "position": "SS", "school": "Syracuse", "team": "honorable_mention"},
   {"name": "Jonas Sanker", "position": "FS", "school": "Virginia", "team": "honorable_mention"},
   {"name": "Mitch Leigber", "position": "FS", "school": "Stanford", "team": "honorable_mention"},
-  {"name": "Tamarcus Cooley", "position": "S", "school": "NC State", "team": "honorable_mention"},
-  {"name": "Ahmaad Moses", "position": "S", "school": "SMU", "team": "honorable_mention"},
-  {"name": "R.J. Mickens", "position": "S", "school": "Clemson", "team": "honorable_mention"},
-  {"name": "Jaylen Stinson", "position": "FLEX", "school": "Duke", "team": "honorable_mention"},
-  {"name": "Keonta Jenkins", "position": "FLEX", "school": "Virginia Tech", "team": "honorable_mention"}
+  {"name": "Tamarcus Cooley", "position": "NB", "school": "NC State", "team": "honorable_mention"},
+  {"name": "Ahmaad Moses", "position": "FS", "school": "SMU", "team": "honorable_mention"},
+  {"name": "R.J. Mickens", "position": "SS", "school": "Clemson", "team": "honorable_mention"},
+  {"name": "Jaylen Stinson", "position": "FS", "school": "Duke", "team": "honorable_mention"},
+  {"name": "Keonta Jenkins", "position": "SS", "school": "Virginia Tech", "team": "honorable_mention"}
   ]
 }
