@@ -47,7 +47,7 @@ def get_recruits_by_school_and_year(school: str, year: int) -> dict:
         transfer_rank = recruiting_class_rank.get("transfer_rank", {}).get("value")
         composite_rank = recruiting_class_rank.get("composite_rank", {}).get("value")
 
-        recruiting_class, _ = RecruitingClass.objects.get_or_create(
+        recruiting_class, _ = RecruitingClass.objects.update_or_create(
             school=school,
             year=year,
             defaults={
@@ -84,7 +84,7 @@ def get_recruits_by_school_and_year(school: str, year: int) -> dict:
             state_rank = int(player.get("state_rank")) if player.get("state_rank").isdigit() else None
             status = player.get("status")
             hs, city, state = split_high_school_and_hometown(player.get("school_location"))
-            recruit, _ = Recruit.objects.get_or_create(
+            recruit, _ = Recruit.objects.update_or_create(
                 first_name=first_name,
                 last_name=last_name,
                 position=position,
@@ -138,19 +138,19 @@ def get_recruits_by_school_and_year(school: str, year: int) -> dict:
                 elif level == "hs":
                     hs_stars = rating.get("stars")
                     hs_rating_score = rating.get("rating_score")
-            recruit, _ = Recruit.objects.get_or_create(
+            recruit, _ = Recruit.objects.update_or_create(
                 first_name=first_name,
                 last_name=last_name,
-                position=position,
-                high_school=None,
-                hometown_city=None,
-                hometown_state=None,
-                recruiting_class=recruiting_class,
+                high_school=hs,
+                hometown_city=city,
+                hometown_state=state,
                 defaults={
                     "height": height,
                     "weight": weight,
                     "stars": hs_stars,
-                    "school_link": profile_url
+                    "school_link": profile_url,
+                    "recruiting_class": recruiting_class,
+                    "position": position,
                 }
             )
             if hs_stars is not None:

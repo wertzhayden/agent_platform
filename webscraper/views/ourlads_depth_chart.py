@@ -38,7 +38,7 @@ class IngestOurladsDepthCharts(viewsets.ViewSet):
                 "school_id": school_id,
             }
 
-            school_obj, _ = School.objects.get_or_create(
+            school_obj, _ = School.objects.update_or_create(
                 school_id=school_id,
                 defaults=school_data
             )
@@ -68,7 +68,7 @@ class IngestOurladsDepthCharts(viewsets.ViewSet):
                     player_serializer = PlayerSerializer(data=player_data)
                     player_serializer.is_valid(raise_exception=True)
 
-                    player, created = Player.objects.get_or_create(
+                    player, created = Player.objects.update_or_create(
                         ourlads_link=p["url"],
                         defaults={**player_data, "school": school_obj}
                     )
