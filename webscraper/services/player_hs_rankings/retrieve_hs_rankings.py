@@ -26,7 +26,7 @@ def retrieve_player_hs_rankings(school: str, year: int = 2025) -> dict:
 
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver.get(url)
-    time.sleep(5)
+    time.sleep(3)
 
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     driver.quit()

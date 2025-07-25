@@ -1,5 +1,3 @@
-from rest_framework import viewsets
-from rest_framework.response import Response
 from accolades.accolade_data_lists.all_freshman_lists.twenty_twenty_four.two_four_seven_sports import TWO_FOUR_SEVEN_SPORTS
 from accolades.accolade_data_lists.all_freshman_lists.twenty_twenty_four.freshman_all_sec import FRESHMEN_ALL_SEC
 from accolades.accolade_data_lists.all_freshman_lists.twenty_twenty_four.on3 import ON_THREE_FRESHMEN
@@ -18,10 +16,6 @@ from accolades.accolade_data_lists.cfn_all_conference_lists.twenty_twenty_four.a
 from accolades.accolade_data_lists.cfn_all_conference_lists.twenty_twenty_four.all_sec import ALL_SEC
 from accolades.accolade_data_lists.cfn_all_conference_lists.twenty_twenty_four.all_sun_belt import ALL_SUN_BELT
 
-from accolades.models.accolade import Accolade
-from accolades.serializer.accolade import AccoladeSerializer
-
-from core.models.player import Player
 
 
 def split_name_into_first_and_last(full_name: str) -> tuple:
@@ -63,58 +57,3 @@ def accolades_configs(name_of_award: str, accolade_list: dict) -> dict:
     accolades_list = ALL_ACCOLADES.get(name_of_award, {}).get(accolade_list)
     awards = accolades_list.get(accolade_list)
     return accolades_list, awards
-
-
-
-class IngestAccoladesViewset(viewsets.ViewSet):
-    """
-    Web Scrape Team and Player Stats from the Ourlads website. 
-    """
-
-    def list(self, request):
-        # accolades_list, awards = accolades_configs("freshman", "twenty_four_seven_sports")
-        # accolades_list, awards = accolades_configs("freshman", "sec")
-        # accolades_list, awards = accolades_configs("freshman", "on3")
-        # accolades_list, awards = accolades_configs("freshman", "pff")
-        # accolades_list, awards = accolades_configs("freshman", "pwaa")
-        # accolades_list, awards = accolades_configs("freshman", "cfn")
-        # accolades_list, awards = accolades_configs("all_american", "cfn")
-        # accolades_list, awards = accolades_configs("all_conference", "aac")
-        # accolades_list, awards = accolades_configs("all_conference", "acc")
-        # accolades_list, awards = accolades_configs("all_conference", "big_ten")
-        # accolades_list, awards = accolades_configs("all_conference", "big_twelve")
-        # accolades_list, awards = accolades_configs("all_conference", "c_usa")
-        # accolades_list, awards = accolades_configs("all_conference", "mac")
-        # accolades_list, awards = accolades_configs("all_conference", "mountain_west")
-        # accolades_list, awards = accolades_configs("all_conference", "sec")
-        accolades_list, awards = accolades_configs("all_conference", "sun_belt")
-
-        # @TODO: Create a For Loop for each Accolade Config
-        if not accolades_list:
-            return Response({"message": "No data found"}, status=404)
-        accolades = []
-        # Move Config into Constants File
-        for player in awards:
-            name = player.get("name")
-            first_name, last_name = split_name_into_first_and_last(name)
-            player_obj = Player.objects.filter(
-                first_name__iexact=first_name,
-                last_name__iexact=last_name,
-                school__name__iexact=player.get("school")
-            ).first()
-            # return Response(player)
-
-            accolade, _ = Accolade.objects.get_or_create(
-                player=player_obj,
-                year=accolades_list.get("year"),
-                first_name=first_name,
-                last_name=last_name,
-                name_of_award=accolades_list.get("name_of_award"),
-                team=player.get("team", 1),
-                source=accolades_list.get("source"),
-                conference=accolades_list.get("conference"),
-                award=player.get("award"),
-            )
-            serializer = AccoladeSerializer(accolade)
-            accolades.append(serializer.data)
-        return Response(accolades, status=200)
