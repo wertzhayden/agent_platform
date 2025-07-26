@@ -21,6 +21,9 @@ class IngestPlayersGameAndCareerStats(viewsets.ViewSet):
     """
 
     def create(self, request):
+        incoming_school = request.data.get("school")
+        if incoming_school:
+            return Response(retrieve_game_and_career_stats_of_all_players(incoming_school))
         return Response(retrieve_game_and_career_stats_of_all_players())
     
 def separate_transfer_school_names_into_list(schools_attended: str) -> list:
@@ -29,9 +32,13 @@ def separate_transfer_school_names_into_list(schools_attended: str) -> list:
         return []
     return [part.strip() for part in schools_attended.split("/") if part.strip()]
 
-def retrieve_game_and_career_stats_of_all_players() -> dict:   
+def retrieve_game_and_career_stats_of_all_players(incoming_school: str) -> dict:   
     """Retrieve the Game and Career Stats of all Players in the Database.""" 
-    players = Player.objects.all()
+    if not incoming_school:
+        players = Player.objects.all()
+    if incoming_school:
+        players = Player.objects.filter(school__external_name__iexact=incoming_school)
+
     all_results, failed_results = [], []
 
     for player in players:  # ✅ Loop over model instances
@@ -62,64 +69,63 @@ def retrieve_game_and_career_stats_of_all_players() -> dict:
         schools_attended = separate_transfer_school_names_into_list(schools_attended=schools_attended)
 
         # Save to Player model
-        with transaction.atomic():
-            player.height = height
-            player.weight = weight
-            player.hometown_city = city
-            player.hometown_state = state
-            player.high_school = high_school
-            player.schools_attended = schools_attended
-            player.school_link = school_link
-            player.save()
+        player.height = height
+        player.weight = weight
+        player.hometown_city = city
+        player.hometown_state = state
+        player.high_school = high_school
+        player.schools_attended = schools_attended
+        player.school_link = school_link
+        player.save()
 
-            # --- Save Career Stats ---
-            career_stats = player_stats.get("career_stats", [])
-            if not career_stats:
+        # --- Save Career Stats ---
+        career_stats = player_stats.get("career_stats", [])
+        if not career_stats:
+            continue
+
+        for career_stat in career_stats:
+            serializer_class = CAREER_STATS_SERIALIZER_MAP.get(position)
+            if not serializer_class:
+                continue 
+
+            career_stat["player"] = player.id
+            try:
+                serializer = serializer_class(data=career_stat)
+                serializer.is_valid(raise_exception=True)
+                serializer.save()
+                all_results.append(serializer.data)
+            except Exception as e:
+                failed_results.append({
+                        "error": "Career stat validation failed",
+                        "error_msg": getattr(e, 'detail', str(e)),
+                        "ourlads_position": position,
+                        "player_id": player.id,
+                        "career_stat": career_stat,
+                    })
                 continue
 
-            for career_stat in career_stats:
-                serializer_class = CAREER_STATS_SERIALIZER_MAP.get(position)
-                if not serializer_class:
-                    continue 
 
-                career_stat["player"] = player.id
-                try:
-                    serializer = serializer_class(data=career_stat)
-                    serializer.is_valid(raise_exception=True)
-                    serializer.save()
-                    all_results.append(serializer.data)
-                except Exception as e:
-                    failed_results.append({
-                            "error": "Career stat validation failed",
-                            "error_msg": getattr(e, 'detail', str(e)),
-                            "ourlads_position": position,
-                            "player_id": player.id,
-                            "career_stat": career_stat,
-                        })
-                    continue
-    
+        # --- Save Game Stats ---
+        game_stats = player_stats.get("game_stats", [])
+        for game in game_stats:
+            serializer_class = GAME_STATS_SERIALIZER_MAP.get(position)
+            if not serializer_class:
+                continue
 
-            # --- Save Game Stats ---
-            game_stats = player_stats.get("game_stats", [])
-            for game in game_stats:
-                serializer_class = GAME_STATS_SERIALIZER_MAP.get(position)
-                if not serializer_class:
-                    continue
-
-                game["player"] = player.id
-                try:
-                    serializer = serializer_class(data=game)
-                    serializer.is_valid(raise_exception=True)
-                    serializer.save()
-                    all_results.append(serializer.data)
-                except Exception as e:
-                    failed_results.append({
-                            "error": "Game stat validation failed",
-                            "error_msg": getattr(e, 'detail', str(e)),
-                            "ourlads_position": position,
-                            "player_id": player.id,
-                            "game": game,
-                        })
-                    continue
+            game["player"] = player.id
+            try:
+                serializer = serializer_class(data=game)
+                serializer.is_valid(raise_exception=True)
+                serializer.save()
+                all_results.append(serializer.data)
+            except Exception as e:
+                failed_results.append({
+                        "error": "Game stat validation failed",
+                        "error_msg": getattr(e, 'detail', str(e)),
+                        "ourlads_position": position,
+                        "player_id": player.id,
+                        "game": game,
+                    })
+                continue
 
     return len(all_results), len(failed_results), failed_results

@@ -18,7 +18,7 @@ def determine_ourlads_headers_by_position(position: str) -> tuple[list[str], lis
     position = position.upper()
     if 'RB' in position or "FB" in position:
         return rb_career_stats_headers, rb_game_stats_headers
-    if 'WR' in position or 'TE' in position:
+    if 'WR' in position or 'TE' in position or "SB" in position:
         return wr_career_stats_headers, wr_game_stats_headers
     if 'QB' in position:
         return qb_career_stats_headers, qb_game_stats_headers

@@ -21,70 +21,45 @@ class RecruitsBySchoolAndYear(viewsets.ViewSet):
     """
 
     def create(self, request):
-        MAX_WORKERS = 5  # Adjust as needed for performance
+        # MAX_WORKERS = 5  # Adjust as needed for performance
         recruits = []
         years = [2021, 2022, 2023, 2024, 2025]
         school = request.data.get("school")
         year = request.data.get("year") or years
 
-        if school and year:
-            data = get_recruits_by_school_and_year(team=school, year=int(year))
-            return Response(data)
+        # Normalize to a list of years
+        if isinstance(year, str):
+            year = [int(year)]
+        elif isinstance(year, list):
+            year = [int(y) for y in year]
+        else:
+            year = years
+
+        if school:
+            for y in year:
+                data = get_recruits_by_school_and_year(school_name=school, year=int(y))
+                recruits.append(data)
+            return Response(recruits)
 
         for team in TEAM_IDS:
             for yr in years:
-                recruit_data = get_recruits_by_school_and_year(team=team, year=yr)
+                recruit_data = get_recruits_by_school_and_year(school_name=team, year=yr)
                 recruits.append(recruit_data)
 
-        # return Response(recruits)
-        return Response(scrape_all_teams_and_years(MAX_WORKERS=MAX_WORKERS))
-    
-# def scrape_task(team, year):
-#     try:
-#         result = retrieve_player_hs_rankings(team, year)
-#         result["team"] = team
-#         result["year"] = year
-#         return result
-#     except Exception as e:
-#         return {
-#             "team": team,
-#             "year": year,
-#             "error": str(e),
-#             "ranks": {},
-#             "players": [],
-#             "transfers": []
-#         }
-    
-# def scrape_all_teams_and_years(max_workers: int = 5) -> list:
-#     """Scrape all teams and years concurrently."""
-#     teams = TEAM_IDS.keys()
-#     years = [2021, 2022, 2023, 2024, 2025]
-#     tasks = [(team, year) for team in teams for year in years]
+        return Response(recruits)
 
-#     results = []
-
-#     with ThreadPoolExecutor(max_workers=max_workers) as executor:
-#         futures = {executor.submit(scrape_task, team, year): (team, year) for team, year in tasks}
-#         for future in as_completed(futures):
-#             result = future.result()
-#             results.append(result)
-
-#     return results
-
-
-def get_recruits_by_school_and_year(school: str, year: int) -> dict:
+def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
         """
         Get the high school recruits for a specific school and year.
         """
         rank_not_found = "N/A"
-        school_name = school
         year = year
-        school = School.objects.filter(external_name__iexact=school).first()
+        school = School.objects.filter(external_name__iexact=school_name).first()
 
         hs_rankings = retrieve_player_hs_rankings(school=school_name, year=year)
         recruiting_class_rank = hs_rankings.get("ranks", {})
         # Safely extract ranks
-        overall_rank = recruiting_class_rank.get("statusoverall_rank", {}).get("value")
+        overall_rank = recruiting_class_rank.get("overall_rank", {}).get("value")
         transfer_rank = recruiting_class_rank.get("transfer_rank", {}).get("value")
         composite_rank = recruiting_class_rank.get("composite_rank", {}).get("value")
 
@@ -92,9 +67,9 @@ def get_recruits_by_school_and_year(school: str, year: int) -> dict:
             school=school,
             year=year,
             defaults={
-                "overall_rank": int(overall_rank) if overall_rank not in rank_not_found else None,
-                "transfer_rank": int(transfer_rank) if transfer_rank not in rank_not_found else None,
-                "composite_rank": int(composite_rank) if composite_rank not in rank_not_found else None
+                "overall_rank": int(overall_rank) if isinstance(overall_rank, str) and overall_rank not in rank_not_found else None,
+                "transfer_rank": int(transfer_rank) if isinstance(transfer_rank, str) and transfer_rank not in rank_not_found else None,
+                "composite_rank": int(composite_rank) if isinstance(composite_rank, str) and composite_rank not in rank_not_found else None
             }
         )
 

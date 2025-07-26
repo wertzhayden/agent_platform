@@ -108,7 +108,7 @@ def determine_ourlads_position(position: str, side_of_ball: str) -> str:
     if side_of_ball == "offense":
         if "rb" in position or "fb" in position:
             return "rb"
-        if "wr" in position or "te" in position:
+        if "wr" in position or "te" in position or "sb" in position:
             return "wr"
         if "qb" in position:
             return "qb"
