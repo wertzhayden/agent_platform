@@ -28,6 +28,7 @@ def retrieve_player_stats(player_link: str, position: str = None) -> dict:
     soup = BeautifulSoup(response.content, 'html.parser')
     player_bio_data = {}
 
+    ### 1. BIO SECTION
     # Player photo
     photo_tag = soup.find("img", id="ctl00_phContent_iHS")
     # Actual Photo URL: https://www.ourlads.com/images/players/ncaa/HOR292292.png
@@ -57,6 +58,7 @@ def retrieve_player_stats(player_link: str, position: str = None) -> dict:
 
     career_stats_headers, game_stats_headers = determine_ourlads_headers_by_position(position=position)
     player_bio_data["position_name"] = position
+    
     ### 2. CAREER STATS SECTION (Updated)
     career_stats = []
     career_stats_div = soup.find("div", id="ctl00_phContent_dCareerStats")

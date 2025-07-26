@@ -1,6 +1,8 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
 
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
 from core.models.school import School
 from core.utils.pull_ourlads_depth_charts_helpers import (
     split_high_school_and_hometown,
@@ -12,23 +14,62 @@ from webscraper.models.recruiting_class import RecruitingClass
 from webscraper.models.recruit import Recruit
 from webscraper.services.player_hs_rankings.retrieve_hs_rankings import retrieve_player_hs_rankings
 
-
-
+    
 class RecruitsBySchoolAndYear(viewsets.ViewSet):
     """
-    Web Scrape Team and Player Stats from the Ourlads website. 
+    View to retrieve HS recruits across schools and years using 247Sports
     """
 
     def create(self, request):
+        MAX_WORKERS = 5  # Adjust as needed for performance
         recruits = []
-        if request.data.get("school") and request.data.get("year"):
-            recruits = get_recruits_by_school_and_year(team=request.data.get("school"), year=request.data.get("year"))
-            return Response(recruits)
         years = [2021, 2022, 2023, 2024, 2025]
+        school = request.data.get("school")
+        year = request.data.get("year") or years
+
+        if school and year:
+            data = get_recruits_by_school_and_year(team=school, year=int(year))
+            return Response(data)
+
         for team in TEAM_IDS:
-            for year in years:
-                recruits.append(get_recruits_by_school_and_year(team=team,year=year))
-        return Response(recruits)
+            for yr in years:
+                recruit_data = get_recruits_by_school_and_year(team=team, year=yr)
+                recruits.append(recruit_data)
+
+        # return Response(recruits)
+        return Response(scrape_all_teams_and_years(MAX_WORKERS=MAX_WORKERS))
+    
+# def scrape_task(team, year):
+#     try:
+#         result = retrieve_player_hs_rankings(team, year)
+#         result["team"] = team
+#         result["year"] = year
+#         return result
+#     except Exception as e:
+#         return {
+#             "team": team,
+#             "year": year,
+#             "error": str(e),
+#             "ranks": {},
+#             "players": [],
+#             "transfers": []
+#         }
+    
+# def scrape_all_teams_and_years(max_workers: int = 5) -> list:
+#     """Scrape all teams and years concurrently."""
+#     teams = TEAM_IDS.keys()
+#     years = [2021, 2022, 2023, 2024, 2025]
+#     tasks = [(team, year) for team in teams for year in years]
+
+#     results = []
+
+#     with ThreadPoolExecutor(max_workers=max_workers) as executor:
+#         futures = {executor.submit(scrape_task, team, year): (team, year) for team, year in tasks}
+#         for future in as_completed(futures):
+#             result = future.result()
+#             results.append(result)
+
+#     return results
 
 
 def get_recruits_by_school_and_year(school: str, year: int) -> dict:
@@ -38,12 +79,12 @@ def get_recruits_by_school_and_year(school: str, year: int) -> dict:
         rank_not_found = "N/A"
         school_name = school
         year = year
-        school = School.objects.filter(name=school_name).first()
+        school = School.objects.filter(external_name__iexact=school).first()
 
         hs_rankings = retrieve_player_hs_rankings(school=school_name, year=year)
         recruiting_class_rank = hs_rankings.get("ranks", {})
         # Safely extract ranks
-        overall_rank = recruiting_class_rank.get("overall_rank", {}).get("value")
+        overall_rank = recruiting_class_rank.get("statusoverall_rank", {}).get("value")
         transfer_rank = recruiting_class_rank.get("transfer_rank", {}).get("value")
         composite_rank = recruiting_class_rank.get("composite_rank", {}).get("value")
 

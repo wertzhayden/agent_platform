@@ -11,6 +11,37 @@ from core.utils.pull_ourlads_depth_charts_helpers import (
     determine_ourlads_player_name_and_class,
 )
 
+def format_school_name(name: str) -> str:
+    exceptions = {
+        "smu": "SMU", 
+        "brigham-young": "BYU",
+        "central-florida": "UCF",
+        "central-michigan": "CMU",
+        "connecticut": "UConn",
+        "east-carolina": "ECU",
+        "eastern-michigan": "EMU",
+        "florida-atlantic": "FAU",
+        "florida-international": "FIU",
+        "james-madison": "JMU",
+        "louisiana": "UL Lafayette",
+        "louisiana-tech": "La Tech",
+        "louisiana-monroe": "UL Monroe",
+        "lsu": "LSU",
+        "umass": "UMass",
+        "miami-university": "Miami of Ohio",
+        "north-carolina": "UNC",
+        "pittsburgh": "Pitt",
+        "south-florida": "USF",
+        "tcu": "TCU",
+        "texas-am": "Texas A&M",
+        "uab": "UAB",
+        "ucla": "UCLA",
+        "unlv": "UNLV",
+        "usc": "USC",
+        "utep": "UTEP",
+        "utsa": "UTSA",
+    }
+    return exceptions.get(name, name.replace("-", " ").title())
 
 class IngestOurladsDepthCharts(viewsets.ViewSet):
     """
@@ -33,7 +64,7 @@ class IngestOurladsDepthCharts(viewsets.ViewSet):
             )
 
             school_data = {
-                "name": school,
+                "name": format_school_name(school),
                 "external_name": school,
                 "school_id": school_id,
             }
