@@ -20,6 +20,7 @@ class School(BaseModel):
         blank=True,
         help_text="A list of thug positions that the school is known for"
     )
+    conference = models.CharField(max_length=50, blank=True, null=True)
     metadata = models.JSONField(blank=True, null=True)
 
     def __str__(self):

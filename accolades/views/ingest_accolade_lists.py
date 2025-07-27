@@ -34,22 +34,19 @@ class IngestAccoladesViewset(viewsets.ViewSet):
                 for player in awards:
                     name = player.get("name")
                     first_name, last_name = split_name_into_first_and_last(name)
-                    player_obj = Player.objects.filter(
-                        first_name__iexact=first_name,
-                        last_name__iexact=last_name,
-                    ).first()
-
+                    player_obj = Player.objects.filter(first_name__icontains=first_name, last_name__icontains=last_name).first()
                     accolade, _ = Accolade.objects.get_or_create(
-                        player=player_obj,
-                        year=accolades_list.get("year"),
                         first_name=first_name,
                         last_name=last_name,
+                        year=accolades_list.get("year"),
                         name_of_award=accolades_list.get("name_of_award"),
-                        team=player.get("team", 1),
                         source=accolades_list.get("source"),
                         conference=accolades_list.get("conference"),
+                        team=player.get("team", 1),
+                        player=player_obj,
                         award=player.get("award"),
                     )
                     serializer = AccoladeSerializer(accolade)
+                    # Add the accolade to the accolades list
                     accolades.append(serializer.data)
         return Response(accolades, status=200)

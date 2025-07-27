@@ -3,6 +3,7 @@ from rest_framework.response import Response
 
 from core.models.player import Player
 from core.models.school import School
+from core.constants.teams_by_conference import TEAMS_BY_CONFERENCE
 
 from webscraper.constants.ourlads_constants import TEAM_IDS
 from webscraper.services.player_data.retrieve_team_depth_chart import retrieve_schools_players_by_depth_chart
@@ -67,6 +68,7 @@ class IngestOurladsDepthCharts(viewsets.ViewSet):
                 "name": format_school_name(school),
                 "external_name": school,
                 "school_id": school_id,
+                "conference": TEAMS_BY_CONFERENCE.get(school, None)
             }
 
             school_obj, _ = School.objects.update_or_create(
