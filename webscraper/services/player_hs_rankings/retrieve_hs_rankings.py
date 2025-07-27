@@ -18,7 +18,7 @@ def retrieve_player_hs_rankings(school: str, year: int = 2025) -> dict:
 
     options = webdriver.ChromeOptions()
     # Uncomment for headless scraping
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_argument("start-maximized")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])

@@ -1,5 +1,6 @@
 from django.db import models
 from core.models.base_model import BaseModel
+from core.models.player import Player
 from webscraper.models.recruiting_class import RecruitingClass
 
 class Recruit(BaseModel):
@@ -29,4 +30,4 @@ class Recruit(BaseModel):
     current_weight = models.IntegerField(blank=True, null=True)
     experience_level_at_current_school = models.CharField(max_length=100, blank=True, null=True)
     current_school = models.CharField(max_length=255, blank=True, null=True)
-    
+    player = models.ForeignKey(Player, on_delete=models.SET_NULL, null=True, blank=True)

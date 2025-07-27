@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from core.models.school import School
+from core.models.player import Player
 from core.utils.pull_ourlads_depth_charts_helpers import (
     split_high_school_and_hometown,
     convert_string_to_float
@@ -100,6 +101,12 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
             state_rank = int(player.get("state_rank")) if player.get("state_rank").isdigit() else None
             status = player.get("status")
             hs, city, state = split_high_school_and_hometown(player.get("school_location"))
+            player_obj = Player.objects.filter(
+                first_name=first_name, 
+                last_name=last_name,
+                hometown_city=city,
+                hometown_state=state
+                ).first()
             recruit, _ = Recruit.objects.update_or_create(
                 first_name=first_name,
                 last_name=last_name,
@@ -107,17 +114,18 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
                 high_school=hs,
                 hometown_city=city,
                 hometown_state=state,
-                recruiting_class=recruiting_class,
                 defaults={
                     "height": height,
-                    "weight": weight,
+                    "weight": weight if weight.isdigit() else None,
                     "stars": stars,
                     "hs_rating_score": round(float(hs_rating_score), 2) if hs_rating_score.isdigit() else None,
                     "national_rank": national_rank,
                     "position_rank": position_rank,
                     "state_rank": state_rank,
                     "status": status,
-                    "school_link": profile_url
+                    "school_link": profile_url,
+                    "player": player_obj,
+                    "recruiting_class": recruiting_class,
                 }
             )
             results.append({
@@ -133,7 +141,9 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
                 "national_rank": national_rank,
                 "position_rank": position_rank,
                 "state_rank": state_rank,
-                "status": status
+                "status": status,
+                "player": player_obj.id if player_obj else None,
+                "recruiting_class": recruiting_class.id if recruiting_class else None,
             })
 
         # --- Handle Transfers ---
@@ -146,6 +156,12 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
             profile_url = transfer.get("profile_url")
             position = transfer.get("position", "").lower()
             hs_stars = hs_rating_score = transfer_stars = transfer_rating_score = None
+            player_obj = Player.objects.filter(
+                first_name=first_name, 
+                last_name=last_name,
+                hometown_city=city,
+                hometown_state=state
+                ).first()
             for rating in transfer.get("ratings", []):
                 level = rating.get("level", "").lower()
                 if level == "transfer":
@@ -162,10 +178,11 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
                 hometown_state=state,
                 defaults={
                     "height": height,
-                    "weight": weight,
+                    "weight": weight if weight.isdigit() else None,
                     "stars": hs_stars,
                     "school_link": profile_url,
                     "recruiting_class": recruiting_class,
+                    "player": player_obj,
                     "position": position,
                 }
             )
@@ -189,6 +206,8 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
                 "hs_rating_score": hs_rating_score,
                 "position": position,
                 "school_link": recruit.school_link,
+                "player": player_obj.id if player_obj else None,
+                "recruiting_class": recruiting_class.id if recruiting_class else None,
             })
 
         return {

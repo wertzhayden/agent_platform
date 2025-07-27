@@ -1,14 +1,14 @@
 """Retrieve the Latest School that is associated with a Player via 247Sports"""
 
+import time
+import random
 from bs4 import BeautifulSoup
-from webscraper.services.player_data.retrieve_team_depth_chart import retrieve_schools_players_by_depth_chart
-from webscraper.services.player_data.retrieve_player_stats import retrieve_player_stats
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+
 from webdriver_manager.chrome import ChromeDriverManager
-import time
-from bs4 import BeautifulSoup
-import re
+
 
 def retrieve_latest_school_by_player(url: str) -> dict:
     """
@@ -20,6 +20,7 @@ def retrieve_latest_school_by_player(url: str) -> dict:
         return {}
     options = webdriver.ChromeOptions()
     # options.add_argument("--headless")
+    options.add_argument("--headless=new")
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_argument("start-maximized")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
@@ -27,7 +28,7 @@ def retrieve_latest_school_by_player(url: str) -> dict:
 
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver.get(url)
-    time.sleep(3)
+    time.sleep(random.uniform(1, 3))
 
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     driver.quit()
