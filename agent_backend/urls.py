@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('players/', include('webscraper.urls')),
     path('accolades/', include('accolades.urls')),
+    path('core/', include('core.urls')),
 ]

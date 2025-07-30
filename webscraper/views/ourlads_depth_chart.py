@@ -4,13 +4,15 @@ from rest_framework.response import Response
 from core.models.player import Player
 from core.models.school import School
 from core.constants.teams_by_conference import TEAMS_BY_CONFERENCE
-
-from webscraper.constants.ourlads_constants import TEAM_IDS
-from webscraper.services.player_data.retrieve_team_depth_chart import retrieve_schools_players_by_depth_chart
-from webscraper.serializers.player_serializer import PlayerSerializer
+from core.serializers.player_serializer import PlayerSerializer
 from core.utils.pull_ourlads_depth_charts_helpers import (
     determine_ourlads_player_name_and_class,
 )
+
+from webscraper.constants.ourlads_constants import TEAM_IDS
+from webscraper.services.player_data.retrieve_team_depth_chart import retrieve_schools_players_by_depth_chart
+
+
 
 def format_school_name(name: str) -> str:
     exceptions = {
@@ -63,19 +65,24 @@ class IngestOurladsDepthCharts(viewsets.ViewSet):
                 school=school,
                 school_id=school_id
             )
+            # Total number of active players by School
+            total_active_nfl_players_by_school = players_by_position[0].get("active_nfl_players", {}) if players_by_position else None
 
             school_data = {
                 "name": format_school_name(school),
                 "external_name": school,
                 "school_id": school_id,
-                "conference": TEAMS_BY_CONFERENCE.get(school, None)
+                "conference": TEAMS_BY_CONFERENCE.get(school, None),
+                "number_of_active_nfl_players": total_active_nfl_players_by_school.get("total"),
+                "metadata": {
+                    "number_of_active_nfl_players_text": total_active_nfl_players_by_school.get("text"),
+                }
             }
 
             school_obj, _ = School.objects.update_or_create(
                 school_id=school_id,
                 defaults=school_data
             )
-
             for pos in players_by_position:
                 for idx, p in enumerate(pos.get("players", [])):
                     ourlads_name = p.get("name")

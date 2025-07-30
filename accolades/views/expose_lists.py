@@ -12,6 +12,7 @@ class ExposeAccoladeLists(viewsets.ViewSet):
     def create(self, request):
         accolades = Accolade.objects.all()
         serializer = AccoladeSerializer(accolades, many=True)
+        
         # for accolade in serializer.data:
         #     return Response(accolade)
         return Response(serializer.data)

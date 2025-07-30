@@ -5,4 +5,4 @@ from core.models.school import School
 class SchoolSerializer(serializers.ModelSerializer):
     class Meta:
         model = School
-        fields = ['id', 'name', 'external_name', 'school_id']  # Add any other relevant fields
+        fields = "__all__" # Add any other relevant fields
