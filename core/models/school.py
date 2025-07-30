@@ -20,6 +20,8 @@ class School(BaseModel):
         blank=True,
         help_text="A list of thug positions that the school is known for"
     )
+    conference = models.CharField(max_length=50, blank=True, null=True)
+    number_of_active_nfl_players = models.IntegerField(default=0, help_text="Number of active NFL players")
     metadata = models.JSONField(blank=True, null=True)
 
     def __str__(self):

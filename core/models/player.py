@@ -39,6 +39,7 @@ class Player(BaseModel):
         base_field=models.TextField(),
         default=list,
         blank=True,
+        null=True,
         help_text="A list of schools that the player has attended"
     )
     agent = models.ForeignKey(

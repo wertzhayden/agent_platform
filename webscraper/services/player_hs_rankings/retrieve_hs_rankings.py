@@ -18,7 +18,7 @@ def retrieve_player_hs_rankings(school: str, year: int = 2025) -> dict:
 
     options = webdriver.ChromeOptions()
     # Uncomment for headless scraping
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_argument("start-maximized")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
@@ -26,7 +26,7 @@ def retrieve_player_hs_rankings(school: str, year: int = 2025) -> dict:
 
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver.get(url)
-    time.sleep(5)
+    time.sleep(2)
 
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     driver.quit()
