@@ -18,10 +18,10 @@ class School(BaseModel):
         base_field=models.CharField(max_length=128),
         default=list,
         blank=True,
-        help_text="A list of thug positions that the school is known for"
+        help_text="A list of thug positions that the school is known for via Algorithm"
     )
     conference = models.CharField(max_length=50, blank=True, null=True)
-    number_of_active_nfl_players = models.IntegerField(default=0, help_text="Number of active NFL players")
+    number_of_active_nfl_players = models.IntegerField(blank=True, null=True, help_text="Number of active NFL players")
     metadata = models.JSONField(blank=True, null=True)
 
     def __str__(self):
