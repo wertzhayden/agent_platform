@@ -53,24 +53,6 @@ class IngestActiveNFLPlayersBySchool(viewsets.ViewSet):
                     continue
 
         return Response(results)
-        # for school, school_id in schools_to_process.items():
-        #     school_obj = School.objects.filter(external_name=school).first()
-        #     if school_obj:
-        #       ActiveNFLPlayers.objects.filter(school=school_obj).delete()
-        #     players = retrieve_active_nfl_players_by_college(school=school, school_id=school_id)
-        #     for player_data in players:
-        #         try:
-        #             with transaction.atomic():
-        #                 active_player, created = ActiveNFLPlayers.objects.update_or_create(
-        #                     ourlads_link=player_data["ourlads_link"],
-        #                     defaults={**player_data, "school": school_obj}
-        #                 )
-        #                 results.append(ActiveNFLPlayerSerializer(active_player).data)
-        #         except Exception as e:
-        #             print(f"Failed to save player {player_data.get('name')}: {e}")
-        #             continue
-        # return Response(results)
-
     
 
 """

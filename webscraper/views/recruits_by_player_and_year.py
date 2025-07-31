@@ -54,12 +54,12 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
         Get the high school recruits for a specific school and year.
         """
         rank_not_found = "N/A"
-        year = year
         school = School.objects.filter(external_name__iexact=school_name).first()
 
         hs_rankings = retrieve_player_hs_rankings(school=school_name, year=year)
         recruiting_class_rank = hs_rankings.get("ranks", {})
-        # Safely extract ranks
+       
+       # Safely extract ranks
         overall_rank = recruiting_class_rank.get("overall_rank", {}).get("value")
         transfer_rank = recruiting_class_rank.get("transfer_rank", {}).get("value")
         composite_rank = recruiting_class_rank.get("composite_rank", {}).get("value")
@@ -114,6 +114,7 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
                 high_school=hs,
                 hometown_city=city,
                 hometown_state=state,
+                recruiting_class=recruiting_class,
                 defaults={
                     "height": height,
                     "weight": weight if weight.isdigit() else None,
@@ -125,7 +126,6 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
                     "status": status,
                     "school_link": profile_url,
                     "player": player_obj,
-                    "recruiting_class": recruiting_class,
                 }
             )
             results.append({
@@ -176,12 +176,13 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
                 high_school=hs,
                 hometown_city=city,
                 hometown_state=state,
+                recruiting_class=recruiting_class,
                 defaults={
                     "height": height,
                     "weight": weight if weight.isdigit() else None,
                     "stars": hs_stars,
                     "school_link": profile_url,
-                    "recruiting_class": recruiting_class,
+                    # "recruiting_class": recruiting_class,
                     "player": player_obj,
                     "position": position,
                 }

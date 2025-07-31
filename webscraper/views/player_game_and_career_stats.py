@@ -23,7 +23,7 @@ class IngestPlayersGameAndCareerStats(viewsets.ViewSet):
     def create(self, request):
         incoming_school = request.data.get("school")
         if incoming_school:
-            return Response(retrieve_game_and_career_stats_of_all_players(incoming_school))
+            return Response(retrieve_game_and_career_stats_of_all_players(incoming_school=incoming_school))
         return Response(retrieve_game_and_career_stats_of_all_players())
     
 def separate_transfer_school_names_into_list(schools_attended: str) -> list:
@@ -67,7 +67,9 @@ def retrieve_game_and_career_stats_of_all_players(incoming_school: str) -> dict:
         school_link = player_stats.get("player_links")[0].get("href")
 
         schools_attended = separate_transfer_school_names_into_list(schools_attended=schools_attended)
-
+        game_stats_header = player_stats.get("bio", {}).get("game_stats_header")
+        game_stats_year = int(game_stats_header.split()[0]) if game_stats_header and game_stats_header.split() and game_stats_header.split()[0].isdigit() else None
+        
         # Save to Player model
         player.height = height
         player.weight = weight
@@ -113,6 +115,7 @@ def retrieve_game_and_career_stats_of_all_players(incoming_school: str) -> dict:
                 continue
 
             game["player"] = player.id
+            game["season"] = game_stats_year
             try:
                 serializer = serializer_class(data=game)
                 serializer.is_valid(raise_exception=True)

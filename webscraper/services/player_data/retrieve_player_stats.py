@@ -78,6 +78,12 @@ def retrieve_player_stats(player_link: str, position: str = None) -> dict:
                     if cells:
                         career_stats.append(dict(zip(career_stats_headers, cells)))
 
+
+    # Extract Game Stats Section Header (e.g., "2024 Game Stats")
+    game_stats_header_tag = soup.find("p", id="ctl00_phContent_pGameStats")
+    game_stats_header = game_stats_header_tag.get_text(strip=True) if game_stats_header_tag else None
+    player_bio_data["game_stats_header"] = game_stats_header
+    
     ### 3. PER-GAME STATS SECTION
     game_stats = []
     game_stats_div = soup.find("div", id="ctl00_phContent_dGameStats")

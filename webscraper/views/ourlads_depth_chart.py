@@ -83,6 +83,11 @@ class IngestOurladsDepthCharts(viewsets.ViewSet):
                 school_id=school_id,
                 defaults=school_data
             )
+
+            # ✅ Remove all existing players from this school
+            Player.objects.filter(school=school_obj).delete()
+
+            # ✅ Now, loop through each position and create players
             for pos in players_by_position:
                 for idx, p in enumerate(pos.get("players", [])):
                     ourlads_name = p.get("name")

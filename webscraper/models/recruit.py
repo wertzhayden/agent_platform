@@ -31,3 +31,4 @@ class Recruit(BaseModel):
     experience_level_at_current_school = models.CharField(max_length=100, blank=True, null=True)
     current_school = models.CharField(max_length=255, blank=True, null=True)
     player = models.ForeignKey(Player, on_delete=models.SET_NULL, null=True, blank=True, related_name="recruits")
+    
