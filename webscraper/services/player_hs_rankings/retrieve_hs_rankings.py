@@ -1,6 +1,4 @@
 from bs4 import BeautifulSoup
-from webscraper.services.player_data.retrieve_team_depth_chart import retrieve_schools_players_by_depth_chart
-from webscraper.services.player_data.retrieve_player_stats import retrieve_player_stats
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -107,6 +105,20 @@ def retrieve_player_hs_rankings(school: str, year: int = 2025) -> dict:
             link = player_block.find("a")
             transfer["name"] = link.text.strip() if link else None
             transfer["profile_url"] = link["href"] if link else None
+
+        # details_ul = li.find("ul", class_="details ")
+        # if details_ul:
+        #     for detail_item in details_ul.find_all("li"):
+        #         label_spans = detail_item.find_all("span")
+        #         if len(label_spans) >= 2:
+        #             label = label_spans[0].text.strip().lower()
+        #             value = label_spans[1].text.strip()
+        #             if label == "high school":
+        #                 transfer["high_school"] = value
+        #             elif label == "city":
+        #                 transfer["school_location"] = value  # reuse key used for high school players
+        #             elif label == "exp":
+        #                 transfer["exp"] = value
 
         metrics = li.find("div", class_="metrics")
         transfer["ht_wt"] = metrics.text.strip() if metrics else None

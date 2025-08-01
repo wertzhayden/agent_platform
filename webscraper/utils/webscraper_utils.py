@@ -7,6 +7,12 @@ from webscraper.constants.headers_for_player_stats import (
 )
 
 
+def remove_suffix_from_end_of_name(name: str) -> str:
+    suffixes = ["jr", "sr", "ii", "iii", "iv", "v"]
+    parts = name.lower().replace(".", "").split()
+    return " ".join([p for p in parts if p not in suffixes])
+
+
 def determine_ourlads_headers_by_position(position: str) -> tuple[list[str], list[str]]:
     """
     If the Player is a RB --> Use RB Headers

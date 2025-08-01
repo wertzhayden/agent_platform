@@ -1,8 +1,3 @@
-from rest_framework import viewsets
-from rest_framework.response import Response
-
-from concurrent.futures import ThreadPoolExecutor, as_completed
-
 from core.models.school import School
 from core.models.player import Player
 from core.utils.pull_ourlads_depth_charts_helpers import (
@@ -10,44 +5,10 @@ from core.utils.pull_ourlads_depth_charts_helpers import (
     convert_string_to_float
 )
 
-from webscraper.constants.ourlads_constants import TEAM_IDS
 from webscraper.models.recruiting_class import RecruitingClass
 from webscraper.models.recruit import Recruit
 from webscraper.services.player_hs_rankings.retrieve_hs_rankings import retrieve_player_hs_rankings
-
-    
-class RecruitsBySchoolAndYear(viewsets.ViewSet):
-    """
-    View to retrieve HS recruits across schools and years using 247Sports
-    """
-
-    def create(self, request):
-        # MAX_WORKERS = 5  # Adjust as needed for performance
-        recruits = []
-        years = [2021, 2022, 2023, 2024, 2025]
-        school = request.data.get("school")
-        year = request.data.get("year") or years
-
-        # Normalize to a list of years
-        if isinstance(year, str):
-            year = [int(year)]
-        elif isinstance(year, list):
-            year = [int(y) for y in year]
-        else:
-            year = years
-
-        if school:
-            for y in year:
-                data = get_recruits_by_school_and_year(school_name=school, year=int(y))
-                recruits.append(data)
-            return Response(recruits)
-
-        for team in TEAM_IDS:
-            for yr in years:
-                recruit_data = get_recruits_by_school_and_year(school_name=team, year=yr)
-                recruits.append(recruit_data)
-
-        return Response(recruits)
+from webscraper.utils.webscraper_utils import remove_suffix_from_end_of_name
 
 def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
         """
@@ -101,12 +62,18 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
             state_rank = int(player.get("state_rank")) if player.get("state_rank").isdigit() else None
             status = player.get("status")
             hs, city, state = split_high_school_and_hometown(player.get("school_location"))
+            # player_obj = Player.objects.filter(
+            #     first_name=first_name, 
+            #     last_name=last_name,
+            #     hometown_city=city,
+            #     hometown_state=state
+            #     ).first()
             player_obj = Player.objects.filter(
-                first_name=first_name, 
-                last_name=last_name,
-                hometown_city=city,
-                hometown_state=state
-                ).first()
+                first_name__icontains=remove_suffix_from_end_of_name(first_name),
+                last_name__icontains=remove_suffix_from_end_of_name(last_name),
+                hometown_city__icontains=remove_suffix_from_end_of_name(city),
+                hometown_state__icontains=remove_suffix_from_end_of_name(state)
+            ).first()
             recruit, _ = Recruit.objects.update_or_create(
                 first_name=first_name,
                 last_name=last_name,
@@ -137,6 +104,8 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
                 "height": height,
                 "weight": weight,
                 "stars": stars,
+                "home_city": city,
+                "home_state": state,
                 "hs_rating_score": hs_rating_score,
                 "national_rank": national_rank,
                 "position_rank": position_rank,
@@ -159,8 +128,6 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
             player_obj = Player.objects.filter(
                 first_name=first_name, 
                 last_name=last_name,
-                hometown_city=city,
-                hometown_state=state
                 ).first()
             for rating in transfer.get("ratings", []):
                 level = rating.get("level", "").lower()
@@ -173,16 +140,12 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
             recruit, _ = Recruit.objects.update_or_create(
                 first_name=first_name,
                 last_name=last_name,
-                high_school=hs,
-                hometown_city=city,
-                hometown_state=state,
                 recruiting_class=recruiting_class,
                 defaults={
                     "height": height,
-                    "weight": weight if weight.isdigit() else None,
+                    "weight": weight if weight and weight.isdigit() else None,
                     "stars": hs_stars,
                     "school_link": profile_url,
-                    # "recruiting_class": recruiting_class,
                     "player": player_obj,
                     "position": position,
                 }
