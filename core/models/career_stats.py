@@ -14,3 +14,4 @@ class CareerStats(BaseModel):
     class Meta:
         abstract = True
         ordering = ["-season"]
+        unique_together = ("player", "season")
