@@ -17,9 +17,9 @@ class PlayerType(DjangoObjectType):
     def resolve_career_stats(self, info):
         if self.position == "QB":
             return self.qbcareerstats_career_stats.all().distinct("season")
-        elif self.position == "RB":
+        elif self.position == "RB" or self.position == "FB":
             return self.rbcareerstats_career_stats.all().distinct("season")
-        elif self.position in ["WR", "TE", "SB"]:
+        elif any(pos in self.position for pos in ["WR", "TE", "SB"]):
             return self.receivercareerstats_career_stats.all().distinct("season")
         elif self.side_of_ball == "Defense":
             return self.defensecareerstats_career_stats.all().distinct("season")
@@ -28,9 +28,9 @@ class PlayerType(DjangoObjectType):
     def resolve_game_stats(self, info):
         if self.position == "QB":
             return self.qbgamestats_game_stats.all().distinct("date")
-        elif self.position == "RB":
+        elif self.position == "RB" or self.position == "FB":
             return self.rbgamestats_game_stats.all().distinct("date")
-        elif self.position in ["WR", "TE", "SB"]:
+        elif any(pos in self.position for pos in ["WR", "TE", "SB"]):
             return self.receivergamestats_game_stats.all().distinct("date")
         elif self.side_of_ball == "Defense":
             return self.defensegamestats_game_stats.all().distinct("date")
