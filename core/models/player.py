@@ -66,15 +66,9 @@ class Player(BaseModel):
         blank=True,
         help_text="e.g. ['247sports','on3']"
     )
-    hs_position_rank = models.IntegerField(blank=True, null=True)
-    overall_hs_rank = models.IntegerField(blank=True, null=True)
     experience_level = models.CharField(max_length=100, blank=True, null=True)
     current_school = models.CharField(max_length=255, blank=True, null=True)
     age = models.IntegerField(blank=True, null=True)
-
-    transfer_rating = models.IntegerField(blank=True, null=True)
-    transfer_position_rank = models.IntegerField(blank=True, null=True)
-    transfer_overall_rank = models.IntegerField(blank=True, null=True)
 
     metadata = models.JSONField(blank=True, null=True)
 

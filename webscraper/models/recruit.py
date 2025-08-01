@@ -35,3 +35,6 @@ class Recruit(BaseModel):
     current_school = models.CharField(max_length=255, blank=True, null=True)
     player = models.ForeignKey(Player, on_delete=models.SET_NULL, null=True, blank=True, related_name="recruits")
     jersey_number = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        unique_together = ("recruiting_class", "first_name", "last_name")

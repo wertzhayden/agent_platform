@@ -58,9 +58,9 @@ def retrieve_game_and_career_stats_of_all_players(incoming_school: str) -> dict:
         # Save to Player model
         player.height = height
         player.weight = weight
-        player.hometown_city = city
-        player.hometown_state = state
-        player.high_school = high_school
+        player.hometown_city = city if not player.hometown_city else player.hometown_city
+        player.hometown_state = state if not player.hometown_state else player.hometown_state
+        player.high_school = high_school if not player.high_school else player.high_school
         player.schools_attended = schools_attended
         player.school_link = school_link
         player.save()

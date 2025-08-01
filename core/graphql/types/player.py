@@ -4,11 +4,15 @@ from core.models.player import Player
 from core.graphql.types.career_stats import CareerStatsUnion
 from core.graphql.types.game_stats import GameStatsUnion
 from core.graphql.types.school import SchoolType
+from core.graphql.types.accolades import AccoladesType
+from core.graphql.types.recruit import RecruitType
 
 class PlayerType(DjangoObjectType):
     school = graphene.Field(SchoolType)
     career_stats = graphene.List(CareerStatsUnion)
     game_stats = graphene.List(GameStatsUnion)
+    accolades = graphene.List(AccoladesType)
+    recruits = graphene.List(RecruitType)
 
     class Meta:
         model = Player
@@ -35,3 +39,10 @@ class PlayerType(DjangoObjectType):
         elif self.side_of_ball == "Defense":
             return self.defensegamestats_game_stats.all().distinct("date")
         return []
+    
+    def resolve_accolades(self, info):
+        return self.accolades.all()
+    
+    def resolve_recruits(self, info):
+        return self.recruits.all()
+    

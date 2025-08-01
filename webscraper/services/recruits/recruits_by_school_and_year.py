@@ -62,17 +62,9 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
             state_rank = int(player.get("state_rank")) if player.get("state_rank").isdigit() else None
             status = player.get("status")
             hs, city, state = split_high_school_and_hometown(player.get("school_location"))
-            # player_obj = Player.objects.filter(
-            #     first_name=first_name, 
-            #     last_name=last_name,
-            #     hometown_city=city,
-            #     hometown_state=state
-            #     ).first()
             player_obj = Player.objects.filter(
                 first_name__icontains=remove_suffix_from_end_of_name(first_name),
                 last_name__icontains=remove_suffix_from_end_of_name(last_name),
-                hometown_city__icontains=remove_suffix_from_end_of_name(city),
-                hometown_state__icontains=remove_suffix_from_end_of_name(state)
             ).first()
             recruit, _ = Recruit.objects.update_or_create(
                 first_name=first_name,
@@ -85,6 +77,8 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
                 defaults={
                     "height": height,
                     "weight": weight if weight.isdigit() else None,
+                    "hometown_city": player_obj.hometown_city if player_obj else recruit.hometown_city,
+                    "hometown_state": player_obj.hometown_state if player_obj else recruit.hometown_state,
                     "stars": stars,
                     "hs_rating_score": round(float(hs_rating_score), 2) if hs_rating_score.isdigit() else None,
                     "national_rank": national_rank,
@@ -153,7 +147,7 @@ def get_recruits_by_school_and_year(school_name: str, year: int) -> dict:
             if hs_stars is not None:
                 recruit.stars = hs_stars
             if hs_rating_score is not None:
-                recruit.rating_score = convert_string_to_float(hs_rating_score)
+                recruit.hs_rating_score = convert_string_to_float(hs_rating_score)
             if transfer_stars is not None:
                 recruit.transfer_stars = transfer_stars
             if transfer_rating_score is not None:
