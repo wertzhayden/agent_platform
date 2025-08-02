@@ -27,3 +27,8 @@ class ActiveNFLPlayers(BaseModel):
     draft_year = models.IntegerField(blank=True, null=True, help_text="Draft Year of the player")
     draft_round = models.IntegerField(blank=True, null=True, help_text="Draft Round of the player")
     overall_draft_pick = models.CharField(max_length=24, blank=True, null=True, help_text="Draft Pick of the player")
+
+    class Meta:
+        unique_together = (
+            ("school", "first_name", "last_name"),
+        )
