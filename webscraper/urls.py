@@ -4,7 +4,9 @@ from webscraper.views.ourlads.player_game_and_career_stats import IngestPlayersG
 from webscraper.views.two_four_seven_sports.recruits_by_school_and_year import RecruitsBySchoolAndYear
 from webscraper.views.two_four_seven_sports.recruits_current_info_ourlads import IngestRecruitsCurrentData
 from webscraper.views.ourlads.ourlads_nfl_active_players import IngestActiveNFLPlayersBySchool
+from webscraper.views.spot_trac.contract_details import IngestActiveNFLPlayerContractDetails
 from django.urls import path, include
+
 
 router = DefaultRouter()
 router.register(r'depth-charts', IngestOurladsDepthCharts, basename='depth-charts')
@@ -12,6 +14,7 @@ router.register(r'stats', IngestPlayersGameAndCareerStats, basename='stats')
 router.register(r'recruits', RecruitsBySchoolAndYear, basename='recruits')
 router.register(r'current-data', IngestRecruitsCurrentData, basename='recruits-current-info')
 router.register(r'active-nfl-players', IngestActiveNFLPlayersBySchool, basename='active-nfl-players')
+router.register(r'contract-details', IngestActiveNFLPlayerContractDetails, basename='contract-details')
 
 urlpatterns = [
     path('', include(router.urls)),

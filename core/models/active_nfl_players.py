@@ -27,6 +27,14 @@ class ActiveNFLPlayers(BaseModel):
     draft_year = models.IntegerField(blank=True, null=True, help_text="Draft Year of the player")
     draft_round = models.IntegerField(blank=True, null=True, help_text="Draft Round of the player")
     overall_draft_pick = models.CharField(max_length=24, blank=True, null=True, help_text="Draft Pick of the player")
+    years_of_experience = models.IntegerField(blank=True, null=True, help_text="Years of Experience in the NFL")
+    age = models.FloatField(blank=True, null=True, help_text="Age of the player in years")
+    agents = ArrayField(models.TextField(), blank=True, null=True, help_text="List of Agents representing the player")
+    spot_trac_id = models.IntegerField(blank=True, null=True, help_text="Spotrac ID for the player")
+    firm = models.TextField(blank=True, null=True, help_text="Agent Firm representing the player")
+    current_cap_hit = models.FloatField(blank=True, null=True, help_text="Current Cap Hit for the player")
+    current_year_cash_salary = models.FloatField(blank=True, null=True, help_text="Current Year Cash Salary for the player")
+    career_earnings = models.FloatField(blank=True, null=True, help_text="Career Earnings of the player")
 
     class Meta:
         unique_together = (
