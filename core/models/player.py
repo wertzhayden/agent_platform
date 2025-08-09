@@ -42,9 +42,6 @@ class Player(BaseModel):
         null=True,
         help_text="A list of schools that the player has attended"
     )
-    agent = models.ForeignKey(
-        Agent, on_delete=models.SET_NULL, null=True, blank=True
-    )
     is_favorited = models.BooleanField(default=False)
     depth_chart_position = models.IntegerField(
         help_text="1=starter, 2=backup, etc", blank=True, null=True
