@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from rest_framework import viewsets
 from rest_framework.response import Response
 
+from core.models.active_nfl_players import ActiveNFLPlayers
 
 
 class IngestActiveNFLPlayerContractDetails(viewsets.ViewSet):
@@ -12,9 +13,14 @@ class IngestActiveNFLPlayerContractDetails(viewsets.ViewSet):
     Web Scrape Team and Player Stats from the Ourlads website. 
     """
     def create(self, request):
-        contract_details = retrieve_player_contract_details(first_name="Dalvin", last_name="Tomlinson", player_spot_trac_id=21796)
+        first_name = request.data.get("first_name")
+        last_name = request.data.get("last_name")
+        player_spot_trac_id = request.data.get("spot_trac_id")
+        if not first_name or not last_name or not player_spot_trac_id:
+            return Response({"error": "Missing required parameters: first_name, last_name, player_spot_trac_id"}, status=400)
+        contract_details = retrieve_player_contract_details(first_name=first_name, last_name=last_name, player_spot_trac_id=player_spot_trac_id)
         update_active_player = update_active_nfl_player_contract_details(contract_details=contract_details)
-        player_bio_data = update_active_player.get("player_bio_data", {})
+        player_bio_data = update_active_player.get("bio", {})
         age = player_bio_data.get("age", None)
         experience = player_bio_data.get("experience", None)
         agents_firm = player_bio_data.get("agents", {}).get("firm", None)
@@ -23,6 +29,17 @@ class IngestActiveNFLPlayerContractDetails(viewsets.ViewSet):
         cap_hit = contract_info.get("2025_cap_hit", None)
         cash_this_year = contract_info.get("2025_cash", None)
         career_earnings = contract_info.get("career_earnings", None)
+        active_players = ActiveNFLPlayers.objects.filter(first_name=first_name, last_name=last_name).first()
+        active_players.age = age
+        active_players.years_of_experience = experience
+        active_players.firm = agents_firm
+        active_players.agents = agents
+        active_players.current_cap_hit = cap_hit
+        active_players.current_year_cash_salary = cash_this_year
+        active_players.career_earnings = career_earnings
+        active_players.spot_trac_id = player_spot_trac_id
+        active_players.save()
+
         return Response(update_active_player)
 
     
