@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
 from core.models.base_model import BaseModel
-from core.models.agent import Agent
+# from core.models.agent import Agent
 from core.models.school import School
 
 
