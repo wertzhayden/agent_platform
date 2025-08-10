@@ -19,13 +19,13 @@ class IngestActiveNFLPlayerContractDetails(viewsets.ViewSet):
         if not first_name or not last_name or not player_spot_trac_id:
             return Response({"error": "Missing required parameters: first_name, last_name, player_spot_trac_id"}, status=400)
         contract_details = retrieve_player_contract_details(first_name=first_name, last_name=last_name, player_spot_trac_id=player_spot_trac_id)
-        update_active_player = update_active_nfl_player_contract_details(contract_details=contract_details)
-        player_bio_data = update_active_player.get("bio", {})
+        # update_active_player = update_active_nfl_player_contract_details(contract_details=contract_details)
+        player_bio_data = contract_details.get("bio", {})
         age = player_bio_data.get("age", None)
         experience = player_bio_data.get("experience", None)
         agents_firm = player_bio_data.get("agents", {}).get("firm", None)
         agents = player_bio_data.get("agents", {}).get("agent", [])
-        contract_info = update_active_player.get("contract_info", {})
+        contract_info = contract_details.get("contract_info", {})
         cap_hit = contract_info.get("2025_cap_hit", None)
         cash_this_year = contract_info.get("2025_cash", None)
         career_earnings = contract_info.get("career_earnings", None)
@@ -40,11 +40,12 @@ class IngestActiveNFLPlayerContractDetails(viewsets.ViewSet):
         active_players.spot_trac_id = player_spot_trac_id
         active_players.save()
 
-        return Response(update_active_player)
+        return Response(contract_details)
 
     
 def update_active_nfl_player_contract_details(contract_details: dict) -> dict:
     """Updated the Player from the ActiveNFLPlayers models with the Contract Details from Spotrac"""
+    #TODO: Consolidate the Create ViewSet Logic into this Function
     return contract_details
  
 
